@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Podlove Guides &amp; Documentation</title>
+  <title><%= @item[:full_title] || 'Podlove &raquo; ' + @item[:title] %></title>
 
   <link rel="stylesheet" href="/assets/css/normalize.css" />
   <link rel="stylesheet" href="/assets/css/main.css">
@@ -15,65 +15,41 @@
 </head>
 <body>
 
-  <div id="navigation-container" class="contain-to-grid">
+  <%= render 'navigation' %>
 
-    <nav class="top-bar">
-
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/">Podlove Documentation &amp; Guides</a></h1>
-        </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <ul class="left">
-          <li class="divider"></li>
-          <li><a href="">About</a></li>
-          <li class="has-dropdown">
-            <a href="">Publisher</a>
-            <ul class="dropdown">
-              <li><a href="">Podlove Publisher</a></li>
-              <li><a href="">Guides</a></li>
-            </ul>
-          </li>
-          <li class="has-dropdown">
-            <a href="">Web Player</a>
-            <ul class="dropdown">
-              <li><a href="">Podlove Web Player</a></li>
-              <li><a href="">Guides</a></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-
-    </nav>
-    
-  </div>
-
-  <div class="podlove-panel">
-    <div class="row">
-      <div class="large-2 small-6 columns">
-        <div class="th radius">
-          <img src="/assets/images/podlove-logo.png">
+  <% if @item[:is_front_page] %>
+    <div class="podlove-panel">
+      <div class="row">
+        <div class="large-2 small-6 columns">
+          <div class="th radius">
+            <img src="/assets/images/podlove-logo.png">
+          </div>
+        </div>
+        <div class="large-10 small-6 columns">
+          <h3>
+            Podlove wants to push the limits of podcasting by pushing new software solutions and open formats.
+          </h3>
+          <h4 class="subheader">
+            Podlove is an initiative by 
+            <a href="http://metaebene.me/" target="_blank">
+              Metaebene Personal Media.
+            </a>
+          </h4>
         </div>
       </div>
-      <div class="large-10 small-6 columns">
-        <h3>
-          Podlove wants to push the limits of podcasting by pushing new software solutions and open formats.
-        </h3>
-        <h4 class="subheader">
-          Podlove is an initiative by 
-          <a href="http://metaebene.me/" target="_blank">
-            Metaebene Personal Media.
-          </a>
-        </h4>
+    </div>
+  <% else %>
+    <div class="podlove-panel">
+      <div class="row">
+        <div class="small-12 columns">
+          <h1><%= @item[:title] || content_for(@item, :title )%></h1>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="row">
-    <div class="small-10 small-centered columns">
+    <div class="small-10 columns">
       <%= yield %>
     </div>
   </div>

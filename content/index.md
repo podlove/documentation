@@ -1,5 +1,7 @@
 ---
 title: Home
+full_title: Podlove Guides
+is_front_page: true
 ---
 
 # The Podlove Project
