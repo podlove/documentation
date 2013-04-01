@@ -1,5 +1,6 @@
 ---
 title: Migration
+has_toc: true
 ---
 
 # Migrating your Podcast

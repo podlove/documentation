@@ -9,4 +9,6 @@ gem 'builder'   # feeds
 gem 'compass'   # advanced CSS
 gem 'rdiscount' # fast Markdown
 gem 'typogruby' # pretty typography
+
+gem 'nokogiri'
 gem 'mime-types'

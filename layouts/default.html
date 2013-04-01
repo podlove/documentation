@@ -48,10 +48,21 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-10 columns">
+  <div class="content row">
+
+    <div class="<%= @item[:has_toc] ? "small-12 large-8" : "large-12" %> columns">
       <%= yield %>
     </div>
+
+    <% if @item[:has_toc] %>
+      <div class="toc_wrapper small-12 large-4 columns">
+        <h3><%= @item[:title] %></h3>
+        <% unless @item.parent.identifier == '/' %>
+            <p>↑ <%= link_to "Back to #{@item.parent[:short_title] || @item.parent[:title]}", @item.parent %></p>
+        <% end %>
+        {{TOC}}
+      </div>
+    <% end %>
   </div>
 
 

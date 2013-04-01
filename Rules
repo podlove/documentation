@@ -18,6 +18,7 @@ compile '*' do
     filter :syntax_highlight
     filter :kramdown
     layout 'default'
+    filter :add_toc
     filter :typogruby
   end
 end

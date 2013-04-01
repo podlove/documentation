@@ -1,5 +1,7 @@
 @import "foundation"
 @import "coderay"
+@import "compass/css3/transform"
+@import "compass/css3/box-shadow"
 
 #navigation-container
 	background: #484846
@@ -7,6 +9,7 @@
 	nav
 		background: #1a1a1a
 		color: #1a1a1a
+		margin-bottom: 0px
 
 div.podlove-panel
 	@include panel(#E7E7E7)
@@ -15,7 +18,7 @@ div.podlove-panel
 		color: #1a1a1a
 
 	h1, h2
-		margin: 10px 0
+		margin: 10px 0 20px 0
 
 code
 	border: 1px solid #ccc
@@ -25,3 +28,10 @@ code
 	display: inline-block
 	background-clip: padding-box
 	border-radius: 3px
+
+@media #{$small}
+	.toc_wrapper
+		margin-top: -54px
+
+		ol
+			margin-left: 20px

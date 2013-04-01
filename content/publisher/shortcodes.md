@@ -1,5 +1,6 @@
 ---
 title: Shortcodes
+has_toc: true
 ---
 
 ## Episode Shortcodes
@@ -10,7 +11,8 @@ Use these in an episode post:
 `[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats.  
 `[podlove-web-player]`: Display a web player.
 
-## Episode Data: `[podlove-episode field="..."]`
+## Episode Data
+`[podlove-episode field="..."]`
 
 Displays the fields data.
 
@@ -29,7 +31,10 @@ title, subtitle, summary, slug, duration, chapters, image, record_date, publicat
 [podlove-episode field="chapters"]
 ```
 
-## Podcast Data: `[podlove-podcast field="..."]`
+## Podcast Data
+
+`[podlove-podcast field="..."]`
+
 Displays the fields data.  
 
 ### Parameters
@@ -39,7 +44,9 @@ title, slug, subtitle, cover_image, summary, author_name, owner_name, owner_emai
 publisher_name, publisher_url, license_name, license_url, keywords, explicit,
 label, episode_prefix, media_file_base_uri, uri_delimiter, episode_number_length, language
 
-## Contributors module: `[podlove-contributors]`
+## Contributors module
+
+`[podlove-contributors]`
 
 Lists all contributors.
 
@@ -47,7 +54,9 @@ Lists all contributors.
 
 **separator:** _(optional)_ Default: ", "
 
-## Episode templates: `[podlove-template id="Template Title"]`
+## Episode templates
+
+`[podlove-template id="Template Title"]`
 
 Renders configured episode template.
 

@@ -1,5 +1,6 @@
 ---
 title: Writing Modules
+has_toc: true
 ---
 
 # Podlove Publisher Modules
