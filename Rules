@@ -29,8 +29,8 @@ route '/assets/css/*/' do
   nil # use compass separately
 end
 
-route '/assets/js/vendor/*/' do
-  nil # use compass separately
+route '/assets/js/*/' do
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '*' do
