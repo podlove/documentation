@@ -5,4 +5,4 @@ all:
 	cp -r tmp/deploy/* .
 	rm -rf tmp output .sass-cache
 	git commit -am "deploy"
-	# git push origin master
+	git push origin master
