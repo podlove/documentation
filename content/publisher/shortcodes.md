@@ -3,7 +3,7 @@ title: Shortcodes
 has_toc: true
 ---
 
-## Episode Shortcodes
+## Web Player & Downloads
 
 Use these in an episode post:
 
@@ -44,17 +44,17 @@ title, slug, subtitle, cover_image, summary, author_name, owner_name, owner_emai
 publisher_name, publisher_url, license_name, license_url, keywords, explicit,
 label, episode_prefix, media_file_base_uri, uri_delimiter, episode_number_length, language
 
-## Contributors module
+## Contributors
 
 `[podlove-contributors]`
 
-Lists all contributors.
+Lists all contributors. Requires "Contributors" module.
 
 ### Parameters
 
 **separator:** _(optional)_ Default: ", "
 
-## Episode templates
+## Templates
 
 `[podlove-template id="Template Title"]`
 
