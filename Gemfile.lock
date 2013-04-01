@@ -22,6 +22,8 @@ GEM
     rdiscount (2.0.7.1)
     rubypants (0.2.0)
     sass (3.2.7)
+    typogruby (1.0.15)
+      rubypants
 
 PLATFORMS
   ruby
@@ -35,4 +37,4 @@ DEPENDENCIES
   mime-types
   nanoc
   rdiscount
-  rubypants
+  typogruby

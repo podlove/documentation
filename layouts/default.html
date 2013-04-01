@@ -1,29 +1,82 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>A Brand New nanoc Site - <%= @item[:title] %></title>
-    <link rel="stylesheet" href="/style.css">
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
-  </head>
-  <body>
-    <div id="main">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Podlove Guides &amp; Documentation</title>
+
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <script src="/assets/js/vendor/modernizr.js"></script>
+
+</head>
+<body>
+
+  <div id="navigation-container" class="contain-to-grid">
+
+    <nav class="top-bar">
+
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">Podlove Documentation &amp; Guides</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="divider"></li>
+          <li><a href="">About</a></li>
+          <li class="has-dropdown">
+            <a href="">Publisher</a>
+            <ul class="dropdown">
+              <li><a href="">Podlove Publisher</a></li>
+              <li><a href="">Guides</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="">Web Player</a>
+            <ul class="dropdown">
+              <li><a href="">Podlove Web Player</a></li>
+              <li><a href="">Guides</a></li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+    </nav>
+    
+  </div>
+
+  <div class="podlove-panel">
+    <div class="row">
+      <div class="large-2 small-6 columns">
+        <div class="th radius">
+          <img src="/assets/images/podlove-logo.png">
+        </div>
+      </div>
+      <div class="large-10 small-6 columns">
+        <h3>
+          Podlove wants to push the limits of podcasting by pushing new software solutions and open formats.
+        </h3>
+        <h4 class="subheader">
+          Podlove is an initiative by 
+          <a href="http://metaebene.me/" target="_blank">
+            Metaebene Personal Media.
+          </a>
+        </h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-10 small-centered columns">
       <%= yield %>
     </div>
-    <div id="sidebar">
-      <h2>Documentation</h2>
-      <ul>
-        <li><a href="http://nanoc.ws/docs/">Documentation</a></li>
-        <li><a href="http://nanoc.ws/docs/tutorial/">Getting Started</a></li>
-      </ul>
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a></li>
-      </ul>
-    </div>
-  </body>
+  </div>
+
+</body>
 </html>

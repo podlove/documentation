@@ -8,5 +8,5 @@ gem 'kramdown'  # advanced markdown
 gem 'builder'   # feeds
 gem 'compass'   # advanced CSS
 gem 'rdiscount' # fast Markdown
-gem 'rubypants' # pretty typography
+gem 'typogruby' # pretty typography
 gem 'mime-types'
