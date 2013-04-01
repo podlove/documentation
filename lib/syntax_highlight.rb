@@ -6,7 +6,6 @@ class SyntaxHighlight < Nanoc::Filter
 	def run(content, params=[])
 		content.gsub(/```([a-zA-Z]+)?\n([\s\S]+?)\n```/) do
 			language = $1 || 'plain'
-			puts "meow #{language} | #{$2}"
 
 			html = ''
 			html += '<div class="highlight ' + language + ' ">'
