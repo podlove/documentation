@@ -7,4 +7,4 @@ all:
 	git add -A
 	git commit -m "deploy"
 	git push origin master
-	git co development
+	git checkout development
