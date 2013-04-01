@@ -43,9 +43,9 @@ $paragraph-aside-font-style:           italic !default;
 $paragraph-text-rendering:             optimizeLegibility !default;
 
 // We use these to style <code> tags
-$code-color:                           darken($alert-color, 15%) !default;
-$code-font-family:                     Consolas, 'Liberation Mono', Courier, monospace !default;
-$code-font-weight:                     bold !default;
+$code-color:                           #52595d !default;
+$code-font-family:                     Monaco, Consolas, 'Liberation Mono', Courier, monospace !default;
+$code-font-weight:                     normal !default;
 
 // We use these to style anchors
 $anchor-text-decoration:               none !default;
