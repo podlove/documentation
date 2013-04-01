@@ -17,7 +17,9 @@
           <a href="/publisher/">Publisher</a>
           <ul class="dropdown">
             <li><a href="/publisher/">Podlove Publisher</a></li>
-            <li><a href="">Guides</a></li>
+            <% @items['/publisher/'].children.each do |item| %>
+              <li><a href="<%= item.path %>"><%= item[:title] %></a></li>
+            <% end %>
           </ul>
         </li>
         <li class="has-dropdown">

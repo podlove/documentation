@@ -15,6 +15,7 @@ compile '*' do
     # don’t filter binary items
   else
     filter :erb
+    filter :syntax_highlight
     filter :kramdown
     layout 'default'
     filter :typogruby
