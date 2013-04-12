@@ -30,3 +30,30 @@ Good Luck!
 ## Will my podcast work while I try to migrate?
 
 Yes. The Migration assistant only *looks* at your existing data, it *does not change anything*. Even when you start the migration, all new episodes will be created *pending*, meaning you can preview them to check if everything looks as expected — while your old system still works like before. Only when you have verified that everything looks fine you hit the switch which turns off all old posts and publishes all the new episodes. Even at this point your old posts still exist — only they are not accessible by the public.
+
+## Feeds
+
+Your feed URLs will probably change. Depending on your setup you need to adjust some settings.
+
+### Feedburner (or other feed proxies)
+
+If you are using Feedburner, your public feed URL will stay the same (something like `http://feeds.feedburner.com/my-podcast`).
+However, you need to tell Feedburner the new internal feed URL. You can find it in `Podlove > Podcast Feeds: "Subscribe URL"`.
+
+<a href="/assets/images/migration/update_feedburner.jpg" class="th radius">
+	<img src="/assets/images/migration/update_feedburner.jpg" />
+</a>
+
+### Publishing the Feed directly
+
+If you are using no feed proxy, all clients are now subscribed to the wrong feed URL.
+The only way to fix this is to add a permanent redirect from the old URL to the new one.
+If you feel comfortable around `.htaccess` files, feel free to add it yourself.
+Alternatively, there is an interface to manage redirects in `Podlove > Expert Settings`.
+Add your old feed URL into the "From URL" column and the new feed URL into the "To URL" column, like so:
+
+<a href="/assets/images/migration/edit_redirects.jpg" class="th radius">
+	<img src="/assets/images/migration/edit_redirects.jpg" />
+</a>
+
+Hit "Save Changes" and browse to the old feed URL. It should now redirect you to the new feed URL.
