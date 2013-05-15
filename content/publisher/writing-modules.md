@@ -32,7 +32,6 @@ Namespace:   \Podlove\Modules\PodloveWebPlayer
 ### Example Module File
 
 ```php
-<?php 
 namespace Podlove\Modules\PodloveWebPlayer;
 
 class Podlove_Web_Player extends \Podlove\Modules\Base {
@@ -52,6 +51,36 @@ class Podlove_Web_Player extends \Podlove\Modules\Base {
 	}
 
 }
+```
+
+## Hooks
+
+### Activation
+
+```php
+do_action( 'podlove_module_was_activated', $activated_module );
+do_action( 'podlove_module_was_activated_' . $activated_module );
+```
+
+### Deactivation
+
+```php
+do_action( 'podlove_module_was_deactivated', $deactivated_module );
+do_action( 'podlove_module_was_deactivated_' . $deactivated_module );
+```
+
+### Usage
+
+Use the second hook if possible, like this:
+
+```php
+add_action( 'podlove_module_was_activated_podlove_web_player', function( $module_name ) {
+	// activation code
+} );
+
+add_action( 'podlove_module_was_deactivated_podlove_web_player', function( $module_name ) {
+	// deactivation code
+} );
 ```
 
 ## Options
@@ -74,7 +103,6 @@ Available input types:
 Right now there is no documentation on forms. Please look [into the form builder file](https://github.com/podlove/podlove-publisher/blob/master/lib/form/input/builder.php) for possible arguments.
 
 ```php
-<?php
 // register options in load()
 $this->register_option( 'my setting', 'string', array(
 	'label'       => __( 'my setting', 'podlove' ),
