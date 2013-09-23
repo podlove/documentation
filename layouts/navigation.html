@@ -21,8 +21,14 @@
             <% end %>
           </ul>
         </li>        
-        <li>
+        <li class="has-dropdown">
           <a href="/developers/">Developers</a>
+          <ul class="dropdown">
+            <li><a href="/developers/">Podlove Development</a></li>
+            <% @items['/developers/'].children.each do |item| %>
+              <li><a href="<%= item.path %>"><%= item[:title] %></a></li>
+            <% end %>
+          </ul>
         </li>
       </ul>
     </section>

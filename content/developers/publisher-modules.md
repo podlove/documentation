@@ -1,5 +1,5 @@
 ---
-title: Writing Modules
+title: "Publisher: Writing Modules"
 has_toc: true
 ---
 
