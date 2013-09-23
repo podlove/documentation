@@ -15,7 +15,7 @@ Developers and module writers are encouraged to add their own constraints to che
 
 ## What is a good Constraint?
 
-Constraints should check *one* thing at a time. So "Enclosure Mime Type is Correct" is a good constraint; "The files are ok" is much less useful one. Try to validate one attribute of an entity at a time unless you need to verify attribute relationships. However, keep the possible constraint-violation causes in mind. Don't create a bunch of constraints when the cause for all of them are identical.
+Constraints should check *one* thing at a time. So "Enclosure Mime Type is Correct" is a good constraint; "The files are ok" is a much less useful one. Try to validate one attribute of an entity at a time unless you need to verify attribute relationships. However, keep the possible constraint-violation causes in mind. Don't create a bunch of constraints when the cause for all of them are identical.
 
 ## The Constraint Class
 
