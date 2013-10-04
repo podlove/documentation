@@ -48,11 +48,26 @@ label, episode_prefix, media_file_base_uri, uri_delimiter, episode_number_length
 
 `[podlove-contributors]`
 
-Lists all contributors. Requires "Contributors" module.
+Lists all contributors of the current episode. If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
 
 ### Parameters
 
-**separator:** _(optional)_ Default: ", "
+For lists:
+
+- **style**: Choose between predefined styles. "table" provides a detailed view of your contributors. "list" is a compact, comma separated list of names. Default: "table"
+- **avatars**: One of "yes", "no". Display avatars in list views or not. Default: "yes"
+
+For single contributor avatars:
+
+- **id**: Specify a contributor id to display a specific contributor avatar.
+- **avatarsize**: Specify avatar size in pixel for single contributors. Default: 50
+- **align**: One of "left", "right", "none". Align contributor. Default: none
+- **caption**: Optional caption for contributor avatars.
+- **role**: Filter lists by role. Default: "all"
+
+For both lists and single views:
+
+- **linkto**: Links contributor name to the service if available. One of "none", "publicemail", "www", "adn", "twitter", "facebook", "amazonwishlist".  Default: "none"
 
 ## Templates
 
