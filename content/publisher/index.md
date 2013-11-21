@@ -4,7 +4,7 @@ title: Podlove Publisher
 
 The WordPress Podlove Podcast Publisher is a workflow-oriented solution for serious podcasters that want to save time and get full control over their Podcast publishing process, their feeds and the integrity of their publication.
 
-<a href="http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/" class="button success">Download Podlove Publisher</a>
+<a href="http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/" class="button">Download Podlove Publisher</a>
 
 ## Getting Started
 
