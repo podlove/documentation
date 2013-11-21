@@ -1,5 +1,5 @@
 ---
-title: Shortcodes
+title: Shortcode Reference
 has_toc: true
 ---
 
