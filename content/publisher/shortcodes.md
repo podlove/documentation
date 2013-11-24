@@ -10,7 +10,7 @@ Use these in an episode post:
 `[podlove-episode-downloads]`: Display downloads in a dropdown menu.  
 `[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats.  
 `[podlove-web-player]`: Display a web player.  
-`[podlove-podcast-license]`: Display the podcast license.
+`[podlove-podcast-license]`: Display the podcast license.  
 `[podlove-episode-license]`: Display the episode license (with fallback to podcast license if none is defined). 
 
 ## Episode Data
