@@ -1,4 +1,5 @@
 all:
+	nanoc compile
 	mkdir -p tmp/deploy
 	cp -r output/* tmp/deploy
 	git checkout master
