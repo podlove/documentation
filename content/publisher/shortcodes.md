@@ -9,7 +9,9 @@ Use these in an episode post:
 
 `[podlove-episode-downloads]`: Display downloads in a dropdown menu.  
 `[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats.  
-`[podlove-web-player]`: Display a web player.
+`[podlove-web-player]`: Display a web player.  
+`[podlove-podcast-license]`: Display the podcast license.
+`[podlove-episode-license]`: Display the episode license (with fallback to podcast license if none is defined). 
 
 ## Episode Data
 `[podlove-episode field="..."]`
@@ -56,6 +58,10 @@ For lists:
 
 - **style**: Choose between predefined styles. "table" provides a detailed view of your contributors. "list" is a compact, comma separated list of names. Default: "table"
 - **avatars**: One of "yes", "no". Display avatars in list views or not. Default: "yes"
+- **role**: Filter lists by role. Default: "all"
+- **donations**: One of "yes", "no". Display flattr column in list view or not. Default: "no"
+- **round_avatars**: One of "yes", "no". Circular avatars instead of default squared. Default: "no"
+- **show_role**: One of "yes", "no". Display role in table view or not. Default: "yes"
 
 For single contributor avatars:
 
@@ -63,7 +69,6 @@ For single contributor avatars:
 - **avatarsize**: Specify avatar size in pixel for single contributors. Default: 50
 - **align**: One of "left", "right", "none". Align contributor. Default: none
 - **caption**: Optional caption for contributor avatars.
-- **role**: Filter lists by role. Default: "all"
 
 For both lists and single views:
 
