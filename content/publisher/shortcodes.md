@@ -48,31 +48,20 @@ label, episode_prefix, media_file_base_uri, uri_delimiter, episode_number_length
 
 ## Contributors
 
-`[podlove-contributors]`
+`[podlove-contributor-list]`
 
 Lists all contributors of the current episode. If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
 
+> **WARNING** `[podlove-contributors]` is *deprecated*. Please replace it with a `[podlove-contributor-list]` shortcode if you are using it.
+
 ### Parameters
 
-For lists:
-
-- **style**: Choose between predefined styles. "table" provides a detailed view of your contributors. "list" is a compact, comma separated list of names. Default: "table"
-- **avatars**: One of "yes", "no". Display avatars in list views or not. Default: "yes"
-- **role**: Filter lists by role. Default: "all"
-- **donations**: One of "yes", "no". Display flattr column in list view or not. Default: "no"
-- **round_avatars**: One of "yes", "no". Circular avatars instead of default squared. Default: "no"
-- **show_role**: One of "yes", "no". Display role in table view or not. Default: "yes"
-
-For single contributor avatars:
-
-- **id**: Specify a contributor id to display a specific contributor avatar.
-- **avatarsize**: Specify avatar size in pixel for single contributors. Default: 50
-- **align**: One of "left", "right", "none". Align contributor. Default: none
-- **caption**: Optional caption for contributor avatars.
-
-For both lists and single views:
-
-- **linkto**: Links contributor name to the service if available. One of "none", "publicemail", "www", "adn", "twitter", "facebook", "amazonwishlist".  Default: "none"
+- **preset:** "table", "list" or "comma separated". Default: "table"
+- **title:** Optional table header title. Default: none
+- **avatars:** "yes" or "no". Display avatars. Default: "yes"
+- **role:** Filter lists by role. Default: "all"
+- **donations:** "yes" or "no". Display donation column. Default: "no"
+- **linkto:** One of "none", "publicemail", "www", "adn", "twitter", "facebook", "amazonwishlist". Links contributor name to the service if available. Default: "none"
 
 ## Templates
 
