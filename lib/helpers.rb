@@ -4,13 +4,7 @@ include Nanoc::Helpers::Rendering
 include Nanoc3::Helpers::LinkTo
 include Nanoc3::Helpers::Filtering
 
-# module Podlove
-
-	def templateRefClasses
-		[
-			JSON.parse(IO.read('./sources/template/episode.json')),
-			JSON.parse(IO.read('./sources/template/chapter.json')),
-		]
-	end
-
-# end
+def templateRefClasses
+	classes = %w{podcast episode chapter feed asset file file_type contributor license}
+	classes.map { |klass| JSON.parse(IO.read("./sources/template/#{klass}.json")) }
+end
