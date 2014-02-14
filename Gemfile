@@ -12,3 +12,5 @@ gem 'typogruby' # pretty typography
 
 gem 'nokogiri'
 gem 'mime-types'
+
+gem 'guard-nanoc'
