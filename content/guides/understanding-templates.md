@@ -71,13 +71,13 @@ The template `file-link` contains the markup to render the link to a file.
 <a href="{{ file.url }}">{{ file.asset.title }}</a>
 ```
 
-Now this template can be used in another template:
+Now this template can be used in another template. All variables from the parent template are available in the child template.
 
 ```html
 <ul>
 	{% for file in episode.files %}
 		{% if file.asset.downloadable %}
-			<li>{{ file|template("file-link") }}</li>
+			<li>{{ include("file-link") }}</li>
 		{% endif %}
 	{% endfor %}
 </ul>
