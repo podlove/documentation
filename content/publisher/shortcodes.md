@@ -3,58 +3,34 @@ title: Shortcode Reference
 has_toc: true
 ---
 
-## Web Player & Downloads
+## Feeds
+
+`[podlove-feed-list]`
+
+Lists all discoverable feeds for easy subscription.
+
+## Episode Archive
+
+`[podlove-episode-list]`
+
+Lists all episodes including their episode image, publication date, title, subtitle and duration chronologically.
+
+## Downloads
 
 Use these in an episode post:
 
 `[podlove-episode-downloads]`: Display downloads in a dropdown menu.  
-`[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats.  
-`[podlove-web-player]`: Display a web player.  
-`[podlove-podcast-license]`: Display the podcast license.  
-`[podlove-episode-license]`: Display the episode license (with fallback to podcast license if none is defined). 
-
-## Episode Data
-`[podlove-episode field="..."]`
-
-Displays the fields data.
-
-### Parameters
-
-**field:** _(required)_ Name of the data field. Possible values:  
-title, subtitle, summary, slug, duration, chapters, image, record_date, publication_date  
-**format:** _(optional)_ used by `duration` field. Possible values: `full`, `HH:MM:SS`. Default: `HH:MM:SS`  
-**date_format:** _(optional)_ used by `record_date` and `publication_date`. For options, see [date manual](http://php.net/manual/en/function.date.php). Defaults to WordPress settings.
-
-```
-[podlove-episode field="subtitle"]
-[podlove-episode field="summary"]
-[podlove-episode field="slug"]
-[podlove-episode field="duration"]
-[podlove-episode field="chapters"]
-```
-
-## Podcast Data
-
-`[podlove-podcast field="..."]`
-
-Displays the fields data.  
-
-### Parameters
-
-**field**: *(required)* Name of the data field. Possible values:  
-title, slug, subtitle, cover_image, summary, author_name, owner_name, owner_email,
-publisher_name, publisher_url, license_name, license_url, keywords, explicit,
-label, episode_prefix, media_file_base_uri, uri_delimiter, episode_number_length, language
+`[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats. 
 
 ## Contributors
 
-`[podlove-contributor-list]`
+`[podlove-episode-contributor-list]`
 
 Lists all contributors of the current episode. If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
 
-> **WARNING** `[podlove-contributors]` is *deprecated*. Please replace it with a `[podlove-contributor-list]` shortcode if you are using it.
+> **WARNING** `[podlove-contributors]` and `[podlove-contributor-list]` are *deprecated*. Please replace it with a `[podlove-episode-contributor-list]` shortcode if you are using it.
 
-### Parameters
+##### Parameters
 
 - **preset:** "table", "list" or "comma separated". Default: "table"
 - **title:** Optional table header title. Default: none
@@ -65,17 +41,24 @@ Lists all contributors of the current episode. If used on a non-episode page, it
 - **groups:** One of "yes", "no". Display group. Default: "no" 
 - **donations** One of "yes", "no". Display donation column. Default: "no"
 - **flattr:** "yes" or "no". Display Flattr column. Default: "no"
-- **linkto:** One of "none", "publicemail", "www", "adn", "twitter", "facebook", "amazonwishlist". Links contributor name to the service if available. Default: "none"
+
+`[podlove-podcast-contributor-list]`
+
+Lists all contributors configured in `Podlove > Podcast Settings > Contributors`.
+
+`[podlove-global-contributor-list]`
+
+Lists all podcast contributors and shows related episodes.
 
 ## Templates
 
 `[podlove-template id="Template Title"]`
 
-Renders configured episode template.
+Renders a template. All custom shortcode parameters will be accessible in the template. Please read the [Understanding Templates](/guides/understanding-templates/) for more details.
 
-`[podlove-template id="..."]`
+`[podlove-template id="..." customvariable="foo"]`
 
-### Parameters
+##### Parameters
 
 **title:** _(required)_ Title of template to render.  
 **autop:** _(optional)_ Wraps blocks of text in p tags. 'yes' or 'no'. Default: 'yes'
