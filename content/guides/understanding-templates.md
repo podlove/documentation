@@ -83,8 +83,26 @@ Now this template can be used in another template. All variables from the parent
 </ul>
 ```
 
+## Macros
+
+Twig allows you to create [macros][4] to put often used HTML idioms into reusable elements to not repeat yourself. To be able to use them in multiple templates, they are best saved in a separate template. You might call it "mymacros":
+
+```html
+<!-- template "mymacros" -->
+{% macro input(name, value, type, size) %}
+    <input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" size="{{ size|default(20) }}" />
+{% endmacro %}
+```
+
+To use them in another template, you need to import the macros before using them:
+
+```html
+{% import "mymacros" as forms %}
+{{ forms.input('username') }}
+```
 
 
 [1]: http://twig.sensiolabs.org/
 [2]: http://twig.sensiolabs.org/doc/templates.html
 [3]: /publisher/template-reference/
+[4]: http://twig.sensiolabs.org/doc/tags/macro.html
