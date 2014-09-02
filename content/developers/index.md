@@ -8,8 +8,8 @@ All code we develop eventually ends up on [github.com/podlove](https://github.co
 
 ## Standalone Projects
 
-- Podlove Publisher ([@Github](https://github.com/podlove/podlove-publisher), [@WordPress](wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/), [@Trello](https://trello.com/board/podlove-publisher/508293f65573fa3f62004e0a))
-- Podlove Web Player ([@Github](https://github.com/podlove/podlove-web-player), [@WordPress](wordpress.org/extend/plugins/podlove-web-player/), [@Trello](https://trello.com/board/podlove-web-player/508294115573fa3f62004ebf))
+- Podlove Publisher ([@Github](https://github.com/podlove/podlove-publisher), [@WordPress](http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/), [@Trello](https://trello.com/board/podlove-publisher/508293f65573fa3f62004e0a))
+- Podlove Web Player ([@Github](https://github.com/podlove/podlove-web-player), [@WordPress](http://wordpress.org/extend/plugins/podlove-web-player/), [@Trello](https://trello.com/board/podlove-web-player/508294115573fa3f62004ebf))
 - podlove.github.io ([@Github](https://github.com/podlove/podlove.github.com))
 
 ## Libraries
