@@ -67,3 +67,7 @@ dd {
     padding: 3px 10px;
     margin: 0px 15px;
 }
+
+.jumbotron small {
+    display: block;
+}
