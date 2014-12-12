@@ -49,3 +49,6 @@ redcarpet:
         'tables',
         'hardwrap'
     ]
+
+gems:
+  - jekyll-redirect-from
