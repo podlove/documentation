@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started"
-category: tutorial
+category: guides
 date: 2014-12-08 16:18:19
 redirect_from:
   - /publisher/shortcodes/

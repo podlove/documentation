@@ -14,7 +14,7 @@ codeurl: 'http://github.com/podlove/podlove-publisher'
 # Default categories (in order) to appear in the navigation
 sections: [
     ['documenation', 'Documentation'],
-    ['tutorial'    , 'Tutorial'],
+    ['guides'      , 'Guides'],
     ['reference'   , 'Reference'],
     ['developer'   , 'Developers'],
     ['post'        , 'Posts']

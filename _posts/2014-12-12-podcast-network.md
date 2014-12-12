@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Podcast Network"
-category: tutorial
+category: guides
 date: 2013-12-12 10:14:10
 ---
 
