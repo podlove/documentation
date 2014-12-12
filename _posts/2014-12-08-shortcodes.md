@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Shortcodes"
-category: ref
+category: reference
 date: 2014-12-08 16:30:13
 ---
 

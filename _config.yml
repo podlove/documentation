@@ -13,11 +13,11 @@ codeurl: 'http://github.com/podlove/podlove-publisher'
 
 # Default categories (in order) to appear in the navigation
 sections: [
-    ['doc', 'Documentation'],
-    ['tut', 'Tutorial'],
-    ['ref', 'Reference'],
-    ['dev', 'Developers'],
-    ['post', 'Posts']
+    ['documenation', 'Documentation'],
+    ['tutorial'    , 'Tutorial'],
+    ['reference'   , 'Reference'],
+    ['developer'   , 'Developers'],
+    ['post'        , 'Posts']
 ]
 
 # Keep as an empty string if served up at the root. If served up at a specific
@@ -25,7 +25,7 @@ sections: [
 baseurl: ''
 
 # Dates are not included in permalinks
-permalink: none
+permalink: /:categories/:title
 
 # Syntax highlighting
 highlighter: 'pygments'

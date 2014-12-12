@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Template Tags"
-category: ref
+category: reference
 date: 2014-12-09 16:54:08
 
 # WARNING

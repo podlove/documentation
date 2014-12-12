@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Podcast Migration"
-category: tut
+category: tutorial
 date: 2014-12-08 10:33:41
 ---
 

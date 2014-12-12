@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Getting Started"
-category: tut
+category: tutorial
 date: 2014-12-08 16:18:19
 ---
 

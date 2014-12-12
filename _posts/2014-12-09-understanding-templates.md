@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Understanding Templates"
-category: tut
+category: tutorial
 date: 2014-11-09 15:44:18
 ---
 
