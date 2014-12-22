@@ -27,6 +27,17 @@ Use these in an episode post:
 `[podlove-episode-downloads]`: Display downloads in a dropdown menu.  
 `[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats. 
 
+#### Subscribe Button
+
+`[podlove-subscribe-button]`
+
+Displays an universal subscribe button for your Podcast.
+
+##### Parameters
+
+- **size:** "small", "medium", "big", "big-logo". Default: "big-logo"
+- **width:** "auto" or "". Default: "auto"
+
 #### Contributors
 
 `[podlove-episode-contributor-list]`
