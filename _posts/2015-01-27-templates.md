@@ -5,18 +5,6 @@ category: reference
 date: 2015-01-27 14:57:06
 ---
 
-<div id="toc"></div>
-
-<script type="text/javascript">
-jQuery(function() {
-	jQuery("#toc").tocify({
-		theme: "none",
-		showAndHide: false,
-		context: "#content"
-	});
-});
-</script>
-
 The Publisher comes with existing templates. You can include these in your own templates or use them as inspiration. Embed them by using the Twig `include` keyword, for example: `{% raw %}{% include '@core/shortcode/downloads-select.twig' %}{% endraw %}`
 
 ## Core Templates
