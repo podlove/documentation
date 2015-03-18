@@ -1926,8 +1926,8 @@ But in case you need the raw user value, use this method.
                 {% capture tmp %}**Parameters**
 
 - **url:** URL of thing to flattr. Defaults to WordPress permalink.
-- **button:** Button style."large", "compact" or "static". Default: "compact".
-- **uid:** Flattr user id. Defaults to Flattr account in podcast settings.
+- **style:** Button style."large", "compact" or "static". Default: "compact".
+- **user:** Flattr user id. Defaults to Flattr account in podcast settings.
 
 **Examples**
 
@@ -1943,7 +1943,7 @@ Large button
 
 ```jinja
 {% raw %}
-{{ flattr.button({ button: 'large' }) }}
+{{ flattr.button({ style: 'large' }) }}
 {% endraw %}
 ```
 
@@ -1951,7 +1951,7 @@ Button for the Podlove Publisher plugin
 
 ```jinja
 {% raw %}
-{{ flattr.button({ uid: 'ericteubert', url: 'http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/' }) }}
+{{ flattr.button({ user: 'ericteubert', url: 'http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/' }) }}
 {% endraw %}
 ```
 {% endcapture %}
