@@ -44,7 +44,7 @@ The _ID_ is used to reference the template from your episodes or pages. Choose a
 Go to any post, page or episode and paste the template shortcode. It should look like this:
 
 ```
-[podlove-template id="episode"]
+[podlove-template template="episode"]
 ```
 
 Save and view the edited page. You should see the contents of your template. You can now go back to the template and edit until you like the results.
