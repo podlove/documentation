@@ -8,6 +8,10 @@ redirect_from:
   - /ref/shortcodes.html
 ---
 
+#### Web Player
+
+`[podlove-episode-web-player]`
+
 #### Feeds
 
 `[podlove-feed-list]`
@@ -29,7 +33,7 @@ Use these in an episode post:
 
 #### Subscribe Button
 
-`[podlove-subscribe-button]`
+`[podlove-podcast-subscribe-button]`
 
 Displays an universal subscribe button for your Podcast.
 
@@ -68,11 +72,11 @@ Lists all podcast contributors and shows related episodes.
 
 #### Templates
 
-`[podlove-template id="Template Title"]`
+`[podlove-template template="Template Title"]`
 
 Renders a template. All custom shortcode parameters will be accessible in the template. Please read the [Understanding Templates](/guides/understanding-templates/) for more details.
 
-`[podlove-template id="..." customvariable="foo"]`
+`[podlove-template template="..." customvariable="foo"]`
 
 ##### Parameters
 
