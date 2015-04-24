@@ -13,6 +13,7 @@ redirect_from:
 ---
 
 
+
 <a id="podlove-class-podcast"></a>
 
 #### Podcast
@@ -424,13 +425,13 @@ Example:
 
 ```jinja
 {% raw %}
-{{ podcast.subscribe_button }}
+{{ podcast.subscribeButton }}
 {% endraw %}
 ```
 
 ```jinja
 {% raw %}
-{{ podcast.subscribe_button({size: 'small', width: '', colors: 'black;;;#ffffff'}) }}
+{{ podcast.subscribeButton({size: 'small', width: '', colors: 'black;;;#ffffff'}) }}
 {% endraw %}
 ```
 
@@ -546,6 +547,21 @@ Example color configurations:
             <td>
                 <strong>
                     Post content
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.podcast
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Podcast
                 </strong>
                 
                 
@@ -1626,7 +1642,22 @@ URL for that person _in this specific episode_ is generated.
                 <strong>
                     Episodes with this contributor
                 </strong>
-                
+                {% capture tmp %}Filter and order episodes with parameters:
+
+- group: Filter by contribution group. Default: ''.
+- role: Filter by contribution role. Default: ''.
+- post_status: Publication status of the post. Defaults to 'publish'
+- order: Designates the ascending or descending order of the 'orderby' parameter. Defaults to 'DESC'.
+  - 'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
+  - 'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
+- orderby: Sort retrieved episodes by parameter. Defaults to 'publicationDate'.
+  - 'publicationDate' - Order by publication date.
+  - 'recordingDate' - Order by recording date.
+  - 'title' - Order by title.
+  - 'slug' - Order by episode slug.
+ - 'limit' - Limit the number of returned episodes.
+{% endcapture %}
+{{ tmp | markdownify }}
                 <p>
                         see <a href="#podlove-class-episode">{% capture tmp %}episode{% endcapture %}
 {{ tmp | markdownify }}</a>
