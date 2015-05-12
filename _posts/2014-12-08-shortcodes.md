@@ -42,13 +42,19 @@ Displays an universal subscribe button for your Podcast.
 - **size:** "small", "medium", "big", "big-logo". Default: "big-logo"
 - **width:** "auto" or "". Default: "auto"
 
+##### Examples
+
+```
+[podlove-podcast-subscribe-button]              // big button with logo
+[podlove-podcast-subscribe-button size="small"] // small button without logo
+[podlove-podcast-subscribe-button auto=""]      // disables auto-width behavior
+```
+
 #### Contributors
 
 `[podlove-episode-contributor-list]`
 
 Lists all contributors of the current episode. If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
-
-> **WARNING** `[podlove-contributors]` and `[podlove-contributor-list]` are *deprecated*. Please replace it with a `[podlove-episode-contributor-list]` shortcode if you are using it.
 
 ##### Parameters
 
@@ -61,6 +67,13 @@ Lists all contributors of the current episode. If used on a non-episode page, it
 - **groups:** One of "yes", "no". Display group. Default: "no" 
 - **donations** One of "yes", "no". Display donation column. Default: "no"
 - **flattr:** "yes" or "no". Display Flattr column. Default: "no"
+
+##### Examples
+
+```
+[podlove-episode-contributor-list flattr="yes"] // enables flattr column
+[podlove-episode-contributor-list avatars="no" role="guest"] // show only guests, but without avatar
+```
 
 `[podlove-podcast-contributor-list]`
 
