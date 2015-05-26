@@ -83,6 +83,24 @@ redirect_from:
         <tr>
             <td valign="top">
                 <code>
+                    podcast.image
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Image
+                </strong>
+                
+                <p>
+                        see <a href="#podlove-class-image">{% capture tmp %}image{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     podcast.authorName
                 </code>
             </td>
@@ -398,7 +416,7 @@ Example:
 {% raw %}
 {% for service in podcast.services({category: "social"}) %}
   <a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
-    <img width="32" height="32" src="{{ service.logoUrl }}" class="podlove-contributor-button" alt="{{ service.title }}" />
+    {{ service.image.html({width: 20}) }}
   </a>
 {% endfor %}
 {% endraw %}
@@ -585,6 +603,14 @@ Example color configurations:
 {% endif %}
 {% endraw %}
 ```
+
+You can set a custom context for tracking:
+
+```jinja
+{% raw %}
+{{ episode.player({context: 'landing-page'}) }}
+{% endraw %}
+```
 {% endcapture %}
 {{ tmp | markdownify }}
                 
@@ -687,6 +713,24 @@ Alternatively, use the duration accessors for custom rendering.
         <tr>
             <td valign="top">
                 <code>
+                    episode.image
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Image
+                </strong>
+                
+                <p>
+                        see <a href="#podlove-class-image">{% capture tmp %}image{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     episode.imageUrl
                 </code>
             </td>
@@ -709,9 +753,7 @@ Alternatively, use the duration accessors for custom rendering.
                 <strong>
                     Image URL with fallback
                 </strong>
-                {% capture tmp %}Returns podcast image if no episode image is available.
-{% endcapture %}
-{{ tmp | markdownify }}
+                
                 
             </td>
         </tr>
@@ -786,7 +828,43 @@ Example:
 ```
 {% endcapture %}
 {{ tmp | markdownify }}
-                
+                <p>
+                        see <a href="#podlove-class-tag">{% capture tmp %}tag{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.categories
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Access a list of episode categories.
+                </strong>
+                {% capture tmp %}See http://codex.wordpress.org/Function_Reference/wp_get_object_terms#Argument_Options
+for a list of available argument options.
+
+Requires the "Categories" module.
+
+Example:
+
+```html
+{% raw %}
+  {% for category in episode.categories({order: "ASC", orderby: "count"}) %}
+    <a href="{{ category.url }}">{{ category.name }} ({{ category.count }})</a>
+  {% endfor %}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                <p>
+                        see <a href="#podlove-class-category">{% capture tmp %}category{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
             </td>
         </tr>
     
@@ -900,6 +978,182 @@ Iterating over a grouped list of contributors
 - **orderby:** Sort contributors by parameter. Defaults to 'position'.
   - 'position' - Order by the contributors position in the episode.
   - 'comment' - Order by the contributors comment in the episode.
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-network"></a>
+
+#### Network
+
+{% capture tmp %}Requires the "Networks" module.
+{% endcapture %}
+{{ tmp | markdownify }}
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    network.lists
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Network Lists
+                </strong>
+                {% capture tmp %}List network lists.
+Use the`{% raw %}slug{% endraw %}` parameter to access a specific list.
+
+**Examples**
+
+Iterate over all lists.
+
+```jinja
+{% raw %}
+{% for list in network.lists %}
+    {{ list.title }}
+{% endfor %}
+{% endraw %}
+```
+
+Access a specific list by id.
+
+```jinja
+{% raw %}
+{{ network.lists({id: "example"}).title }}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                <p>
+                        see <a href="#podlove-class-list">{% capture tmp %}list{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-list"></a>
+
+#### PodcastList
+
+{% capture tmp %}Requires the "Networks" module.
+{% endcapture %}
+{{ tmp | markdownify }}
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.title
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List title
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.subtitle
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List subtitle
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.description
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List description
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.logo
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List logo
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.url
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List url
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.podcasts
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List podcasts
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    list.episodes
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List latest episodes from network
+                </strong>
+                {% capture tmp %}- limit:   Maximum number of episodes. Default: 10.
+- orderby: Order episodes by 'post_date', 'post_title', 'ID' or 'comment_count'. Default: 'post_date'.
+- order: Designates the ascending or descending order of the 'orderby' parameter. Default: 'DESC'.
+  - 'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
+  - 'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
 {% endcapture %}
 {{ tmp | markdownify }}
                 
@@ -1227,6 +1481,9 @@ Iterating over a grouped list of contributors
                 </strong>
                 {% capture tmp %}If tracking is active, this generates the tracking URL.
 Otherwise, it's identical to`{% raw %}.url{% endraw %}`.
+
+- source: download source for tracking, for example "webplayer", "download" or "feed"
+- context: (optional) download context for tracking, for example "home"/"episode"/"archive" for player source or feed slug for feed source
 {% endcapture %}
 {{ tmp | markdownify }}
                 
@@ -1690,7 +1947,7 @@ URL for that person _in this specific episode_ is generated.
                 {% capture tmp %}Parameters:
 
 - **category:** (optional) "social", "donation" or "all". Default: "all"
-- **type:**     (optional) Filter services by type. List of all service types: 500px, about.me, amazon wishlist, app.net, auphonic credits, bandcamp, bitbucket, bitcoin, deviantart, diaspora, dogecoin, dribbble, email, facebook, flattr, flickr, foursquare, generic wishlist, github, gittip, google+, instagram, jabber, last.fm, linkedin, litecoin, openstreetmap, orcid, paypal, miiverse, pinboard, pinterest, playstation network, researchgate, scous, skype, soundcloud, soup, steam, steam wishlist, thomann wishlist, tumblr, twitch, twitter, vimeo, website, xbox live, xing, youtube
+- **type:**     (optional) Filter services by type. List of all service types: 500px, about.me, amazon wishlist, app.net, auphonic credits, bandcamp, bitbucket, bitcoin, deviantart, diaspora, dogecoin, dribbble, email, facebook, flattr, flickr, foursquare, generic wishlist, github, gittip, google+, instagram, jabber, last.fm, linkedin, litecoin, openstreetmap, orcid, patreon, paypal, miiverse, pinboard, pinterest, playstation network, researchgate, scous, skype, soundcloud, soup, steam, steam wishlist, thomann wishlist, tumblr, twitch, twitter, vimeo, website, xbox live, xing, youtube
 
 Example:
 
@@ -1698,7 +1955,7 @@ Example:
 {% raw %}
 {% for service in contributor.services({category: "social"}) %}
   <a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
-    <img width="32" height="32" src="{{ service.logoUrl }}" class="podlove-contributor-button" alt="{{ service.title }}" />
+    {{ service.image.html({width: 20}) }}
   </a>
 {% endfor %}
 {% endraw %}
@@ -1849,15 +2106,18 @@ But in case you need the raw user value, use this method.
         <tr>
             <td valign="top">
                 <code>
-                    service.logoUrl
+                    service.image
                 </code>
             </td>
             <td>
                 <strong>
-                    Logo URL
+                    Image
                 </strong>
                 
-                
+                <p>
+                        see <a href="#podlove-class-image">{% capture tmp %}image{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
             </td>
         </tr>
     
