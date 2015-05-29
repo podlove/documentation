@@ -720,7 +720,17 @@ Alternatively, use the duration accessors for custom rendering.
                 <strong>
                     Image
                 </strong>
-                
+                {% capture tmp %}- fallback:`{% raw %}true{% endraw %}` or`{% raw %}false{% endraw %}`. Should the podcast image be used if no episode image is available? Default:`{% raw %}false{% endraw %}`
+
+Example:
+
+```jinja
+{% raw %}
+{{ episode.image({fallback: true}).url }}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
                 <p>
                         see <a href="#podlove-class-image">{% capture tmp %}image{% endcapture %}
 {{ tmp | markdownify }}</a>
@@ -1486,6 +1496,288 @@ Otherwise, it's identical to`{% raw %}.url{% endraw %}`.
 - context: (optional) download context for tracking, for example "home"/"episode"/"archive" for player source or feed slug for feed source
 {% endcapture %}
 {{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-image"></a>
+
+#### Image
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    image.url
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Get URL for resized image.
+                </strong>
+                {% capture tmp %}**Parameters**
+
+- width: Image width. Set width and leave height blank to keep the orinal aspect ratio.
+- height: Image height. Set height and leave width blank to keep the orinal aspect ratio.
+- crop: true or false. Crop image if given dimensions deviate from original aspect ratio. Default: false.
+
+**Examples**
+
+```jinja
+{% raw %}
+{{ image.url }}               {# returns the unresized image URL #}
+{{ image.url({width: 100}) }} {# returns resized image URL #}
+{% endraw %}
+```
+
+Note: It is not _guaranteed_ to get back the resized image. If it is 
+not ready yet, the source URL will be returned.
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    image.html
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Get HTML image tag for resized image.
+                </strong>
+                {% capture tmp %}**Parameters**
+
+- width: Image width. Set width and leave height blank to keep the orinal aspect ratio.
+- height: Image height. Set height and leave width blank to keep the orinal aspect ratio.
+- crop: true or false. Crop image if given dimensions deviate from original aspect ratio. Default: false.
+- id: Set image tag "id" attribute.
+- class: Set image tag "class" attribute.
+- style: Set image tag "style" attribute.
+- alt: Set image tag "alt" attribute.
+- title: Set image tag "title" attribute.
+
+**Examples**
+
+```jinja
+{% raw %}
+{{ image.html }}                       {# returns the unresized image tag #}
+{{ image.html({width: 100}) }}         {# returns resized image tag #}
+{{ image.html({title: "The Spark"}) }} {# returns image tag with custom title #}
+{% endraw %}
+```
+
+Note: It is not _guaranteed_ to get back the resized image. If it is 
+not ready yet, the source URL will be returned.
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-tag"></a>
+
+#### Tag
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.id
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term id
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.name
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Name
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.slug
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Slug
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.description
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Description
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.count
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Count
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    tag.url
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term URL
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-category"></a>
+
+#### Category
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.id
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term id
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.name
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Name
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.slug
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Slug
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.description
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Description
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.count
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term Count
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    category.url
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Term URL
+                </strong>
+                
                 
             </td>
         </tr>
