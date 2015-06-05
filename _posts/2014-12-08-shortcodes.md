@@ -10,32 +10,26 @@ redirect_from:
 
 #### Web Player
 
-`[podlove-episode-web-player]`
+- `[podlove-episode-web-player]` displays the Podlove Web Player.
 
 #### Feeds
 
-`[podlove-feed-list]`
-
-Lists all discoverable feeds for easy subscription.
+- `[podlove-feed-list]` lists all discoverable feeds for easy subscription.
 
 #### Episode Archive
 
-`[podlove-episode-list]`
-
-Lists all episodes including their episode image, publication date, title, subtitle and duration chronologically.
+- `[podlove-episode-list]` lists all episodes including their episode image, publication date, title, subtitle and duration chronologically.
 
 #### Downloads
 
-Use these in an episode post:
+Use these in an episode:
 
-`[podlove-episode-downloads]`: Display downloads in a dropdown menu.  
-`[podlove-episode-downloads style="buttons"]` : Display download buttons for all available formats. 
+- `[podlove-episode-downloads]` displays downloads in a dropdown menu.  
+- `[podlove-episode-downloads style="buttons"]` displays download buttons for all available formats. 
 
 #### Subscribe Button
 
-`[podlove-podcast-subscribe-button]`
-
-Displays an universal subscribe button for your Podcast.
+- `[podlove-podcast-subscribe-button]` displays a universal subscribe button for your Podcast.
 
 ##### Parameters
 
@@ -52,9 +46,9 @@ Displays an universal subscribe button for your Podcast.
 
 #### Contributors
 
-`[podlove-episode-contributor-list]`
+- `[podlove-episode-contributor-list]` lists all contributors of the current episode.
 
-Lists all contributors of the current episode. If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
+If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
 
 ##### Parameters
 
@@ -85,14 +79,22 @@ Lists all podcast contributors and shows related episodes.
 
 #### Templates
 
-`[podlove-template template="Template Title"]`
+- `[podlove-template template="Template Title"]` renders a template.
 
-Renders a template. All custom shortcode parameters will be accessible in the template. Please read the [Understanding Templates](/guides/understanding-templates/) for more details.
-
-`[podlove-template template="..." customvariable="foo"]`
+All custom shortcode parameters will be accessible in the template. Example: `[podlove-template template="..." customvariable="foo"]`. Please read the [Understanding Templates](/guides/understanding-templates/) for more details.
 
 ##### Parameters
 
 **title:** _(required)_ Title of template to render.  
 **autop:** _(optional)_ Wraps blocks of text in p tags. 'yes' or 'no'. Default: 'yes'
 
+#### Flattr
+
+Requires "Flattr" module.
+
+- `[podlove-podcast-flattr-button]` shows Flattr button for the podcast.
+- `[podlove-episode-flattr-button]` shows Flattr button for the current episode.
+
+##### Parameters
+
+- **style:** Button style."large", "compact" or "static". Default: "compact".
