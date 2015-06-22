@@ -109,7 +109,7 @@ These templates come with the Podlove Publisher and are always available.
     {% for episode in podcast.episodes %}
         <tr class="podcast_archive_element">
             <td class="thumbnail">
-                <img src="{{ episode.imageUrlWithFallback }}" width="64" height="64">
+                {{ episode.image({fallback: true}).html({width: 64, height: 64}) }}
             </td>
             <td class="date">
                 <span class="release_date">
@@ -191,24 +191,6 @@ These templates come with the Podlove Publisher and are always available.
 
 These templates come with the "Contributors" module.
 
-### Avatar
-
-```jinja
-{% raw %}
-{# @contributors/avatar.twig #}
-
-{#
-Display a contributor avatar.
-
-Usage examples:
-	{% include '@contributors/avatar.twig' with {'avatar': contributor.avatar} only %}
-	{% include '@contributors/avatar.twig' with {'avatar': contributor.avatar, 'size': 150} only %} 
-#}
-{% set size = size|default(50) %}
-<img alt="avatar" src="{{ avatar.url(size) }}" class="avatar avatar-{{ size }} photo" height="{{ size }}" width="{{ size }}" />
-{% endraw %}
-```
-
 ### List of Podcast Contributors
 
 ```jinja
@@ -216,10 +198,10 @@ Usage examples:
 {# @contributors/podcast-contributor-list.twig #}
 
 <table class="podlove-global-contributors">
-	{% if title %}
+	{% if option.title %}
 		<thead>
 			<tr>
-				<th colspan="2">{{ title }}</th>
+				<th colspan="2">{{ option.title }}</th>
 			</tr>
 		</thead>
 	{% endif %}
@@ -228,14 +210,20 @@ Usage examples:
 			{% if contributor.visible %}
 				<tr>
 					<td rowspan="2" class="avatar-cell" width="60">
-						{% include '@contributors/avatar.twig' with {'avatar': contributor.avatar} only %}
+						{{ contributor.image.html({width: 60, height: 60, class: "avatar avatar-" ~ size ~  " photo", alt: "avatar" }) }}
 					</td>
 					<td class="social-cell">
 						<strong class="contributor-name">{{ contributor.name }}</strong>
 						<div class="social-icons">
 							{% for service in contributor.socialServices %}
 								<a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
-									<img width="32" height="32" src="{{ service.logoUrl }}" class="podlove-contributor-button" alt="{{ service.title }}" />
+									{{
+										service.image.html({
+											width: 32, 
+											class: "podlove-contributor-button",
+											alt: service.title ~ " Icon"
+										}) 
+									}}
 								</a>
 							{% endfor %}
 						</div>
@@ -334,19 +322,9 @@ Usage examples:
 {% raw %}
 {# @contributors/podcast-contributor-table.twig #}
 
-{% macro iconSrc(icon) %}
-	{{ constant("\\Podlove\\PLUGIN_URL") }}/lib/modules/contributors/images/icons/{{ icon }}-128.png
-{% endmacro %}
-
-{% macro iconLink(title, icon, href) %}
-	<a target="_blank" title="{{ title }}" href="{{ href }}">
-		<img width="32" height="32" src="{{ _self.iconSrc(icon) }}" class="podlove-contributor-button" alt="{{ title }}" />
-	</a>
-{% endmacro %}
-
 <table class="podlove-contributors-table">
 	<tbody>
-		{% for contributor in podcast.contributors({group: group, role: role, scope: 'podcast'}) %}
+		{% for contributor in podcast.contributors({group: option.group, role: option.role, scope: 'podcast'}) %}
 			{% if contributor.visible %}
 				{% include '@contributors/_contributor-table-row.twig' %}
 			{% endif %}
@@ -354,7 +332,7 @@ Usage examples:
 	</tbody>
 </table>
 
-{% if flattr == "yes" %}
+{% if option.flattr == "yes" %}
 	{% include '@contributors/_contributor-table-flattr.twig' %}
 {% endif %}
 
@@ -372,8 +350,8 @@ Usage examples:
 	{% for contributor in episode.contributors({group: group, role: role}) %}
 		{% if contributor.visible %}
 			<span>
-				{% if avatars == "yes" %}
-					{% include '@contributors/avatar.twig' with {'avatar': contributor.avatar, 'size': 18} only %}
+				{% if option.avatars == "yes" %}
+					{{ contributor.image.html({width: 18, height: 18, class: "avatar avatar-" ~ size ~  " photo", alt: "avatar" }) }}
 				{% endif %}
 				<span class="name">{{ contributor.name }}</span></span>{% if not loop.last %}, {% endif %}
 		{% endif %}
@@ -392,8 +370,10 @@ Usage examples:
 {% for contributor in episode.contributors({group: group, role: role}) %}
 	{% if contributor.visible %}
 		<li>
-			{% if avatars == "yes" %}
-				<span class="avatar">{% include '@contributors/avatar.twig' with {'avatar': contributor.avatar, 'size': 18} only %}</span>
+			{% if option.avatars == "yes" %}
+				<span class="avatar">
+					{{ contributor.image.html({width: size|default(50), height: size|default(50), class: "avatar avatar-" ~ size|default(50) ~  " photo", alt: "avatar" }) }}
+				</span>
 			{% endif %}
 			<span class="name">{{ contributor.name }}</span>
 		</li>
@@ -417,7 +397,7 @@ Usage examples:
 {% if flattr == "yes"    %}{% set colspan = colspan + 1 %}{% endif %}
 
 <table class="podlove-contributors-table">
-	{% if title %}
+	{% if option.title %}
 		<thead>
 			<tr>
 				<th colspan="{{ colspan }}">{{ title }}</th>
@@ -425,8 +405,8 @@ Usage examples:
 		</thead>
 	{% endif %}
 	<tbody>
-		{% if groupby == "group" %}
-			{% for contributorGroup in episode.contributors({groupby: 'group', group: group, role: role}) %}
+		{% if option.groupby == "group" %}
+			{% for contributorGroup in episode.contributors({groupby: 'group', group: option.group, role: option.role}) %}
 				<tr>
 					<th colspan="{{ colspan }}" class="contributor-group">
 						{% if contributorGroup.group %}
@@ -443,7 +423,7 @@ Usage examples:
 				{% endfor %}
 			{% endfor %}
 		{% else %}
-		    {% for contributor in episode.contributors({group: group, role: role}) %}
+		    {% for contributor in episode.contributors({group: option.group, role: option.role}) %}
 		    	{% if contributor.visible %}
 		    		{% include '@contributors/_contributor-table-row.twig' %}
 		    	{% endif %}
@@ -452,7 +432,7 @@ Usage examples:
 	</tbody>
 </table>
 
-{% if flattr == "yes" %}
+{% if option.flattr == "yes" %}
 	{% include '@contributors/_contributor-table-flattr.twig' %}
 {% endif %}
 
@@ -474,7 +454,12 @@ These templates come with the "Social &amp; Donations" module.
 {% for service in podcast.services({category: "donation"}) %}
 	<li>
     	<a href="{{ service.profileUrl }}" title="{{ service.description }}">
-    		<img src="{{ service.logoUrl }}" width="16" height="16" /> {{ service.title }}
+			{{
+				service.image.html({
+					width: 16,
+					alt: service.title ~ " Icon"
+				}) 
+			}} {{ service.title }}
         </a>
     </li>
 {% endfor %}
@@ -498,7 +483,12 @@ These templates come with the "Social &amp; Donations" module.
 {% for service in podcast.services({category: "social"}) %}
 	<li>
     	<a href="{{ service.profileUrl }}" title="{{ service.description }}">
-    		<img src="{{ service.logoUrl }}" width="16" height="16" /> {{ service.title }}
+			{{
+				service.image.html({
+					width: 16,
+					alt: service.title ~ " Icon"
+				}) 
+			}} {{ service.title }}
         </a>
     </li>
 {% endfor %}
