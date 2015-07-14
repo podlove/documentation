@@ -11,7 +11,7 @@ Templates are user-defined, dynamic, reusable snippets of HTML. The publisher pr
 
 [Twig][1] is used to make templates dynamic. Printing a variable in Twig looks like this:
 
-```html
+```jinja
 {% raw %}
 <strong>{{ podcast.title }}</strong>
 {% endraw %}
@@ -19,7 +19,7 @@ Templates are user-defined, dynamic, reusable snippets of HTML. The publisher pr
 
 You can iterate over a list of items:
 
-```html
+```jinja
 {% raw %}
 <ul>
 {% for episode in podcast.episodes %}
@@ -55,7 +55,7 @@ Templates which are used in episodes are special. In episodes, an additional var
 
 For example, you could build your own download list:
 
-```html
+```jinja
 {% raw %}
 <ul>
 	{% for file in episode.files %}
@@ -69,6 +69,25 @@ For example, you could build your own download list:
 {% endraw %}
 ```
 
+## Shortcode Options
+
+To make template modular and reusable, you can pass options to the template shortcode. They are then available under the `option` accessor. So a template embedded using `[podlove-template template="episode" language="en"]` will have access to the variable `{{ option.language }}`.
+
+To set option defaults. Here is an example:
+
+```jinja
+{% raw %}
+{# call shortcode with, for example, size="small" parameter, or let it default to "big-logo" #}
+
+{% set option = {
+    size: 'big-logo',
+    colors: 'black;;;#ffffff'
+}|merge(option) %}
+
+{{ podcast.subscribeButton({colors: option.colors, size: option.size}) }}
+{% endraw %}
+```
+
 ## Subtemplates
 
 If you are looking for a way to reuse template parts or want to split up complex templates, subtemplates are the solution. They allow to embed templates in templates while keeping the scope of one local variable. All global variables are available as usual.
@@ -77,7 +96,7 @@ An example:
 
 The template `file-link` contains the markup to render the link to a file.
 
-```html
+```jinja
 {% raw %}
 <a href="{{ file.url }}">{{ file.asset.title }}</a>
 {% endraw %}
@@ -85,7 +104,7 @@ The template `file-link` contains the markup to render the link to a file.
 
 Now this template can be used in another template. All variables from the parent template are available in the child template.
 
-```html
+```jinja
 {% raw %}
 <ul>
 	{% for file in episode.files %}
@@ -101,7 +120,7 @@ Now this template can be used in another template. All variables from the parent
 
 Twig allows you to create [macros][4] to put often used HTML idioms into reusable elements to not repeat yourself. To be able to use them in multiple templates, they are best saved in a separate template. You might call it "mymacros":
 
-```html
+```jinja
 {% raw %}
 <!-- template "mymacros" -->
 {% macro input(name, value, type, size) %}
@@ -112,7 +131,7 @@ Twig allows you to create [macros][4] to put often used HTML idioms into reusabl
 
 To use them in another template, you need to import the macros before using them:
 
-```html
+```jinja
 {% raw %}
 {% import "mymacros" as forms %}
 {{ forms.input('username') }}
