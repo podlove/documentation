@@ -1,0 +1,33 @@
+- title: Guides
+  dir: /podlove-publisher/guides/
+  pages:
+    - title: Getting Started
+      slug: getting-started
+    - title: Podcast Migration
+      slug: podcast-migration
+    - title: Podcast Network 
+      slug: podcast-network
+    - title: Understanding Templates
+      slug: understanding-templates
+    - title: Download Analytics
+      slug: download-analytics
+
+- title: Reference
+  dir: /podlove-publisher/reference/
+  pages:
+    - title: Shortcodes
+      slug: shortcodes
+    - title: Templates
+      slug: templates
+    - title: Template Tags
+      slug: template-tags
+    - title: Template Conditionals
+      slug: template-conditionals
+
+- title: Developer
+  dir:  /podlove-publisher/developer/
+  pages:
+    - title: Modules
+      slug: modules
+    - title: Projects
+      slug: projects

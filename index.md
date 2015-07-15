@@ -1,16 +1,7 @@
 ---
 layout: default
-title: "Jekyll Docs Template"
 ---
 
 <div class="jumbotron">
-	<h1>Podlove Podcast Publisher <small>Podcast Publishing for WordPress</small></h1>
-	<p>
-		We built the Publisher because existing solutions are stuck in the past, complex and unwieldy. The Publisher helps you save time, worry less and provides a cutting edge listening experience for your audience.
-	</p>
-	<p>
-		<a class="btn btn-primary btn-lg" href="http://publisher.podlove.org/">
-			Learn More &amp; Download Plugin
-		</a>
-	</p>
+	<h1>Podlove</h1>
 </div>

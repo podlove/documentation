@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Podcast Migration"
-category: guides
-date: 2014-12-08 10:33:41
 redirect_from:
   - /guides/migration/
   - /tut/podcast-migration.html

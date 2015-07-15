@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Projects"
-category: developer
-date: 2014-12-09 15:58:41
 redirect_from:
   - /developers/
   - /dev/projects.html

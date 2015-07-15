@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Modules"
-category: developer
-date: 2014-11-09 16:00:01
 redirect_from:
   - /developers/publisher-modules/
   - /dev/modules.html

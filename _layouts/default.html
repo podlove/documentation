@@ -26,19 +26,13 @@
 
             <div class="row">
                 {% assign post_count = site.posts|size %}
-                {% if site.navigation != 0 and site.navigation == 1 or post_count > 0 %}
-                    <div id="navigation" class="col-md-3">
-                        {% include navigation.html %}
-                    </div>
+                <div id="navigation" class="col-md-3">
+                    {% include navigation.html %}
+                </div>
 
-                    <div id="content" class="col-md-8">
-                        {{ content }}
-                    </div>
-                {% else %}
-                    <div id="content" class="col-md-12">
-                        {{ content }}
-                    </div>
-                {% endif %}
+                <div id="content" class="col-md-8">
+                    {{ content }}
+                </div>
             </div>
 
             <div class="row">
@@ -66,6 +60,8 @@ jQuery(document).ready(function() {
   jQuery('.jekyll-toc-header a.jekyll-toc-back-to-top span.jekyll-toc-icon').addClass('icon icon-chevron-up');
 });
 </script>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
     </body>
 </html>

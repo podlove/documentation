@@ -1,3 +1,5 @@
+{% assign current_project = page.url | remove_first: "/" | split: "/" | first %}
+
 <nav class="navbar">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -16,9 +18,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Podcast Publisher</a></li>
-        <li><a href="#">Web Player</a></li>
-        <li><a href="#">Subscribe Button</a></li>
+        <li {% if current_project == "podlove-publisher" %}class="active"{% endif %}><a href="/podlove-publisher/">Podcast Publisher</a></li>
+        <li {% if current_project == "podlove-web-player" %}class="active"{% endif %}><a href="/podlove-web-player/">Web Player</a></li>
+        <li {% if current_project == "podlove-subscribe-button" %}class="active"{% endif %}><a href="/podlove-subscribe-button/">Subscribe Button</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

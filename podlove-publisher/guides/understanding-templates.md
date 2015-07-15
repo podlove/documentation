@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Understanding Templates"
-category: guides
-date: 2014-11-09 15:44:18
 redirect_from:
   - /tut/understanding-templates.html
 ---

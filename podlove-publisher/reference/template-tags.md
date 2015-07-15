@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Template Tags"
-category: reference
-date: 2018-12-09 16:54:08
 redirect_from:
   - /publisher/template-reference/
   - /ref/template-tags.html

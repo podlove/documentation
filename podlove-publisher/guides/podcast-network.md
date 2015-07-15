@@ -1,8 +1,6 @@
 ---
 layout: page
 title: "Podcast Network"
-category: guides
-date: 2013-12-12 10:14:10
 redirect_from:
   - /tutorial/podcast-network/
 ---
