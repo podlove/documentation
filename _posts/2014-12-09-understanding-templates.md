@@ -35,7 +35,7 @@ You can iterate over a list of items:
 
 These are the basics. You can refer to the [Twig Documentation][2] for all available options.
 
-## Creation & Usage
+## Creating Twig Templates — For Podlove Publisher Users
 
 To create a template, go to `Podlove → Templates` and click "Add New".
 
@@ -49,7 +49,7 @@ Go to any post, page or episode and paste the template shortcode. It should look
 
 Save and view the edited page. You should see the contents of your template. You can now go back to the template and edit until you like the results.
 
-## Episode Templates
+### Episode Templates
 
 Templates which are used in episodes are special. In episodes, an additional variable is available: `episode`. It contains the current episode object.
 
@@ -69,7 +69,7 @@ For example, you could build your own download list:
 {% endraw %}
 ```
 
-## Shortcode Options
+### Shortcode Options
 
 To make template modular and reusable, you can pass options to the template shortcode. They are then available under the `option` accessor. So a template embedded using `[podlove-template template="episode" language="en"]` will have access to the variable `{{ option.language }}`.
 
@@ -88,7 +88,7 @@ To set option defaults. Here is an example:
 {% endraw %}
 ```
 
-## Subtemplates
+### Subtemplates
 
 If you are looking for a way to reuse template parts or want to split up complex templates, subtemplates are the solution. They allow to embed templates in templates while keeping the scope of one local variable. All global variables are available as usual.
 
@@ -116,7 +116,7 @@ Now this template can be used in another template. All variables from the parent
 {% endraw %}
 ```
 
-## Macros
+### Macros
 
 Twig allows you to create [macros][4] to put often used HTML idioms into reusable elements to not repeat yourself. To be able to use them in multiple templates, they are best saved in a separate template. You might call it "mymacros":
 
@@ -138,6 +138,122 @@ To use them in another template, you need to import the macros before using them
 {% endraw %}
 ```
 
+## Creating PHP Templates — For Theme Developers
+
+You have access to the complete Podlove Publisher template system from PHP, which is ideal for creating themes.
+
+The [template variables and API][3] is identical to the one provided by Twig. Just the syntax is different. 
+
+```jinja
+{% raw %}
+<ul>
+{% for episode in podcast.episodes %}
+	<li>{{ episode.title }}</li>
+{% endfor %}
+</ul>
+{% endraw %}
+```
+
+is equivalent to
+
+```php
+<ul>
+<?php foreach (\Podlove\get_podcast()->episodes() as $episode): ?>
+	<li><?php echo $episode->title() ?></li>
+<?php endforeach ?>
+</ul>
+```
+
+There are currently 4 entry points to the API: through the podcast, episode, network or Flattr. 
+
+##### Podcast
+
+```php
+<?php
+/**
+ * Get Podlove podcast template object.
+ * 
+ * @param  int $blog_id              Optional. Blog ID. Defaults to global $blog_id.
+ * @return \Podlove\Template\Podcast
+ */
+function \Podlove\get_podcast($blog_id = null);
+
+// example
+$podcast = \Podlove\get_podcast();
+echo $podcast->title();
+?>
+```
+
+##### Episode
+
+```php
+<?php
+/**
+ * Get Podlove episode template object.
+ * 
+ * @param  int|WP_Post $post          Optional. Post ID or post object. Defaults to global $post.
+ * @return \Podlove\Template\Episode
+ */
+function \Podlove\get_episode($id = null);
+
+// example
+$episode = \Podlove\get_episode();
+echo $episode->player(['context' => 'episode']);
+?>
+```
+
+##### Network
+
+```php
+<?php
+/**
+ * Get Podlove network template object.
+ * 
+ * Only available in WordPress Multisite environments.
+ * 
+ * @return \Podlove\Modules\Networks\Template\Network
+ */
+function \Podlove\get_network();
+
+// example
+$network_lists = \Podlove\get_network()->lists();
+?>
+```
+
+##### Flattr
+
+```php
+<?php
+/**
+ * Get Podlove Flattr template object.
+ * 
+ * Requires "Flattr" module.
+ * 
+ * @return \Podlove\Modules\Flattr\Template\Flattr
+ */
+function \Podlove\get_flattr();
+
+// example
+echo \Podlove\get_flattr([
+	'url' => 'http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/', 
+	'user' => 'ericteubert'
+]);
+?>
+```
+
+#### Hint: Short syntax for PHP 5.6+
+
+If you develop a theme for PHP 5.6+ environments, you may want to use function importing for a nicer syntax, like that:
+
+```php
+<?php
+// once at the beginning of each file, ONLY PHP 5.6+
+use function \Podlove\get_episode; 
+use function \Podlove\get_podcast; 
+
+echo get_podcast()->title();
+?>
+```
 
 [1]: http://twig.sensiolabs.org/
 [2]: http://twig.sensiolabs.org/doc/templates.html
