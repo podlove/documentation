@@ -140,6 +140,8 @@ To use them in another template, you need to import the macros before using them
 
 ## Creating PHP Templates — For Theme Developers
 
+_Available from Podlove Publisher version 2.3_
+
 You have access to the complete Podlove Publisher template system from PHP, which is ideal for creating themes.
 
 The [template variables and API][3] is identical to the one provided by Twig. Just the syntax is different. 
@@ -164,9 +166,11 @@ is equivalent to
 </ul>
 ```
 
+### API Entry Points
+
 There are currently 4 entry points to the API: through the podcast, episode, network or Flattr. 
 
-##### Podcast
+#### Podcast
 
 ```php
 <?php
@@ -184,7 +188,7 @@ echo $podcast->title();
 ?>
 ```
 
-##### Episode
+#### Episode
 
 ```php
 <?php
@@ -202,7 +206,7 @@ echo $episode->player(['context' => 'episode']);
 ?>
 ```
 
-##### Network
+#### Network
 
 ```php
 <?php
@@ -220,7 +224,7 @@ $network_lists = \Podlove\get_network()->lists();
 ?>
 ```
 
-##### Flattr
+#### Flattr
 
 ```php
 <?php
@@ -241,7 +245,7 @@ echo \Podlove\get_flattr([
 ?>
 ```
 
-#### Hint: Short syntax for PHP 5.6+
+### Hint: Short syntax for PHP 5.6+
 
 If you develop a theme for PHP 5.6+ environments, you may want to use function importing for a nicer syntax, like that:
 
