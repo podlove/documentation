@@ -67,8 +67,34 @@ dd {
     margin: 0px 15px;
 }
 
+.jumbotron h1 {
+    font-size: 2.5em;
+}
+
 .jumbotron small {
     display: block;
+}
+
+/* bottstrap customization */
+
+.navbar {
+  margin: 15px 0;
+}
+
+.navbar li.active > a {
+  color: black;
+}
+
+.navbar-brand {
+  padding: 3px;
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.navbar-brand img {
+  height: 100%;
+  display: inline-block;
 }
 
 /* icon font */
