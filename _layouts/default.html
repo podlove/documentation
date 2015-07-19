@@ -25,14 +25,24 @@
             </div>
 
             <div class="row">
-                {% assign post_count = site.posts|size %}
-                <div id="navigation" class="col-md-3">
-                    {% include navigation.html %}
-                </div>
 
-                <div id="content" class="col-md-8">
-                    {{ content }}
-                </div>
+                {% if current_project != 'index.html' %}
+                   
+                    <div id="navigation" class="col-md-3">
+                        {% include navigation.html %}
+                    </div>
+                    <div id="content" class="col-md-8">
+                        {{ content }}
+                    </div>
+
+                {% else %}
+
+                    <div id="content" class="col-md-12">
+                        {{ content }}
+                    </div>
+
+                {% endif %}
+
             </div>
 
             <div class="row">
