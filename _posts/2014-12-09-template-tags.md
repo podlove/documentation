@@ -1795,7 +1795,7 @@ not ready yet, the source URL will be returned.
         <tr>
             <td valign="top">
                 <code>
-                    duration.hours
+                    episode.duration.hours
                 </code>
             </td>
             <td>
@@ -1812,7 +1812,7 @@ not ready yet, the source URL will be returned.
         <tr>
             <td valign="top">
                 <code>
-                    duration.minutes
+                    episode.duration.minutes
                 </code>
             </td>
             <td>
@@ -1829,7 +1829,7 @@ not ready yet, the source URL will be returned.
         <tr>
             <td valign="top">
                 <code>
-                    duration.seconds
+                    episode.duration.seconds
                 </code>
             </td>
             <td>
@@ -1846,7 +1846,7 @@ not ready yet, the source URL will be returned.
         <tr>
             <td valign="top">
                 <code>
-                    duration.milliseconds
+                    episode.duration.milliseconds
                 </code>
             </td>
             <td>
@@ -1863,7 +1863,7 @@ not ready yet, the source URL will be returned.
         <tr>
             <td valign="top">
                 <code>
-                    duration.totalMilliseconds
+                    episode.duration.totalMilliseconds
                 </code>
             </td>
             <td>
