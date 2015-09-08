@@ -1,0 +1,34 @@
+---
+layout: page
+title: "Join the Beta"
+---
+
+If you want to help improve the quality of our releases, you can join our beta program. We will provide pre-release versions of the Publisher before official releases. You can download them, test them and report any issues you encounter.
+
+## How to Participate
+
+To get beta releases, you need our [Podlove Beta Tester Plugin](https://github.com/podlove/podlove-beta-tester). It is _not_ available through WordPress. You need to download it directly.
+
+<a href="https://github.com/podlove/podlove-beta-tester/archive/master.zip" class="btn btn-primary">Download Beta Tester</a>
+
+In WordPress, go to `Plugins > Add New` and choose "Upload Plugin". Then select the zip file you just downloaded.
+
+Once the plugin is activated, there is a new menu entry "Podlove Beta Tester" under the "Settings" menu. Navigate there to manage Beta Releases.
+
+## Report Issues & Discuss Changes
+
+If you encounter any bugs or want to discuss changes, please join our community at [community.podlove.org](https://community.podlove.org/c/podlove-publisher).
+
+## Questions & Answers
+
+### Is it safe?
+
+No. We recommend to only use betas in test environments, **not** on your actual podcast site. If a beta breaks your system, you're on your own.
+
+### Can I switch back from a beta to the last stable release?
+
+Yes, with caveats. When you activate a beta, the stable plugin is backed up. Then when you disable the beta, the old plugin files are restored and you're back in stable land. _However_, in rare cases the beta _might_ have introduced backwards-incompatible data migrations. We will warn you within the beta plugin, though.
+
+### How does it work? Where do the beta files come from?
+
+The beta plugin changes the source for plugin-updates inside WordPress. So instead of asking the WordPress plugin repository for updates, it will ask a server maintained by us. You will still get updates through the usual WordPress update interface.
