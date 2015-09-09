@@ -15,6 +15,7 @@ codeurl: 'http://github.com/podlove/podlove-publisher'
 sections: [
     ['documenation', 'Documentation'],
     ['guides'      , 'Guides'],
+    ['modules'     , 'Modules'],
     ['reference'   , 'Reference'],
     ['developer'   , 'Developers'],
     ['post'        , 'Posts']
