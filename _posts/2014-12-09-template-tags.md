@@ -1137,12 +1137,12 @@ Access a specific list by id.
         <tr>
             <td valign="top">
                 <code>
-                    list.description
+                    list.summary
                 </code>
             </td>
             <td>
                 <strong>
-                    List description
+                    List summary
                 </strong>
                 
                 
