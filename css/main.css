@@ -250,3 +250,17 @@ h5 .jekyll-toc-wrapper { vertical-align: middle; }
   -ms-user-select: none;
   user-select: none;
 }
+
+/* front page logos */
+.font-logo {
+  margin: 20px auto;
+}
+.font-logo img {
+  margin: 0px auto;
+}
+.font-logo .font-logo-logo {
+  margin-bottom: 10px;
+}
+.font-logo .font-logo-font {
+  height: 54px;
+}
