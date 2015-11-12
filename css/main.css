@@ -249,3 +249,60 @@ h5 .jekyll-toc-wrapper { vertical-align: middle; }
   -ms-user-select: none;
   user-select: none;
 }
+
+figcaption {
+  font-size: 1.2em;
+}
+
+.right {
+  float: right;
+}
+
+/* Web Player Docs */
+.fullwidth-img {
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+}
+
+.shadow {
+  box-shadow: 0em 0em .7em gray;
+}
+
+.mb {
+  margin-bottom: 15px;
+}
+
+.mb45 {
+  margin-bottom: 45px;
+}
+
+.profile-table {
+  display: table;
+  width: 100%;
+}
+
+.profile-table dl {
+  display: table-row;
+}
+
+.profile-table dt,
+.profile-table dd {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.profile-table dd {
+  padding-top: 0 !important;
+}
+
+.profile-table .icon {
+  font-size: 40px;
+}
+
+.o-list {
+  padding-left: 22px;
+}
+.o-list li {
+  margin: 10px 0 30px 0;
+}
