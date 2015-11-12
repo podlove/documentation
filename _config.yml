@@ -1,6 +1,6 @@
 # Site title and subtitle. This is used in _includes/header.html
-title: 'Podlove Publisher for WordPress'
-subtitle: 'Podcast Publishing with Sparkles'
+title: 'Podlove'
+subtitle: 'Podlove Personal Media Development'
 
 # Enable/show navigation. There are there options:
 #   0 - always hide
@@ -9,7 +9,7 @@ subtitle: 'Podcast Publishing with Sparkles'
 navigation: 2
 
 # URL to source code, used in _includes/footer.html
-codeurl: 'http://github.com/podlove/podlove-publisher'
+codeurl: 'http://github.com/podlove'
 
 # projects: 
 #     podlove-publisher:
