@@ -3,3 +3,6 @@
 _site
 _pages
 .bundle
+.idea/
+dist/
+bower_components/
