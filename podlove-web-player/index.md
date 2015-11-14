@@ -25,3 +25,4 @@ script: "/js/injected.js"
         <a class="btn btn-primary btn-lg" href="http://sourcerer.org/blog" title="Go to Web Player Wordpress Demo">Wordpress Example</a>
     </p>
 </div>
+<script src="/js/injected.js" type="text/javascript" charset="utf-8"></script>

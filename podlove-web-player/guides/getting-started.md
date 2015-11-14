@@ -120,3 +120,4 @@ $('audio').podlovewebplayer({
   <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.ogg" type="audio/ogg; codecs=vorbis"/>
   <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.opus" type="audio/ogg; codecs=opus"/>
 </audio>
+<script src="/js/getting-started.js" type="text/javascript" charset="utf-8"></script>
