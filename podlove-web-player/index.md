@@ -13,10 +13,10 @@ script: "/js/injected.js"
     </p>
     <p>
         <audio id="inject">
-            <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.mp4" type="audio/mp4"/>
-            <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.mp3" type="audio/mpeg"/>
-            <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.ogg" type="audio/ogg; codecs=vorbis"/>
-            <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.opus" type="audio/ogg; codecs=opus"/>
+            <source src="{{site.playerPath}}/examples/which-format/podlove-test-track.mp4" type="audio/mp4"/>
+            <source src="{{site.playerPath}}/examples/which-format/podlove-test-track.mp3" type="audio/mpeg"/>
+            <source src="{{site.playerPath}}/examples/which-format/podlove-test-track.ogg" type="audio/ogg; codecs=vorbis"/>
+            <source src="{{site.playerPath}}/examples/which-format/podlove-test-track.opus" type="audio/ogg; codecs=opus"/>
         </audio>
     </p>
     <p>
