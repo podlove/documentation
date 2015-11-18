@@ -11,7 +11,7 @@ navigation: 2
 # URL to source code, used in _includes/footer.html
 codeurl: 'http://github.com/podlove'
 
-# projects: 
+# projects:
 #     podlove-publisher:
 #         title: 'Podlove Publisher'
 #     podlove-web-player:
@@ -51,3 +51,5 @@ redcarpet:
 
 gems:
   - jekyll-redirect-from
+
+playerPath: '/bower_components/podlove-web-player/dist'
