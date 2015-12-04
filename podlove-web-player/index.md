@@ -21,8 +21,8 @@ script: "/js/injected.js"
     </p>
     <p>
         <a class="btn btn-primary btn-lg" href="/podlove-web-player/guides/getting-started.html" title="Learn how to get started">Get Started</a>
-        <a class="btn btn-primary btn-lg" href="https://github.com/podlove/podlove-web-player" title="Go to Web Player Github Site">Github</a>
-        <a class="btn btn-primary btn-lg" href="http://sourcerer.org/blog" title="Go to Web Player Wordpress Demo">Wordpress Example</a>
+        <a class="btn btn-primary btn-lg" href="https://github.com/podlove/podlove-web-player" title="Go to Web Player Github Site">GitHub</a>
+        <a class="btn btn-primary btn-lg" href="http://sourcerer.org/blog" title="Go to Web Player Wordpress Demo">WordPress Example</a>
         <a class="btn btn-primary btn-lg" href="http://sandkastenlie.be/playground.html" title="Interactive Playground">Playground</a>
     </p>
 </div>
