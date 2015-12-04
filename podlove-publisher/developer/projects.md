@@ -1,11 +1,10 @@
 ---
 layout: page
 title: "Projects"
-category: developer
-date: 2014-12-09 15:58:41
 redirect_from:
   - /developers/
   - /dev/projects.html
+  - /developer/projects/
 ---
 
 If you aim to contribute in any way or just use stuff we made in your own projects — here's a good page to start.

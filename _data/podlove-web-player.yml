@@ -1,0 +1,23 @@
+- title: Guides
+  dir: /podlove-web-player/guides/
+  pages:
+    - title: Getting Started
+      slug: getting-started
+    - title: Minimal Player
+      slug: minimal-player
+    - title: Chapter Marks
+      slug: chapter-marks
+    - title: Social Profiles
+      slug: social-profiles
+    - title: Web Player Themes
+      slug: themes
+    - title: Previews of themes
+      slug: previews-of-themes
+
+- title: Appendix
+  dir: /podlove-web-player/appendix/
+  pages:
+    - title: Commented JSON Configuration
+      slug: json-config
+    - title: Commented Injected Configuration
+      slug: injected-config

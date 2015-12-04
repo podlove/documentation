@@ -1,6 +1,6 @@
 # Site title and subtitle. This is used in _includes/header.html
-title: 'Podlove Publisher for WordPress'
-subtitle: 'Podcast Publishing with Sparkles'
+title: 'Podlove'
+subtitle: 'Podlove Personal Media Development'
 
 # Enable/show navigation. There are there options:
 #   0 - always hide
@@ -9,17 +9,7 @@ subtitle: 'Podcast Publishing with Sparkles'
 navigation: 2
 
 # URL to source code, used in _includes/footer.html
-codeurl: 'http://github.com/podlove/podlove-publisher'
-
-# Default categories (in order) to appear in the navigation
-sections: [
-    ['documenation', 'Documentation'],
-    ['guides'      , 'Guides'],
-    ['modules'     , 'Modules'],
-    ['reference'   , 'Reference'],
-    ['developer'   , 'Developers'],
-    ['post'        , 'Posts']
-]
+codeurl: 'http://github.com/podlove'
 
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
@@ -53,3 +43,5 @@ redcarpet:
 
 gems:
   - jekyll-redirect-from
+
+playerPath: '/bower_components/podlove-web-player/dist'

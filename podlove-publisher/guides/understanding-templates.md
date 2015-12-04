@@ -1,10 +1,9 @@
 ---
 layout: page
 title: "Understanding Templates"
-category: guides
-date: 2014-11-09 15:44:18
 redirect_from:
   - /tut/understanding-templates.html
+  - /guides/understanding-templates/
 ---
 
 Templates are user-defined, dynamic, reusable snippets of HTML. The publisher provides an API to [every piece of data][3] related to your podcast. Using templates, you can display every detail in every layout you like.

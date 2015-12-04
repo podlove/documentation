@@ -1,0 +1,5 @@
+- title: Guides
+  dir: /podlove-subscribe-button/guides/
+  pages:
+    - title: Getting Started
+      slug: getting-started

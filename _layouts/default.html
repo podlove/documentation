@@ -10,10 +10,13 @@
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
         <script src="/js/toc.js" type="text/javascript" charset="utf-8"></script>
 
         <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
         <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/bower_components/podlove-font/css/podlove-font.css" media="screen" type="text/css">
+
     </head>
     <body>
 
@@ -25,20 +28,24 @@
             </div>
 
             <div class="row">
-                {% assign post_count = site.posts|size %}
-                {% if site.navigation != 0 and site.navigation == 1 or post_count > 0 %}
+
+                {% if current_project != 'index.html' %}
+
                     <div id="navigation" class="col-md-3">
                         {% include navigation.html %}
                     </div>
-
                     <div id="content" class="col-md-8">
                         {{ content }}
                     </div>
+
                 {% else %}
+
                     <div id="content" class="col-md-12">
                         {{ content }}
                     </div>
+
                 {% endif %}
+
             </div>
 
             <div class="row">
@@ -66,6 +73,8 @@ jQuery(document).ready(function() {
   jQuery('.jekyll-toc-header a.jekyll-toc-back-to-top span.jekyll-toc-icon').addClass('icon icon-chevron-up');
 });
 </script>
+
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
 
     </body>
 </html>

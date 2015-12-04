@@ -1,11 +1,10 @@
 ---
 layout: page
 title: "Shortcodes"
-category: reference
-date: 2014-12-08 16:30:13
 redirect_from:
   - /publisher/shortcodes/
   - /ref/shortcodes.html
+  - /reference/shortcodes/
 ---
 
 #### Web Player
