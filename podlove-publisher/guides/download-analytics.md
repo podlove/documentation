@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "Download Analytics"
+redirect_from:
+  - /guides/download-analytics/
 ---
 
 The Podlove Publisher tracks download intents made by clients. It is only tracked that a download was _started_ but not if it was completed. For brevity, this document will speak of “downloads”. Just be aware that what is tracked are actually only download _intents_. So when you are looking at your data, be aware that the numbers displayed do not represent the actual number of listening users.

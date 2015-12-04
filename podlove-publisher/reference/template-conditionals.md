@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "Template Conditionals"
+redirect_from:
+  - /reference/template-conditionals/
 ---
 
 The following WordPress [Conditional Tags](http://codex.wordpress.org/Conditional_Tags) can be used as Twig functions:

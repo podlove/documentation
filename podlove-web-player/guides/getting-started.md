@@ -8,116 +8,116 @@ script: "/js/getting-started.js"
 
 ### Get the Latest Player Release
 
-Having <a href="http://bower.io/" title="Visit bower.io">bower</a> installed on your system, simply run {% highlight html %}bower install podlove-web-player{% endhighlight %}
+Having [bower](http://bower.io/) installed on your system, run
+{% highlight sh %}
+bower install podlove-web-player#3
+{% endhighlight %}
 to get the player package.
+
+You will find a lot of examples in `{{site.playerPath}}examples`.
+Some of them are explained here in greater detail.
+
+## Integrate the web player into a website
 
 ### Example directory structure
 
 {% highlight sh %}
 
-├── index.html
-├── audio /
-│   └── episode-1.m4a
-│
-├── episode1.html
-│
-└── images /
-    ├── episode-cover.png
-    └── show-cover.png
+├── page.html
+├── player.html
+├── audio.m4a
+└── coverimage.png
 
 {% endhighlight %}
 
-## Integrate the web player into a website
+As you can see there are 2 HTML pages. The **page.html** contains your content
+and placeholders that the **podlove-web-moderator** will replace with iframes
+containing the **player.html**.
+You could include the player directly into your page but would miss out on
+later features like embedding your player on third party pages.
+As of now it is highly recommended to use this two page setup to circumvent
+certain problems like overriding CSS rules.
 
-### Create an <code>index.html</code> file
+### Create the <code>page.html</code> file
 
-<ol class="o-list">
-  <li>Add an element where the player should appear
+This file will be the host for the iframe of the embedded player (player.html).
+
+Add an element where the player should appear.
 {% highlight html %}
-<audio data-podlove-web-player-source="episode1.html">
-  <source src="episode1.m4a" type="audio/m4a">
+<audio data-podlove-web-player-source="player.html">
+  <source src="audio.m4a" type="audio/m4a">
 </audio>
 {% endhighlight %}
-    <i>The audio tag is the non-js fallback</i>
-  </li>
-  <li>
-    Add the moderator script in your html file and point the moderator to that element
+You can use any HTML element but *the audio tag also serves as the non-js fallback*.
+
+Add the moderator script to the head of your html file
 {% highlight html %}
 <script src="/bower_components/podlove-web-player/dist/js/moderator.min.js"></script>
+{% endhighlight %}
+
+Now, tell the moderator which elements to replace with embedded players.
+{% highlight html %}
 <script>$('audio').podlovewebplayer();</script>
 {% endhighlight %}
-  </li>
-  <li>
-    Choose a theme css-file and place it in the head of your document.<br>
-    Read further information about <a href="/guides/themes" title="Further information about 'Themes'">themes</a>.
+
+### Create the <code>player.html</code> file
+
+This file will show the player itself.
+
+Choose a theme css-file and place it in the head of your document.
+[Further information about 'Themes'](/guides/themes).
+
 {% highlight html %}
 <link href="/bower_components/podlove-web-player/dist/css/pwp-dark-green.css" rel="stylesheet" media="screen" type="text/css" />
 {% endhighlight %}
-  </li>
-  <li>
-    Replace <code>episode1.m4a</code> with your own media file(s) and tag it with a suitable MIME type.
+
+Create the audio element that will extended.
 {% highlight html %}
 <audio>
   <source src="episode1.m4a" type="audio/m4a">
 </audio>
 {% endhighlight %}
-  </li>
-  <li>
-    Add following scripts at the bottom of your document:
+
+Add following scripts at the bottom of your document:
 {% highlight html %}
-<script src="/bower_components/podlove-web-player/dist/js/vendor/html5shiv.js"></script>
 <script src="/bower_components/podlove-web-player/dist/js/vendor/jquery.min.js"></script>
-<script src="/bower_components/podlove-web-player/dist/js/vendor/progress-polyfill.min.js"></script>
 <script src="/bower_components/podlove-web-player/dist/js/podlove-web-player.js"></script>
 {% endhighlight %}
-  </li>
-  <li>
-    Add metadata
 
+Call the player script with the configuration object as its only parameter:
 {% highlight js %}
 $('audio').podlovewebplayer({
+  poster: 'coverimage.png',
+  title: 'My Very First Episode',
+  subtitle: 'This is the episode\'s subtitle one-liner',
   show: {
     title: 'My Very First Podcast',
     subtitle: 'Short one-liner',
-    summary: 'Paragraphs of text about your show and its topic. *yada yada*', poster: '/images/show-cover.png',
+    summary: 'Paragraphs of text about your show and its topic. *yada yada*'
   },
-  downloads: [
-    {
-      assetTitle: 'MPEG-4 AAC Audio (m4a)',
-      size: 156237824,
-      url: 'episode1.m4a'
-    }
-  ],
   chapters: [
     {
       start: '00:00:00.000',
       title: 'First chapter'
     },
     {
-      start: '01:23:45.678',
+      start: '00:00:01.234',
       title: 'Last chapter'
     }
   ],
-  poster: '/images/episode-cover.png',
-  permalink: '/examples/episode1/index.html',
-  title: 'My Very First Episode',
-  subtitle: 'This is the episode\'s subtitle one-liner',
+  downloads: [
+    {
+      assetTitle: 'My Very First Episode (mp4)',
+      size: 12345,
+      url: 'audio.m4a'
+    }
+  ]
 });
 {% endhighlight %}
-  </li>
-</ol>
 
 ### Result
 
-<ul>
-  <li><a href="/player.html" title="View example player.html in fullscreen">Example player.html</li>
-  <li><a href="/" title="View example player.html in fullscreen">View page source</li>
-</ul>
+You can view the result for both the page and the player itself below.
 
-<audio data-podlove-web-player-source="/podlove-web-player/player.html">
-  <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.mp4" type="audio/mp4"/>
-  <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.mp3" type="audio/mpeg"/>
-  <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.ogg" type="audio/ogg; codecs=vorbis"/>
-  <source src="/bower_components/podlove-web-player/dist/examples/which-format/podlove-test-track.opus" type="audio/ogg; codecs=opus"/>
-</audio>
-<script src="/js/getting-started.js" type="text/javascript" charset="utf-8"></script>
+* [page.html](../page.html) [(view source)](view-source:../page.html)
+* [player.html](../player.html) [(view source)](view-source:../player.html)

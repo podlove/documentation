@@ -4,6 +4,7 @@ title: "Projects"
 redirect_from:
   - /developers/
   - /dev/projects.html
+  - /developer/projects/
 ---
 
 If you aim to contribute in any way or just use stuff we made in your own projects — here's a good page to start.

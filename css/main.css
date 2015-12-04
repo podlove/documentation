@@ -250,6 +250,7 @@ h5 .jekyll-toc-wrapper { vertical-align: middle; }
   user-select: none;
 }
 
+<<<<<<< HEAD
 figcaption {
   font-size: 1.2em;
 }
@@ -305,4 +306,18 @@ figcaption {
 }
 .o-list li {
   margin: 10px 0 30px 0;
+}
+
+/* front page logos */
+.font-logo {
+  margin: 20px auto;
+}
+.font-logo img {
+  margin: 0px auto;
+}
+.font-logo .font-logo-logo {
+  margin-bottom: 10px;
+}
+.font-logo .font-logo-font {
+  height: 54px;
 }

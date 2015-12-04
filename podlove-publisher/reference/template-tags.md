@@ -4,6 +4,7 @@ title: "Template Tags"
 redirect_from:
   - /publisher/template-reference/
   - /ref/template-tags.html
+  - /reference/template-tags/
 
 # WARNING
 # Do not edit this page!
@@ -389,6 +390,21 @@ Iterating over a grouped list of contributors
   - 'name' - Order by public name.
 {% endcapture %}
 {{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    podcast.seasons
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List of podcast seasons
+                </strong>
+                
                 
             </td>
         </tr>
@@ -992,6 +1008,36 @@ Iterating over a grouped list of contributors
             </td>
         </tr>
     
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.season
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Get season for an episode
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.relatedEpisodes
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List of Related Episodes
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
 </table> 
 
 <a id="podlove-class-network"></a>
@@ -1090,12 +1136,12 @@ Access a specific list by id.
         <tr>
             <td valign="top">
                 <code>
-                    list.description
+                    list.summary
                 </code>
             </td>
             <td>
                 <strong>
-                    List description
+                    List summary
                 </strong>
                 
                 
@@ -2074,6 +2120,23 @@ it defaults to the real name.
         <tr>
             <td valign="top">
                 <code>
+                    contributor.gender
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Gender
+                </strong>
+                {% capture tmp %}Either 'female', 'male', 'none' or null (not configured).
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     contributor.role
                 </code>
             </td>
@@ -2320,6 +2383,186 @@ Example:
     
 </table> 
 
+<a id="podlove-class-season"></a>
+
+#### Season
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.title
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Title
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.subtitle
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Subtitle
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.summary
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Summary
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.number
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Automatically assigned season number, starting at 1.
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.image
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Image
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.startDate
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Start Date
+                </strong>
+                {% capture tmp %}This is the configured start date, not the date of the first episode of the season.
+If you were looking for that, use`{% raw %}season.firstEpisode.publicationDate{% endraw %}`.
+{% endcapture %}
+{{ tmp | markdownify }}
+                <p>
+                        see <a href="#podlove-class-datetime">{% capture tmp %}datetime{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.firstEpisode
+                </code>
+            </td>
+            <td>
+                <strong>
+                    First episode of the season.
+                </strong>
+                
+                <p>
+                        see <a href="#podlove-class-episode">{% capture tmp %}episode{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.lastEpisode
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Last episode of the season.
+                </strong>
+                
+                <p>
+                        see <a href="#podlove-class-episode">{% capture tmp %}episode{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.running
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Is this season currently running?
+                </strong>
+                {% capture tmp %}```jinja
+{% raw %}
+{% if season.running %}
+    This season is currently running.
+{% endif %}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    season.episodes
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Season Episodes
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+</table> 
+
 <a id="podlove-class-service"></a>
 
 #### Service
@@ -2502,7 +2745,9 @@ But in case you need the raw user value, use this method.
 
 #### Flattr
 
-
+{% capture tmp %}Requires "Flattr" module.
+{% endcapture %}
+{{ tmp | markdownify }}
 
 <table>
     

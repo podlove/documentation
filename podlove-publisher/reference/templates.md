@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "Templates"
+redirect_from:
+  - /reference/templates/
 ---
 
 The Publisher comes with existing templates. You can include these in your own templates or use them as inspiration. Embed them by using the Twig `include` keyword, for example: `{% raw %}{% include '@core/shortcode/downloads-select.twig' %}{% endraw %}`
