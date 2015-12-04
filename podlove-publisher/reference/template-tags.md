@@ -4,6 +4,7 @@ title: "Template Tags"
 redirect_from:
   - /publisher/template-reference/
   - /ref/template-tags.html
+  - /reference/template-tags/
 
 # WARNING
 # Do not edit this page!

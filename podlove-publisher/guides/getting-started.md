@@ -4,6 +4,7 @@ title: "Getting Started"
 redirect_from:
   - /publisher/shortcodes/
   - /tut/getting-started.html
+  - /guides/getting-started/
 ---
 
 The WordPress Podlove Podcast Publisher is a workflow-oriented solution for serious podcasters that want to save time and get full control over their Podcast publishing process, their feeds and the integrity of their publication.

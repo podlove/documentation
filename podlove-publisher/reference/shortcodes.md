@@ -4,6 +4,7 @@ title: "Shortcodes"
 redirect_from:
   - /publisher/shortcodes/
   - /ref/shortcodes.html
+  - /reference/shortcodes/
 ---
 
 #### Web Player

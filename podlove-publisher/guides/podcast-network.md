@@ -3,6 +3,7 @@ layout: page
 title: "Podcast Network"
 redirect_from:
   - /tutorial/podcast-network/
+  - /guides/podcast-network/
 ---
 
 There comes a time in the life of every podcaster when she has to admit that one podcast is not enough. A separate channel would be nice, right? There are basically two ways to achieve podcast networks using Podlove Publisher, both have their advantages.

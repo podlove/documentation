@@ -4,6 +4,7 @@ title: "Modules"
 redirect_from:
   - /developers/publisher-modules/
   - /dev/modules.html
+  - /developer/modules/
 ---
 
 Modules can be compared to WordPress plugins. We use modules to keep the code base clean and decoupled. Furthermore, this system allows for easy activation/deactivation of modules without the risk to break stuff.

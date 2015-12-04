@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "Join the Beta"
+redirect_from:
+  - /guides/beta/
 ---
 
 If you want to help improve the quality of our releases, you can join our beta program. We will provide pre-release versions of the Publisher before official releases. You can download them, test them and report any issues you encounter.

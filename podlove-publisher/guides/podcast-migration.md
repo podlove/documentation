@@ -4,6 +4,7 @@ title: "Podcast Migration"
 redirect_from:
   - /guides/migration/
   - /tut/podcast-migration.html
+  - /guides/podcast-migration/
 ---
 
 This page is for you if you are currently using WordPress to publish a podcast — and looking for a way to move all your data into the Podlove Publisher. There is a module to help you as much as possible.
