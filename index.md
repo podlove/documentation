@@ -33,7 +33,8 @@ layout: default
 	</div>
 	
 	<div class="col-md-4">
-		<a href="{{ site.url }}/podlove-subscribe-button/">
+		<!-- <a href="{{ site.url }}/podlove-subscribe-button/"> -->
+		<a href="https://github.com/podlove/podlove-subscribe-button/blob/develop/README.md">
 			<div class="font-logo">
 				<img src="{{ site.url }}/assets/logo/podlove-subscribe-icon.svg" class="img-responsive font-logo-logo" alt="Podlove Subscribe Button Logo">
 				<img src="{{ site.url }}/assets/logo/podlove-subscribe-font.svg" class="img-responsive font-logo-font" alt="Podlove Subscribe Button Logo">
