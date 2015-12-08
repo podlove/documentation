@@ -21,3 +21,9 @@
       slug: json-config
     - title: Commented Injected Configuration
       slug: injected-config
+
+- title: Previous Versions
+  dir: /podlove-web-player/versions/
+  pages:
+    - title: v2.0 Documentation
+      slug: v2
