@@ -6,10 +6,10 @@ script: "/js/injected.js"
 <div class="jumbotron">
     <h1>Podlove Web Player 3.0</h1>
     <h2>
-       The new media player for podcasts and videos.
+       The metadata-rich media player for podcasts and videos.
     </h2>
     <p>
-        Standalone or embeddable as Worpress Plugin.
+        Standalone or embeddable as WordPress Plugin.
     </p>
     <p>
         <audio id="inject">
