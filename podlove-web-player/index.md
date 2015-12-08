@@ -26,3 +26,4 @@ script: "/js/injected.js"
         <a class="btn btn-primary btn-block" href="http://sandkastenlie.be/playground.html" title="Interactive Playground">Playground</a>
     </p>
 </div>
+<script src="/js/injected.js" type="text/javascript" charset="utf-8"></script>
