@@ -20,9 +20,9 @@ script: "/js/injected.js"
         </audio>
     </p>
     <p>
-        <a class="btn btn-primary btn-lg" href="/podlove-web-player/guides/getting-started.html" title="Learn how to get started">Get Started</a>
-        <a class="btn btn-primary btn-lg" href="https://github.com/podlove/podlove-web-player" title="Go to Web Player Github Site">GitHub</a>
-        <a class="btn btn-primary btn-lg" href="http://sourcerer.org/blog" title="Go to Web Player Wordpress Demo">WordPress Example</a>
-        <a class="btn btn-primary btn-lg" href="http://sandkastenlie.be/playground.html" title="Interactive Playground">Playground</a>
+        <a class="btn btn-primary btn-block" href="/podlove-web-player/guides/getting-started.html" title="Learn how to get started">Get Started</a>
+        <a class="btn btn-primary btn-block" href="https://github.com/podlove/podlove-web-player" title="Go to Web Player Github Site">GitHub</a>
+        <a class="btn btn-primary btn-block" href="http://sourcerer.org/blog" title="Go to Web Player Wordpress Demo">WordPress Example</a>
+        <a class="btn btn-primary btn-block" href="http://sandkastenlie.be/playground.html" title="Interactive Playground">Playground</a>
     </p>
 </div>
