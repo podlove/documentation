@@ -4,7 +4,7 @@ title: Previews of Themes
 ---
 
 
-### Pick your favorite Theme
+### Pick Your Favorite Theme
 
 <section class="mb45">
 <h4>Theme Silver Blaze</h4>
