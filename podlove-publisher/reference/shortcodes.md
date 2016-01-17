@@ -58,7 +58,7 @@ If used on a non-episode page, it lists all existing contributors with at least 
 - **roles:** One of "yes", "no". Display role. Default: "no"
 - **group:** Filter lists by group. Default: "all"
 - **groups:** One of "yes", "no". Display group. Default: "no" 
-- **donations** One of "yes", "no". Display donation column. Default: "no"
+- **donations** One of "yes", "no". Display donation column. Default: "yes"
 - **flattr:** "yes" or "no". Display Flattr column. Default: "no"
 
 ##### Examples
