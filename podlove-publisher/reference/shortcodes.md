@@ -47,8 +47,6 @@ Use these in an episode:
 
 - `[podlove-episode-contributor-list]` lists all contributors of the current episode.
 
-If used on a non-episode page, it lists all existing contributors with at least one contribution to an episode. Requires "Contributors" module.
-
 ##### Parameters
 
 - **preset:** "table", "list" or "comma separated". Default: "table"
