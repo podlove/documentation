@@ -345,7 +345,7 @@ Fetch one episode by slug.
 
 Iterating over a list of contributors
 
-```jinja
+```handlebars
 {% raw %}
 {% for contributor in podcast.contributors({scope: "podcast"}) %}
     {{ contributor.name }}
@@ -356,7 +356,7 @@ Iterating over a list of contributors
 
 Iterating over a grouped list of contributors
 
-```jinja
+```handlebars
 {% raw %}
 {% for contributorGroup in podcast.contributors({scope: "podcast", groupby: "group"}) %}
     <strong>{{ contributorGroup.group.title }}:</strong> 
@@ -453,13 +453,13 @@ Example:
                 </strong>
                 {% capture tmp %}**Examples**
 
-```jinja
+```handlebars
 {% raw %}
 {{ podcast.subscribeButton }}
 {% endraw %}
 ```
 
-```jinja
+```handlebars
 {% raw %}
 {{ podcast.subscribeButton({size: 'small', width: '', colors: 'black;;;#ffffff'}) }}
 {% endraw %}
@@ -610,7 +610,7 @@ Example color configurations:
                 </strong>
                 {% capture tmp %}The player should not appear in feeds, so embed it like this:
 
-```jinja
+```handlebars
 {% raw %}
 {% if not is_feed() %}
   {{ episode.player }}
@@ -620,7 +620,7 @@ Example color configurations:
 
 You can set a custom context for tracking:
 
-```jinja
+```handlebars
 {% raw %}
 {{ episode.player({context: 'landing-page'}) }}
 {% endraw %}
@@ -738,7 +738,7 @@ Alternatively, use the duration accessors for custom rendering.
 
 Example:
 
-```jinja
+```handlebars
 {% raw %}
 {{ episode.image({fallback: true}).url }}
 {% endraw %}
@@ -964,7 +964,7 @@ for the episode license only.
 
 Iterating over a list of contributors
 
-```jinja
+```handlebars
 {% raw %}
 {% for contributor in episode.contributors %}
     {{ contributor.name }}
@@ -975,7 +975,7 @@ Iterating over a list of contributors
 
 Iterating over a grouped list of contributors
 
-```jinja
+```handlebars
 {% raw %}
 {% for contributorGroup in episode.contributors({groupby: "group"}) %}
     <strong>{{ contributorGroup.group.title }}:</strong> 
@@ -1067,7 +1067,7 @@ Use the`{% raw %}slug{% endraw %}` parameter to access a specific list.
 
 Iterate over all lists.
 
-```jinja
+```handlebars
 {% raw %}
 {% for list in network.lists %}
     {{ list.title }}
@@ -1077,7 +1077,7 @@ Iterate over all lists.
 
 Access a specific list by id.
 
-```jinja
+```handlebars
 {% raw %}
 {{ network.lists({id: "example"}).title }}
 {% endraw %}
@@ -1572,7 +1572,7 @@ Otherwise, it's identical to`{% raw %}.url{% endraw %}`.
 
 **Examples**
 
-```jinja
+```handlebars
 {% raw %}
 {{ image.url }}               {# returns the unresized image URL #}
 {{ image.url({width: 100}) }} {# returns resized image URL #}
@@ -1610,7 +1610,7 @@ not ready yet, the source URL will be returned.
 
 **Examples**
 
-```jinja
+```handlebars
 {% raw %}
 {{ image.html }}                       {# returns the unresized image tag #}
 {{ image.html({width: 100}) }}         {# returns resized image tag #}
@@ -2533,7 +2533,7 @@ If you were looking for that, use`{% raw %}season.firstEpisode.publicationDate{%
                 <strong>
                     Is this season currently running?
                 </strong>
-                {% capture tmp %}```jinja
+                {% capture tmp %}```handlebars
 {% raw %}
 {% if season.running %}
     This season is currently running.
@@ -2771,7 +2771,7 @@ But in case you need the raw user value, use this method.
 
 Simple button with defaults
 
-```jinja
+```handlebars
 {% raw %}
 {{ flattr.button }}
 {% endraw %}
@@ -2779,7 +2779,7 @@ Simple button with defaults
 
 Large button
 
-```jinja
+```handlebars
 {% raw %}
 {{ flattr.button({ style: 'large' }) }}
 {% endraw %}
@@ -2787,7 +2787,7 @@ Large button
 
 Button for the Podlove Publisher plugin
 
-```jinja
+```handlebars
 {% raw %}
 {{ flattr.button({ user: 'ericteubert', url: 'http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/' }) }}
 {% endraw %}

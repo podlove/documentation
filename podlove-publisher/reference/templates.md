@@ -13,7 +13,7 @@ These templates come with the Podlove Publisher and are always available.
 
 ### Downloads (Select)
 
-```jinja
+```handlebars
 {% raw %}
 {# @core/shortcode/downloads-select.twig #}
 
@@ -42,7 +42,7 @@ These templates come with the Podlove Publisher and are always available.
 
 ### Downloads (Buttons)
 
-```jinja
+```handlebars
 {% raw %}
 {# @core/shortcode/downloads-buttons.twig #}
 
@@ -61,7 +61,7 @@ These templates come with the Podlove Publisher and are always available.
 
 ### List of Feeds
 
-```jinja
+```handlebars
 {% raw %}
 {# @core/shortcode/feed-list.twig #}
 
@@ -94,7 +94,7 @@ These templates come with the Podlove Publisher and are always available.
 
 ### List of Episodes
 
-```jinja
+```handlebars
 {% raw %}
 {# @core/shortcode/episode-list.twig #}
 
@@ -147,7 +147,7 @@ These templates come with the Podlove Publisher and are always available.
 
 ### License
 
-```jinja
+```handlebars
 {% raw %}
 {# @core/license.twig #}
 
@@ -193,7 +193,7 @@ These templates come with the "Contributors" module.
 
 ### List of Podcast Contributors
 
-```jinja
+```handlebars
 {% raw %}
 {# @contributors/podcast-contributor-list.twig #}
 
@@ -318,7 +318,7 @@ These templates come with the "Contributors" module.
 
 ### Table of Podcast Contributors
 
-```jinja
+```handlebars
 {% raw %}
 {# @contributors/podcast-contributor-table.twig #}
 
@@ -342,7 +342,7 @@ These templates come with the "Contributors" module.
 
 ### Episode Contributors (comma separated)
 
-```jinja
+```handlebars
 {% raw %}
 {# @contributors/contributor-comma-separated.twig #}
 
@@ -362,7 +362,7 @@ These templates come with the "Contributors" module.
 
 ### Episode Contributors (as list)
 
-```jinja
+```handlebars
 {% raw %}
 {# @contributors/contributor-list.twig #}
 
@@ -385,7 +385,7 @@ These templates come with the "Contributors" module.
 
 ### Episode Contributors (as table)
 
-```jinja
+```handlebars
 {% raw %}
 {# @contributors/contributor-table.twig #}
 
@@ -446,7 +446,7 @@ These templates come with the "Social &amp; Donations" module.
 
 ### List of Podcast Donations
 
-```jinja
+```handlebars
 {% raw %}
 {# @social/podcast-donations-list.twig #}
 
@@ -475,7 +475,7 @@ These templates come with the "Social &amp; Donations" module.
 
 ### List of Podcast Social Media Services
 
-```jinja
+```handlebars
 {% raw %}
 {# @social/podcast-social-media-list.twig #}
 

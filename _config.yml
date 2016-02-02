@@ -19,7 +19,7 @@ baseurl: ''
 permalink: /:categories/:title
 
 # Syntax highlighting
-highlighter: 'pygments'
+highlighter: rouge
 
 # Since these are pages, it doesn't really matter
 future: true
@@ -28,18 +28,15 @@ future: true
 exclude: ['bin', 'README.md']
 
 # Use the redcarpet Markdown renderer
-markdown: redcarpet
-redcarpet:
-    extensions: [
-        'no_intra_emphasis',
-        'fenced_code_blocks',
-        'autolink',
-        'strikethrough',
-        'superscript',
-        'with_toc_data',
-        'tables',
-        'hardwrap'
-    ]
+markdown: kramdown
+
+kramdown:
+  input: GFM # github flavoured markdown
+  auto_ids:       true
+  # footnote_nr:    1
+  entity_output:  as_char
+  # toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
 
 gems:
   - jekyll-redirect-from

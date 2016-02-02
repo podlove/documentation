@@ -10,7 +10,7 @@ Templates are user-defined, dynamic, reusable snippets of HTML. The publisher pr
 
 [Twig][1] is used to make templates dynamic. Printing a variable in Twig looks like this:
 
-```jinja
+```handlebars
 {% raw %}
 <strong>{{ podcast.title }}</strong>
 {% endraw %}
@@ -18,15 +18,15 @@ Templates are user-defined, dynamic, reusable snippets of HTML. The publisher pr
 
 You can iterate over a list of items:
 
-```jinja
+```handlebars
 {% raw %}
 <ul>
 {% for episode in podcast.episodes %}
-	<li>
-		<a href="{{ episode.url }}">
-			{{ episode.title }}
-		</a> — {{ episode.subtitle }}
-	</li>
+  <li>
+    <a href="{{ episode.url }}">
+      {{ episode.title }}
+    </a> — {{ episode.subtitle }}
+  </li>
 {% endfor %}
 </ul>
 {% endraw %}
@@ -54,7 +54,7 @@ Templates which are used in episodes are special. In episodes, an additional var
 
 For example, you could build your own download list:
 
-```jinja
+```handlebars
 {% raw %}
 <ul>
 	{% for file in episode.files %}
@@ -74,7 +74,7 @@ To make template modular and reusable, you can pass options to the template shor
 
 To set option defaults. Here is an example:
 
-```jinja
+```handlebars
 {% raw %}
 {# call shortcode with, for example, size="small" parameter, or let it default to "big-logo" #}
 
@@ -95,7 +95,7 @@ An example:
 
 The template `file-link` contains the markup to render the link to a file.
 
-```jinja
+```handlebars
 {% raw %}
 <a href="{{ file.url }}">{{ file.asset.title }}</a>
 {% endraw %}
@@ -103,7 +103,7 @@ The template `file-link` contains the markup to render the link to a file.
 
 Now this template can be used in another template. All variables from the parent template are available in the child template.
 
-```jinja
+```handlebars
 {% raw %}
 <ul>
 	{% for file in episode.files %}
@@ -119,7 +119,7 @@ Now this template can be used in another template. All variables from the parent
 
 Twig allows you to create [macros][4] to put often used HTML idioms into reusable elements to not repeat yourself. To be able to use them in multiple templates, they are best saved in a separate template. You might call it "mymacros":
 
-```jinja
+```handlebars
 {% raw %}
 <!-- template "mymacros" -->
 {% macro input(name, value, type, size) %}
@@ -130,7 +130,7 @@ Twig allows you to create [macros][4] to put often used HTML idioms into reusabl
 
 To use them in another template, you need to import the macros before using them:
 
-```jinja
+```handlebars
 {% raw %}
 {% import "mymacros" as forms %}
 {{ forms.input('username') }}
@@ -145,7 +145,7 @@ You have access to the complete Podlove Publisher template system from PHP, whic
 
 The [template variables and API][3] is identical to the one provided by Twig. Just the syntax is different. 
 
-```jinja
+```handlebars
 {% raw %}
 <ul>
 {% for episode in podcast.episodes %}

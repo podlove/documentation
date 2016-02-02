@@ -6,7 +6,7 @@ title: "Commented JSON Configuration"
 Generally speaking, all of the data shown below is optional.
 
 {% highlight js %}
-{
+var config = {
     // -- All show related infos go here
     show: { // (optional) *
       title: 'My Very First Podcast', // (optional)
