@@ -73,11 +73,11 @@ var config = {
       }
     ],
     // display settings
-    width: 'auto' // (deprecated) defaults to auto / 100%
-    alwaysShowHours: true, // (optional) show hours in timecodes with 00
+    width: 'auto'              // (deprecated) defaults to auto / 100%
+    alwaysShowHours: true,     // (optional) show hours in timecodes with 00
     timecontrolsVisible: true, // (optional) hide/show time controls
-    summaryVisible: true, // (optional) hide/show info tab
+    summaryVisible: true,      // (optional) hide/show info tab
     sharebuttonsVisible: true, // (optional) hide/show share tab
-    chaptersVisible: true // (optional) hide/show chapter tab
+    activeTab: <tabname>       // (optional) define, which tab is visible on start
 });
 {% endhighlight %}
