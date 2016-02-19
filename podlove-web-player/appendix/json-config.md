@@ -78,6 +78,7 @@ var config = {
     timecontrolsVisible: true, // (optional) hide/show time controls
     summaryVisible: true,      // (optional) hide/show info tab
     sharebuttonsVisible: true, // (optional) hide/show share tab
-    activeTab: <tabname>       // (optional) define, which tab is visible on start
+    activeTab: <tabname>       // (optional) define, which tab is visible on start,
+                               // possible choices: info, share, download, chapters
 });
 {% endhighlight %}
