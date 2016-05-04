@@ -53,9 +53,10 @@ Use these in an episode:
 - **title:** Optional table header title. Default: none
 - **avatars:** "yes" or "no". Display avatars. Default: "yes"
 - **role:** Filter lists by role. Default: "all"
-- **roles:** One of "yes", "no". Display role. Default: "no"
+- **roles:** One of "yes", "no". Display role title. Default: "no"
 - **group:** Filter lists by group. Default: "all"
-- **groups:** One of "yes", "no". Display group. Default: "no" 
+- **groups:** One of "yes", "no". Display group title. Default: "no" 
+- **groupby:** Set to "group" to get separated contributor groups. Each group has its name as heading. Only works with "table" preset.
 - **donations** One of "yes", "no". Display donation column. Default: "yes"
 - **flattr:** "yes" or "no". Display Flattr column. Default: "no"
 
