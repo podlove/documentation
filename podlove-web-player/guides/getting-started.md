@@ -65,7 +65,7 @@ Now, tell the moderator which elements to replace with embedded players.
 This file will show the player itself.
 
 Choose a theme css-file and place it in the head of your document.
-[Further information about 'Themes'](/guides/themes).
+[Further information about 'Themes'](/podlove-web-player/guides/themes).
 
 {% highlight html %}
 <link href="/bower_components/podlove-web-player/dist/css/pwp-dark-green.css" rel="stylesheet" media="screen" type="text/css" />
