@@ -1,0 +1,58 @@
+---
+layout: page
+title: "Background Jobs"
+---
+
+The Podlove Background Job system enables expensive, long-running tasks to run safely. It achieves this by breaking big tasks up into smaller subtasks. The state of a job is persisted, enabling it to be halted and resumed in a different process. The job system is based on WordPress Cron.
+
+## Ideal Setup
+
+There are different ways to run WordPress Cron. By default, WordPress executes cron whenever necessary at the end of web requests. This works (mostly) but is not ideal since it requires user interaction to run jobs. It is preferred to use system crons. Refer to [How do I set up a Cron job?](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job#2369) or ask your system administrator if you are not sure how.
+
+First, you need to tell WordPress to stop spawning its own cron processes.
+
+```php
+<?php
+# wp-config.php
+define( 'DISABLE_WP_CRON', true );
+```
+
+The system crontab should look like this:
+
+```
+* * * * *   php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+```
+
+Or maybe you need to run it as a certain user:
+
+```
+* * * * *   sudo -u www-data php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+```
+
+If you are using a WordPress Multisite Network, you need one line per site in your crontab:
+
+```
+* * * * *   sudo HTTP_HOST=example.com -u www-data php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+* * * * *   sudo HTTP_HOST=foo.example.com -u www-data php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+* * * * *   sudo HTTP_HOST=bar.example.com -u www-data php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+```
+
+This entry runs the cron every minute.
+
+## Configuration
+
+- `max_seconds_per_request` is the time in seconds after which no more job subtask is started. Can be overridden with WordPress filter `podlove_job_max_seconds_per_request` or shell variable `PODLOVE_JOB_MAX_SECONDS_PER_REQUEST`. Default: 20.
+- `lock_duration_buffer` is the additional time in seconds no job can be run. When a job runner starts, no other process can spawn jobs in parallel for `max_seconds_per_request + lock_duration_buffer` seconds. This is important because some jobs may in fact run longer than `max_seconds_per_request`. Default: 5.
+
+The sum `max_seconds_per_request + lock_duration_buffer` should not exceed PHP ini value `max_execution_time` which defaults to 30 on most systems. Be aware that different PHP settings may be active depending on how you run the crons (WordPress default or system cron approach described above). If you are running a cron every minute, the sum should be smaller than 60 seconds.
+
+Using the system cron approach, you can set config values using shell variables:
+
+```
+* * * * *   PODLOVE_JOB_MAX_SECONDS_PER_REQUEST=45 php /path/to/wordpress/wp-cron.php >>/var/log/cron.log 2>&1
+```
+
+## Resources
+
+- [WordPress Plugin Handbook: Cron](https://developer.wordpress.org/plugins/cron/)
+- [WP Crontrol](https://wordpress.org/plugins/wp-crontrol/): Useful plugin to debug WP cron jobs.

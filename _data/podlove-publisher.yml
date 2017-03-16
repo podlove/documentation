@@ -29,6 +29,8 @@
 - title: Developer
   dir:  /podlove-publisher/developer/
   pages:
+    - title: Background Jobs
+      slug: background-jobs
     - title: Modules
       slug: modules
     - title: Projects
