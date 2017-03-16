@@ -24,6 +24,13 @@ There are PHP libraries which will help you if you want to implement Podlove spe
 - **Normal Play Time:** PHP parser for Normal Play Time (RFC 2326) ([@Packagist](https://packagist.org/packages/podlove/normalplaytime), [@Github](https://github.com/podlove/normalplaytime))
 - **Podlove Timeline:** PHP library providing a toolkit to handle various timeline/chapter formats. ([@Packagist](https://packagist.org/packages/podlove/podlove-timeline), [@Github](https://github.com/podlove/podlove-timeline))
 
+JavaScript libraries are available on [npmjs.com](https://www.npmjs.com).
+
+- [normalplaytime](https://www.npmjs.com/package/normalplaytime)
+- [podcast-chapter-parser-psc](https://www.npmjs.com/package/podcast-chapter-parser-psc)
+- [podcast-chapter-parser-mp4chaps](https://www.npmjs.com/package/podcast-chapter-parser-mp4chaps)
+- [podcast-chapter-parser-audacity](https://www.npmjs.com/package/podcast-chapter-parser-audacity)
+
 ## Specifications
 
 Specifications are publicly available and maintained on [github.com/podlove/podlove-specifications](https://github.com/podlove/podlove-specifications). Feel free to contribute by commenting and sending pull requests.
