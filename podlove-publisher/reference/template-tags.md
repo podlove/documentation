@@ -969,7 +969,15 @@ Example:
                 <strong>
                     One episode file by asset name.
                 </strong>
-                
+                {% capture tmp %}Example:
+
+```jinja
+{% raw %}
+<a href="{{ episode.file("pdf").publicUrl }}">Download episode PDF</a>
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
                 <p>
                         see <a href="#podlove-class-file">{% capture tmp %}file{% endcapture %}
 {{ tmp | markdownify }}</a>
