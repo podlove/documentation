@@ -274,6 +274,33 @@ Fetch one episode by slug.
         <tr>
             <td valign="top">
                 <code>
+                    podcast.feed
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Single Feed by Slug/ID
+                </strong>
+                {% capture tmp %}**Example**
+
+```
+{% raw %}
+{% set feed = podcast.feed("mp3") %}
+The Feed: <a href="{{ feed.url }}">{{ feed.title }}</a>
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                <p>
+                        see <a href="#podlove-class-feed">{% capture tmp %}feed{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     podcast.license
                 </code>
             </td>
@@ -370,8 +397,7 @@ Iterating over a grouped list of contributors
 
 **Parameters**
 
-- **id:**      Fetch one contributor by its id.
-               Example:`{% raw %}podcast.contributors({id: 'james'}).name{% endraw %}`
+- **id:**      Fetch one contributor by its id. DEPRECATED: Use`{% raw %}podcast.contributor(id){% endraw %}` instead.
 - **scope:**   Either "global", "global-active" or "podcast".
                - "global" returns all contributors.
                - "global-active" returns all contributors with 
@@ -388,6 +414,31 @@ Iterating over a grouped list of contributors
   - 'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
 - **orderby:** Sort contributors by parameter. Defaults to 'name'.
   - 'name' - Order by public name.
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    podcast.contributor
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Get one contributor by id.
+                </strong>
+                {% capture tmp %}**Examples**
+
+Iterating over a list of contributors
+
+```jinja
+{% raw %}
+{{ podcast.contributor('james').name }}
+{% endraw %}
+```
 {% endcapture %}
 {{ tmp | markdownify }}
                 
@@ -911,6 +962,24 @@ Example:
         <tr>
             <td valign="top">
                 <code>
+                    episode.file
+                </code>
+            </td>
+            <td>
+                <strong>
+                    One episode file by asset name.
+                </strong>
+                
+                <p>
+                        see <a href="#podlove-class-file">{% capture tmp %}file{% endcapture %}
+{{ tmp | markdownify }}</a>
+                    </p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     episode.chapters
                 </code>
             </td>
@@ -1389,6 +1458,21 @@ Access a specific list by id.
             <td>
                 <strong>
                     Title
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    asset.identifier
+                </code>
+            </td>
+            <td>
+                <strong>
+                    ID
                 </strong>
                 
                 
