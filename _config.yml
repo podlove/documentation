@@ -40,5 +40,6 @@ kramdown:
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-sitemap
 
 playerPath: '/bower_components/podlove-web-player/dist'
