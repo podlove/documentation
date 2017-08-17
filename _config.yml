@@ -38,7 +38,7 @@ kramdown:
   # toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
 
-gems:
+plugins:
   - jekyll-redirect-from
 
 playerPath: '/bower_components/podlove-web-player/dist'

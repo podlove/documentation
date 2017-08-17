@@ -6,9 +6,9 @@ redirect_from:
   - /guides/podcast-network/
 ---
 
-There comes a time in the life of every podcaster when she has to admit that one podcast is not enough. A separate channel would be nice, right? There are basically two ways to achieve podcast networks using Podlove Publisher, both have their advantages.
+There comes a time in the life of every podcaster when she has to admit that one podcast is not enough. A separate channel would be nice, right? There are multiple ways to achieve podcast networks using Podlove Publisher, serving different requirements.
 
-If you are looking for totally separate podcast channels with their own sites, read _Option 1: WordPress Network_. If, on the other hand, you are looking for a lightweight way of separating feeds in a single site, read _Option 2: Category based Feeds_.
+If you are looking for totally separate podcast channels with their own sites, read _Option 1: WordPress Network_. If all you episodes are related but you would like to offer separate feeds, _Option 2: Shows Module_ might be for you. If shows seem to heavyweight, read _Option 3: Category based Feeds_.
 
 ## Option 1: WordPress Network
 
@@ -29,7 +29,35 @@ Optional: Assign custom domains to network sites using the [Domain Mapping Plugi
 - [WordPress: Create A Network][1]
 - [WordPress: Multisite Network Administration][2]
 
-## Option 2: Category based Feeds
+## Option 2: Shows Module
+
+Use shows to offer feeds to subtopics of your podcast. If your shows are unrelated, a WordPress Network is better suited than the shows module.
+
+**Advantages**
+
+- keep all episodes in a single master-feed
+- offer separate feeds per show with the option to override feed meta: title, slug, subtitle, summary, image and language
+
+**How To**
+
+1. Activate the _Shows_ Publisher module. Go to `Publisher -> Modules` and find the _Metadata_ section.
+2. Create one or multiple shows at `Publisher -> Shows`.
+3. Announce show feeds on your website. You can find them at `Publisher -> Shows`.
+
+**WordPress Templates**
+
+Internally shows are WordPress taxonomies. That means you also get show archives for your website under `/show/<show-slug>`. When creating themes, the following template hierarchy applies:
+
+```
+taxonomy-shows-<show-slug>.php
+taxonomy-shows.php
+taxonomy.php
+archive.php
+index.php
+```
+
+
+## Option 3: Category based Feeds
 
 **Advantages**
 
