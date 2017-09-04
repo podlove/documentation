@@ -1,5 +1,5 @@
 - title: Guides
-  dir: /podlove-web-player/guides/
+  dir: /podlove-web-player-v3/guides/
   pages:
     - title: Getting Started
       slug: getting-started
@@ -15,7 +15,7 @@
       slug: previews-of-themes
 
 - title: Appendix
-  dir: /podlove-web-player/appendix/
+  dir: /podlove-web-player-v3/appendix/
   pages:
     - title: Commented JSON Configuration
       slug: json-config
@@ -23,7 +23,7 @@
       slug: injected-config
 
 - title: Previous Versions
-  dir: /podlove-web-player/versions/
+  dir: /podlove-web-player-v3/versions/
   pages:
     - title: v2.0 Documentation
       slug: v2

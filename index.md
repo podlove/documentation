@@ -19,7 +19,7 @@ layout: default
 	</div>
 
 	<div class="col-md-4">
-		<a href="{{ site.url }}/podlove-web-player/">
+		<a href="{{ site.url }}/podlove-web-player-v3/">
 			<div class="font-logo">
 				<img src="{{ site.url }}/assets/logo/podlove-player-icon.svg" class="img-responsive font-logo-logo" alt="Podlove Web Player Logo">
 				<img src="{{ site.url }}/assets/logo/podlove-player-typo.svg" class="img-responsive font-logo-font" alt="Podlove Web Player Logo">

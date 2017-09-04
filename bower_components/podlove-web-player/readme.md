@@ -128,7 +128,7 @@ Copy the commit messages from the merge commit to clipboard for later use.
 
     git show HEAD^
 
-Go to https://github.com/podlove/podlove-web-player/releases/new
+Go to https://github.com/podlove/podlove-web-player-v3/releases/new
 
 Use <version-number> as the tagname. Be sure to add a "v" to the beginning.
 Versions follow semantic versioning (for details see http://semver.org).
