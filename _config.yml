@@ -14,7 +14,7 @@ codeurl: 'http://github.com/podlove'
 # Keep as an empty string if served up at the root. If served up at a specific
 # path (e.g. on GitHub pages) leave off the trailing slash, e.g. /my-project
 baseurl: ''
-url: ''
+url: 'https://docs.podlove.org'
 
 # Dates are not included in permalinks
 permalink: /:categories/:title
