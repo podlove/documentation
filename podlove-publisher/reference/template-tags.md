@@ -2891,6 +2891,106 @@ But in case you need the raw user value, use this method.
     
 </table> 
 
+<a id="podlove-class-show"></a>
+
+#### Show
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.title
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Title
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.subtitle
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Subtitle
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.summary
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Summary
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.slug
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Slug
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.language
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Language
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    show.image
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Image
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+</table> 
+
 <a id="podlove-class-license"></a>
 
 #### License
