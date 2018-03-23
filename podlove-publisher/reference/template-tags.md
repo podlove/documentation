@@ -67,6 +67,38 @@ redirect_from:
         <tr>
             <td valign="top">
                 <code>
+                    podcast.mnemonic
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Mnemonic / Abbreviation
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    podcast.type
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Type
+                </strong>
+                {% capture tmp %}One of: episodic, serial
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     podcast.imageUrl
                 </code>
             </td>
@@ -463,6 +495,34 @@ Iterating over a list of contributors
         <tr>
             <td valign="top">
                 <code>
+                    podcast.shows
+                </code>
+            </td>
+            <td>
+                <strong>
+                    List of all Podcast shows
+                </strong>
+                {% capture tmp %}**Examples**
+
+```
+{% raw %}
+This podcast features several shows:
+<ul>
+    {% for show in podcast.shows %}
+    <li>{{ show.title }}</li>
+ {% endfor %}
+</ul>
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     podcast.services
                 </code>
             </td>
@@ -518,6 +578,7 @@ Example:
 
 **Parameters**
 
+- **show:** If you are using the "Shows" module, you can set the show slug. The button will then be for that show instead of the main podcast.
 - **format:** Choose a button format, options are 'rectangle', 'square' and 'cover' (**Note**: 'cover' has a max size of 300px) Default: 'cover'
 - **style:** Choose a button style, options are 'filled', 'outline' and 'frameless'. Default: 'filled'
 - **size:** Size and style of the button ('small', 'medium', 'big'). All of the sizes can be combined with 'auto' to adapt the button width to the available space like this: 'big auto'. Default: 'big'
@@ -552,7 +613,10 @@ If you set the buttonid to "example123", your element must have the class "podlo
                 <strong>
                     Title
                 </strong>
-                
+                {% capture tmp %}Returns the episode title, if set, otherwise the post title.
+If you want to access the post title directly, use`{% raw %}episode.post.post_title{% endraw %}`.
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
@@ -583,6 +647,38 @@ If you set the buttonid to "example123", your element must have the class "podlo
                     Summary
                 </strong>
                 
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.number
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Number
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.type
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Type
+                </strong>
+                {% capture tmp %}One of: full, trailer, bonus
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
@@ -827,6 +923,31 @@ Example:
                     Image URL with fallback
                 </strong>
                 
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.total_downloads
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Total downloads
+                </strong>
+                {% capture tmp %}Please note that this value is only updated hourly.
+
+Example:
+
+```html
+{% raw %}
+{{ episode.total_downloads | number_format(0, ',', '.') }}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
@@ -1109,6 +1230,30 @@ Iterating over a grouped list of contributors
                     List of Related Episodes
                 </strong>
                 
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.show
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Episode Show
+                </strong>
+                {% capture tmp %}**Examples**
+
+```
+{% raw %}
+This episode is part of the Show: {{ episode.show.title }} which deals with 
+{{ episode.show.summary }}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
