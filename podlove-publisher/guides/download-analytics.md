@@ -90,3 +90,98 @@ Before tracking data is presented in the analytics area, it is cleaned up. Clean
 	- and the same Request ID
 	- and was made within the same hour
 - **Pre-Release downloads are filtered out.** They may happen if you test downloads before publishing the episode.
+
+## Database Structure
+
+If you would like to access the raw analytics data and process it yourself, you need to know where what data is and what it means.
+
+### wp_podlove_downloadintent
+
+You probably want to use `wp_podlove_downloadintentclean` instead. This table contains every tracked request. Columns are nearly identical to `wp_podlove_downloadintentclean`.
+
+### wp_podlove_downloadintentclean
+
+This table contains cleaned data from `wp_podlove_downloadintent`. See section "Data Cleanup" for detail on how data is cleaned/aggregated. Each row represents one download. If you count the rows in this table you have the total number of downloads.
+
+| Column | Description |
+| --- | --- |
+| id | Unique, auto-incrementing integer id  |
+| user_agent_id | reference to id in `wp_podlove_useragent` |
+| media_file_id | reference to id in `wp_podlove_mediafile` |
+| request_id | Artificial compound ID to identify identical requests anonymously. It is a hash from the combined IP address and user agent string. |
+| accessed_at | Date and time of the download |
+| source | One of "download", "feed", "webplayer". Specifies how the download was initiated. |
+| context | A more specific description for the source column.  |
+| geo_area_id | reference to id in `wp_podlove_geoarea` |
+| lat | Location: latitude |
+| lng | Location: longitude |
+| httprange | HTTP "Range" header of the request, which may specify which bytes exactly were requested. |
+| hours_since_release | Amount of hours between episode release and download. May be useful for aggregation. |
+
+### wp_podlove_mediafile
+
+This table holds metadata for each file, like the file size. It holds references to the episode and asset.
+
+| Column | Description |
+| --- | --- |
+| id | Unique, auto-incrementing integer id  |
+| episode_id | reference to id in `wp_podlove_episode` |
+| episode_asset_id | reference to id in `wp_podlove_episodeasset` |
+| size | file size in bytes. `-1` or `NULL` if unknown. |
+| etag | etag used in HTTP requests |
+
+### wp_podlove_episodeasset
+
+This table holds metadata for assets. It is useful if you want to display asset names or need the reference to the file type.
+
+| Column | Description |
+| --- | --- |
+| id | Unique, auto-incrementing integer id  |
+| title | Asset title |
+| identifier | Asset identifier for use in templates |
+| file_type_id | reference to id in `wp_podlove_filetype` |
+| suffix | Used for constructing download URLs |
+| downloadable | `1` if it appears in download dialogues, `0` otherwise. |
+| position | integer used for ordering |
+
+### wp_podlove_filetype
+
+This table holds metadata for the file type associated to an asset. It is useful if you need to display the file extension or filter all downloads by `type == audio`.
+
+| Column | Description |
+| --- | --- |
+| id | Unique, auto-incrementing integer id  |
+| name | Filetype name |
+| type | One of "audio", "video", "ebook", "image", "chapters", "metadata", "transcript" |
+| mime_type | Mime Type |
+| extension | File extension |
+
+### wp_podlove_episode
+
+This table holds metadata for the episode. It is complemented by data in the WordPress-native table `wp_posts`, which you will need to access the episode title for example.
+
+| Column | Description |
+| --- | --- |
+| id | Unique, auto-incrementing integer id  |
+| post_id | reference to id in `wp_posts` |
+| subtitle | Episode subtitle |
+| summary | Episode summary / description |
+| ... |  |
+
+
+<style type="text/css">
+#content table tr:nth-child(even) {
+    background: rgba(248, 248, 248, 1.000)
+} 
+#content table td,
+#content table th {
+    padding: 5px;
+    vertical-align: top;
+}
+#content thead {
+    border-bottom: 1px solid #999;
+}
+#content table tr td:nth-child(1) {
+    font-family: monospace;
+}
+</style>
