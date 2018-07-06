@@ -8,7 +8,7 @@ redirect_from:
 
 There comes a time in the life of every podcaster when she has to admit that one podcast is not enough. A separate channel would be nice, right? There are multiple ways to achieve podcast networks using Podlove Publisher, serving different requirements.
 
-If you are looking for totally separate podcast channels with their own sites, read _Option 1: WordPress Network_. If all you episodes are related but you would like to offer separate feeds, _Option 2: Shows Module_ might be for you. If shows seem to heavyweight, read _Option 3: Category based Feeds_.
+If you are looking for totally separate podcast channels with their own sites, read _Option 1: WordPress Network_. If all you episodes are related but you would like to offer separate feeds, _Option 2: Shows Module_ might be for you. If shows seem too heavyweight, read _Option 3: Category based Feeds_.
 
 ## Option 1: WordPress Network
 
