@@ -47,7 +47,7 @@ When you access pages of this website that contain bitlove functionality, your b
 
 **Flattr**
 
-Within this online offer buttons of the micropayment service "Flattr" are included, which are provided by Flattr Network Ltd. mit Sitz in 2nd Floor, White bear yard 114A, Clerkenwell Road, London, Middlesex, England, EC1R 5DF, United Kingdom. When you access pages of this website that contain these buttons, your browser connects directly to Flattr's servers.
+Within this online offer buttons of the micropayment service "Flattr" are included, which are provided by Flattr AB, Box 4111, 203 12 Malmö, Sweden. When you access pages of this website that contain these buttons, your browser connects directly to Flattr's servers.
 
 If users have created an account with Flattr, with which they are logged in at the same time, Flattr receives the information that users have visited the respective page of this online offer. If users have a Flattr account, are logged in and interact with the button, information about it will be transmitted to Flattr and stored there for billing purposes according to local guidelines. Even if users are not logged in, usage data may be collected and stored. To see exactly how your data is processed when you click the Flattr button, users can visit [flattr.com/privacy](https://flattr.com/privacy).
 
@@ -75,7 +75,7 @@ Wenn Sie Seiten dieses Internetangebots, die Bitlove-Funktionalität enthalten, 
 
 **Flattr**
 
-Innerhalb dieses Onlineangebotes sind Schaltflächen des Micropayment-Dienstes „Flattr“ eingebunden, der von der Firma Flattr Network Ltd. mit Sitz in 2nd Floor, White bear yard 114A, Clerkenwell Road, London, Middlesex, England, EC1R 5DF, Großbritannien, betrieben wird. Wenn Sie Seiten dieses Internetangebots, die diese Schaltflächen enthalten, aufrufen, wird von Ihrem Browser eine direkte Verbindung zu Servern von Flattr hergestellt.
+Innerhalb dieses Onlineangebotes sind Schaltflächen des Micropayment-Dienstes „Flattr“ eingebunden, der von der Firma Flattr AB, Box 4111, 203 12 Malmö, Schweden betrieben wird. Wenn Sie Seiten dieses Internetangebots, die diese Schaltflächen enthalten, aufrufen, wird von Ihrem Browser eine direkte Verbindung zu Servern von Flattr hergestellt.
 
 Sofern Sie bei Flattr ein Konto angelegt haben, mit dem Sie gleichzeitig eingeloggt sind, erhält Flattr die Information, dass Sie die jeweilige Seite dieses Onlineangebots besucht haben. Sofern Sie ein Flattr-Konto besitzen, eingeloggt sind und mit der Schaltfläche interagieren, werden Informationen darüber an Flattr übermittelt und nach den dort geltenden Richtlinien dort zu Abrechnungszwecken gespeichert. Auch wenn Sie nicht eingeloggt sind, können ggf. Nutzungsdaten erhoben und auch gespeichert werden. Wie Ihre Daten genau verarbeitet werden, wenn Sie die Flattr-Schaltfläche anklicken, erfahren Sie unter [flattr.com/privacy](https://flattr.com/privacy).
 
@@ -92,3 +92,4 @@ Um realistische Downloadzahlen zu ermitteln, muss das System erneuten Zugriff au
 Nach 48 Stunden werden Request-IDs anonymisiert. Dadurch ist es unmöglich, die ursprünglich enthaltene IP-Adresse wiederherzustellen.
 
 Der User-Agent des genutzten Browsers wird auch gespeichert.
+
