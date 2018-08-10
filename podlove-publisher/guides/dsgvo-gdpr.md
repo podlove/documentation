@@ -47,7 +47,7 @@ When you access pages of this website that contain bitlove functionality, your b
 
 **Flattr**
 
-Within this online offer buttons of the micropayment service "Flattr" are included, which are provided by Flattr Network Ltd. mit Sitz in 2nd Floor, White bear yard 114A, Clerkenwell Road, London, Middlesex, England, EC1R 5DF, United Kingdom. When you access pages of this website that contain these buttons, your browser connects directly to Flattr's servers.
+Within this online offer buttons of the micropayment service "Flattr" are included, which are provided by Flattr AB, Box 4111, 203 12 Malmö, Sweden. When you access pages of this website that contain these buttons, your browser connects directly to Flattr's servers.
 
 If users have created an account with Flattr, with which they are logged in at the same time, Flattr receives the information that users have visited the respective page of this online offer. If users have a Flattr account, are logged in and interact with the button, information about it will be transmitted to Flattr and stored there for billing purposes according to local guidelines. Even if users are not logged in, usage data may be collected and stored. To see exactly how your data is processed when you click the Flattr button, users can visit [flattr.com/privacy](https://flattr.com/privacy).
 
@@ -69,26 +69,27 @@ The User Agent is stored as well.
 
 **Bitlove**
 
-Diese Website verwendet [bitlove.org](http://bitlove.org) um Downloads via Bittorrent anzubieten.
+Diese Website verwendet [bitlove.org](http://bitlove.org), um Downloads via BitTorrent anzubieten.
 
 Wenn Sie Seiten dieses Internetangebots, die Bitlove-Funktionalität enthalten, aufrufen, wird von Ihrem Browser eine direkte Verbindung zu Servern von Bitlove hergestellt.
 
 **Flattr**
 
-Innerhalb dieses Onlineangebotes sind Schaltflächen des Micropayment-Dienstes „Flattr“ eingebunden, der von der Firma Flattr Network Ltd. mit Sitz in 2nd Floor, White bear yard 114A, Clerkenwell Road, London, Middlesex, England, EC1R 5DF, Großbritannien, betrieben wird. Wenn Sie Seiten dieses Internetangebots, die diese Schaltflächen enthalten, aufrufen, wird von Ihrem Browser eine direkte Verbindung zu Servern von Flattr hergestellt.
+Innerhalb dieses Onlineangebotes sind Schaltflächen des Micropayment-Dienstes „Flattr“ eingebunden, der von der Firma Flattr AB, Box 4111, 203 12 Malmö, Schweden betrieben wird. Wenn Sie Seiten dieses Internetangebots, die diese Schaltflächen enthalten, aufrufen, wird von Ihrem Browser eine direkte Verbindung zu Servern von Flattr hergestellt.
 
-Sofern Nutzer bei Flattr ein Konto angelegt haben, mit dem sie gleichzeitig eingeloggt sind, erhält Flattr die Information, dass Nutzer die jeweilige Seite dieses Onlineangebots besucht haben. Sofern Nutzer ein Flattr-Konto besitzen, eingeloggt sind und mit der Schaltfläche interagieren, werden Informationen darüber an Flattr übermittelt und nach den dort geltenden Richtlinien dort zu Abrechnungszwecken gespeichert. Auch wenn Nutzer nicht eingeloggt sind, können ggf. Nutzungsdaten erhoben und auch gespeichert werden. Wie Ihre Daten genau verarbeitet werden, wenn Sie die Flattr-Schaltfläche anklicken, erfahren Nutzer unter [flattr.com/privacy](https://flattr.com/privacy).
+Sofern Sie bei Flattr ein Konto angelegt haben, mit dem Sie gleichzeitig eingeloggt sind, erhält Flattr die Information, dass Sie die jeweilige Seite dieses Onlineangebots besucht haben. Sofern Sie ein Flattr-Konto besitzen, eingeloggt sind und mit der Schaltfläche interagieren, werden Informationen darüber an Flattr übermittelt und nach den dort geltenden Richtlinien dort zu Abrechnungszwecken gespeichert. Auch wenn Sie nicht eingeloggt sind, können ggf. Nutzungsdaten erhoben und auch gespeichert werden. Wie Ihre Daten genau verarbeitet werden, wenn Sie die Flattr-Schaltfläche anklicken, erfahren Sie unter [flattr.com/privacy](https://flattr.com/privacy).
 
 **Podlove**
 
-Sowohl **Podlove Subscribe Button** als auch **Podlove Web Player** werden von [keycdn.com](https://www.keycdn.com) ([keycdn GDPR Stellungnahme](https://www.keycdn.com/gdpr)) ausgeliefert.
+Sowohl **Podlove Subscribe Button** als auch **Podlove Web Player** werden von [keycdn.com](https://www.keycdn.com) ([keycdn GDPR-Stellungnahme](https://www.keycdn.com/gdpr)) ausgeliefert.
 
-Podlove Publisher erfasst Download Statistiken. IP Adressen werden benutzt, um eine geschätzte geographische Verortung durchzuführen (Stadt / Land). 
+Podlove Publisher erfasst Downloadstatistiken. IP-Adressen werden benutzt, um die geographische Verortung zu schätzen (Stadt / Land). 
 
-IP Adressen werden kurzzeitig (bis zu 48 Stunden) als Teil einer "request id" gespeichert. Das ist notwendig, damit der/die Podcast Betreiber/in die Tragfähigkeit seiner/ihrer Bemühungen nachweisen kann.
+IP-Adressen werden kurzzeitig (bis zu 48 Stunden) als Teil einer Request-ID gespeichert. Das ist notwendig, damit der/die Podcast-Betreiber/in die Tragfähigkeit seiner/ihrer Bemühungen nachvollziehen kann.
 
-Um realistische Download Zahlen zu ermitteln, muss das System erneuten Zugriff auf die gleiche Datei vom selben Nutzer erkennen können. Der einzige verlässliche Weg dies zu erreichen ist, die IP zusammen mit dem User Agent zu betrachten. Eine anonymisierte IP zu benutzen ist nicht möglich, da dies zu falschen Ergebnissen führen würde. Ein Zugriff auf die gleiche Datei vom selben Nutzer an verschiedenen Tagen kann als separater Download betrachtet werden. Darum genügt es, IPs lediglich für bis zu 48 Stunden vorzuhalten.
+Um realistische Downloadzahlen zu ermitteln, muss das System erneuten Zugriff auf die gleiche Datei vom selben Nutzer erkennen können. Der einzige verlässliche Weg, dies zu erreichen, ist, die IP-Adresse zusammen mit dem User-Agent zu betrachten. Eine anonymisierte IP-Adresse zu benutzen ist nicht möglich, da dies zu falschen Ergebnissen führen würde. Ein Zugriff auf die gleiche Datei vom selben Nutzer an verschiedenen Tagen kann als separater Download betrachtet werden. Darum genügt es, IP-Adressen lediglich für bis zu 48 Stunden vorzuhalten.
 
-Nach 48 Stunden werden "request ids" "salted", was es unmöglich macht, die ursprüngliche darin enthaltene IP wiederherzustellen.
+Nach 48 Stunden werden Request-IDs anonymisiert. Dadurch ist es unmöglich, die ursprünglich enthaltene IP-Adresse wiederherzustellen.
 
-Der Browser "User Agent" wird ebenso gespeichert.
+Der User-Agent des genutzten Browsers wird auch gespeichert.
+
