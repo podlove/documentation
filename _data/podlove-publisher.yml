@@ -31,6 +31,8 @@
       slug: template-tags
     - title: Template Conditionals
       slug: template-conditionals
+    - title: PHP Constants
+      slug: php-constants
 
 - title: Developer
   dir:  /podlove-publisher/developer/
