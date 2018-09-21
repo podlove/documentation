@@ -13,6 +13,8 @@ The WordPress Podlove Podcast Publisher is a workflow-oriented solution for seri
 
 You need [WordPress][1] running on your web server. Download the [Podlove Podcast Publisher][2] plugin, unzip it, put it into the WordPress plugin directory, and activate it. If you are new to WordPress, you may find the [Installing Plugins][3] instructions helpful.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hmrm-jUe6u4?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 ### Configuring Basics
 
 A *Podlove* entry appears in the menu. Go to `Podlove → Podcast Settings` to start the setup. Fill in the *Description* fields (title, subtitle and summary) for your podcast. Then scroll down to the *Media* section. Here you are asked for an *Upload Location*. What is the upload location?
