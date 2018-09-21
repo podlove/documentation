@@ -3,6 +3,8 @@
   pages:
     - title: Getting Started
       slug: getting-started
+    - title: Chapter Marks
+      slug: chaptermarks
     - title: Podcast Migration
       slug: podcast-migration
     - title: Podcast Network 
