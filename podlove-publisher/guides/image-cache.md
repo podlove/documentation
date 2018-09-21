@@ -1,0 +1,42 @@
+---
+layout: page
+title: "Image Cache"
+---
+
+Podlove Publisher uses an Image Cache that fetches images to keep them locally. When delivered they are then resized to the ideal dimensions, for example for retina screen resolutions.
+
+## Image URLs
+
+If you look into it, you will find two types of URLs used.
+
+**Dynamic**
+
+```
+https://example.com/podlove/image/187474703a2f2f63646e2e706f64736565642e6f72671f6569/500/0/0/an-image
+```
+
+**Static**
+
+```
+https://example.com/wp-content/cache/podlove/6e/7262f37a8018efafa4764ea97a4c26/an-image_500x500.png
+```
+
+The _dynamic_ URL is used when Podlove Publisher does not have an image cache yet. It fetches, caches and displays the image dynamically. If the cache exists at the time of rendering the page, the _static_ version is used, which is much faster because the image can be served directly by the web server without going through a PHP script.
+
+## Troubleshooting & Workarounds
+
+It appears that a minority of systems have trouble with this setup but it is not clear why. If your images are not displaying, please report the issue in [the forum](https://community.podlove.org/), maybe we can get to the bottom of it together.
+
+If the dynamic URLs work but the static ones don't, put this in your `wp-config.php`:
+
+```
+define('PODLOVE_IMAGE_CACHE_FORCE_DYNAMIC_URL', true);
+```
+
+If that fails you can try to disable image cache completely, but that should only be the last resort because you are then delivering all images unoptimized and fullsize:
+
+```
+define('PODLOVE_DISABLE_IMAGE_CACHE', true);
+```
+
+

@@ -17,6 +17,8 @@
       slug: download-analytics
     - title: DSGVO / GDPR
       slug: dsgvo-gdpr
+    - title: Image Cache
+      slug: image-cache
     - title: Join the Beta
       slug: join-the-beta
 
