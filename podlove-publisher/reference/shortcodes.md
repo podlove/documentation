@@ -40,6 +40,7 @@ Use these in an episode:
 If you set the buttonid to "example123", your element must have the class "podlove-subscribe-button-example123".
 - **hide:** Set to`{% raw %}true{% endraw %}` if you want to hide the default button element. Useful if you provide your own button via the`{% raw %}buttonid{% endraw %}` setting.
 - **buttonid:** Use this if you want to trigger the button by clicking an element controlled by you. 
+- **show:** If you are using the "Shows" module, pass the show slug to create a subscribe button for that show.
 
 ##### Examples
 
