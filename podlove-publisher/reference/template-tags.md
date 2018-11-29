@@ -365,22 +365,22 @@ The Feed: <a href="{{ feed.url }}">{{ feed.title }}</a>
 ```
 {% raw %}
  website
-    merge_episodes
-    hide_wp_feed_discovery
-    use_post_permastruct
-    custom_episode_slug
-    episode_archive
-    episode_archive_slug
-    url_template
-    ssl_verify_peer
+ 	merge_episodes
+ 	hide_wp_feed_discovery
+ 	use_post_permastruct
+ 	custom_episode_slug
+ 	episode_archive
+ 	episode_archive_slug
+ 	url_template
+ 	ssl_verify_peer
  metadata
-    enable_episode_recording_date
-    enable_episode_explicit
-    enable_episode_license
+ 	enable_episode_recording_date
+ 	enable_episode_explicit
+ 	enable_episode_license
  redirects
-    podlove_setting_redirect
+ 	podlove_setting_redirect
  tracking
-    mode
+ 	mode
 
 {% endraw %}
 ```
@@ -407,8 +407,8 @@ Iterating over a list of contributors
 ```jinja
 {% raw %}
 {% for contributor in podcast.contributors({scope: "podcast"}) %}
-    {{ contributor.name }}
-    {% if not loop.last %}, {% endif %}
+	{{ contributor.name }}
+	{% if not loop.last %}, {% endif %}
 {% endfor %}
 {% endraw %}
 ```
@@ -418,11 +418,11 @@ Iterating over a grouped list of contributors
 ```jinja
 {% raw %}
 {% for contributorGroup in podcast.contributors({scope: "podcast", groupby: "group"}) %}
-    <strong>{{ contributorGroup.group.title }}:</strong> 
-    {% for contributor in contributorGroup.contributors %}
-        {{ contributor.name }}
-        {% if not loop.last %}, {% endif %}
-    {% endfor %}
+	<strong>{{ contributorGroup.group.title }}:</strong> 
+	{% for contributor in contributorGroup.contributors %}
+		{{ contributor.name }}
+		{% if not loop.last %}, {% endif %}
+	{% endfor %}
 {% endfor %}
 {% endraw %}
 ```
@@ -434,13 +434,13 @@ Iterating over a grouped list of contributors
                - "global" returns all contributors.
                - "global-active" returns all contributors with 
                   at least one contribution in a published episode.
-                  - "podcast" returns the contributors configured in podcast settings.
-                  Default: "global-active".
+	              - "podcast" returns the contributors configured in podcast settings.
+	              Default: "global-active".
 - **group:**   filter by group slug. Defaults to "all", which does not filter.
 - **role:**    filter by role slug. Defaults to "all", which does not filter.
 - **groupby:** group or role slug. Group by "group" or "role".
-                  If used, the returned data is has another layer for the groups.
-                  See examples for more details.
+	              If used, the returned data is has another layer for the groups.
+	              See examples for more details.
 - **order:**   Designates the ascending or descending order of the 'orderby' parameter. Defaults to 'DESC'.
   - 'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
   - 'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
@@ -508,8 +508,8 @@ Iterating over a list of contributors
 {% raw %}
 This podcast features several shows:
 <ul>
-    {% for show in podcast.shows %}
-    <li>{{ show.title }}</li>
+	{% for show in podcast.shows %}
+ 	<li>{{ show.title }}</li>
  {% endfor %}
 </ul>
 {% endraw %}
@@ -541,7 +541,7 @@ Example:
 {% raw %}
 {% for service in podcast.services({category: "social"}) %}
   <a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
-    {{ service.image.html({width: 20}) }}
+	{{ service.image.html({width: 20}) }}
   </a>
 {% endfor %}
 {% endraw %}
@@ -1163,8 +1163,8 @@ Iterating over a list of contributors
 ```jinja
 {% raw %}
 {% for contributor in episode.contributors %}
-    {{ contributor.name }}
-    {% if not loop.last %}, {% endif %}
+	{{ contributor.name }}
+	{% if not loop.last %}, {% endif %}
 {% endfor %}
 {% endraw %}
 ```
@@ -1174,11 +1174,11 @@ Iterating over a grouped list of contributors
 ```jinja
 {% raw %}
 {% for contributorGroup in episode.contributors({groupby: "group"}) %}
-    <strong>{{ contributorGroup.group.title }}:</strong> 
-    {% for contributor in contributorGroup.contributors %}
-        {{ contributor.name }}
-        {% if not loop.last %}, {% endif %}
-    {% endfor %}
+	<strong>{{ contributorGroup.group.title }}:</strong> 
+	{% for contributor in contributorGroup.contributors %}
+		{{ contributor.name }}
+		{% if not loop.last %}, {% endif %}
+	{% endfor %}
 {% endfor %}
 {% endraw %}
 ```
@@ -1190,8 +1190,8 @@ Iterating over a grouped list of contributors
 - **group:**   group slug. If none is given, show all contributors.
 - **role:**    role slug. If none is given, show all contributors.
 - **groupby:** group or role slug. Group by "group" or "role".
-             If used, the returned data is has another layer for the groups.
-             See examples for more details.
+	         If used, the returned data is has another layer for the groups.
+	         See examples for more details.
 - **order:**   Designates the ascending or descending order of the 'orderby' parameter. Defaults to 'ASC'.
   - 'ASC' - ascending order from lowest to highest values (1, 2, 3; a, b, c).
   - 'DESC' - descending order from highest to lowest values (3, 2, 1; c, b, a).
@@ -2492,6 +2492,51 @@ URL for that person _in this specific episode_ is generated.
         <tr>
             <td valign="top">
                 <code>
+                    contributor.organisation
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Affiliation: organisation
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    contributor.department
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Affiliation: department
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    contributor.jobtitle
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Affiliation: jobtitle
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
                     contributor.episodes
                 </code>
             </td>
@@ -2543,7 +2588,7 @@ Example:
 {% raw %}
 {% for service in contributor.services({category: "social"}) %}
   <a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
-    {{ service.image.html({width: 20}) }}
+	{{ service.image.html({width: 20}) }}
   </a>
 {% endfor %}
 {% endraw %}
