@@ -19,6 +19,8 @@
       slug: dsgvo-gdpr
     - title: Image Cache
       slug: image-cache
+    - title: Slacknotes
+      slug: slacknotes
     - title: Join the Beta
       slug: join-the-beta
 
