@@ -1258,6 +1258,46 @@ This episode is part of the Show: {{ episode.show.title }} which deals with
             </td>
         </tr>
     
+        <tr>
+            <td valign="top">
+                <code>
+                    episode.transcriptGrouped
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Transcript, grouped by speaker
+                </strong>
+                {% capture tmp %}**Examples**
+
+```
+{% raw %}
+<style type="text/css">
+.ts-speaker { font-weight: bold; }
+.ts-items { margin-left: 20px; }
+.ts-time { font-size: small; color: #999; }
+</style>
+{% for group in episode.transcript %}
+  <div class="ts-group">
+    {% if group.contributor %}
+      <div class="ts-speaker">{{ group.contributor.name }}</div>
+    {% endif %}
+    <div class="ts-items">
+    {% for line in group.items %}
+      <span class="ts-time">{{ line.start }}&ndash;{{ line.end }}</span>
+      <div class="ts-content">{{ line.content }}</div>
+    {% endfor %}
+    </div>
+  </div>
+{% endfor %}
+{% endraw %}
+```
+{% endcapture %}
+{{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
 </table> 
 
 <a id="podlove-class-network"></a>
@@ -3291,6 +3331,131 @@ Button for the Podlove Publisher plugin
                 {% capture tmp %}See [PHP date documentation](http://php.net/manual/en/function.date.php) for available formats
 {% endcapture %}
 {{ tmp | markdownify }}
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-line"></a>
+
+#### Line
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    line.content
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Content
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    line.start
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Start time in ms
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    line.end
+                </code>
+            </td>
+            <td>
+                <strong>
+                    End time in ms
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+</table> 
+
+<a id="podlove-class-group"></a>
+
+#### Group
+
+
+
+<table>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    group.items
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Items / Lines
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    group.start
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Start time in ms
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    group.end
+                </code>
+            </td>
+            <td>
+                <strong>
+                    End time in ms
+                </strong>
+                
+                
+            </td>
+        </tr>
+    
+        <tr>
+            <td valign="top">
+                <code>
+                    group.contributor
+                </code>
+            </td>
+            <td>
+                <strong>
+                    Voice / Contributor
+                </strong>
+                
                 
             </td>
         </tr>
