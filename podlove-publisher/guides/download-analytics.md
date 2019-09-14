@@ -93,8 +93,8 @@ Before tracking data is presented in the analytics area, it is cleaned up. Clean
 	- and was made within the same hour (can be changed to day in settings)
 - **Pre-Release downloads are filtered out.** They may happen if you test downloads before publishing the episode.
 
-## IAB Conformity
-
+## IAB Conformity
+ 
 Advertisers often ask for downloads numbers according to [IAB Podcast Measurement Guidelines](https://www.iab.com/guidelines/podcast-measurement-guidelines/). The "data cleanup" section above explains how download numbers are treated, which is in fact according to the IAB guideline.
 
 The only change you may need to do is set the deduplication window to a day instead of an hour, the Podlove Publisher default. You can do this in `Podlove > Expert Settings > Tracking`.
