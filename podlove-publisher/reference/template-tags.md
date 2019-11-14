@@ -487,7 +487,11 @@ Iterating over a list of contributors
                 <strong>
                     List of podcast seasons
                 </strong>
-                
+                {% capture tmp %}Parameters:
+
+- **order:** (optional) "DESC" or "ASC". Default: "ASC"
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
@@ -508,8 +512,8 @@ Iterating over a list of contributors
 {% raw %}
 This podcast features several shows:
 <ul>
-	{% for show in podcast.shows %}
- 	<li>{{ show.title }}</li>
+    {% for show in podcast.shows %}
+     <li>{{ show.title }}</li>
  {% endfor %}
 </ul>
 {% endraw %}
@@ -1248,7 +1252,7 @@ Iterating over a grouped list of contributors
 
 ```
 {% raw %}
-This episode is part of the Show: {{ episode.show.title }} which deals with 
+This episode is part of the Show: {{ episode.show.title }} which deals with
 {{ episode.show.summary }}
 {% endraw %}
 ```
@@ -2876,7 +2880,11 @@ If you were looking for that, use`{% raw %}season.firstEpisode.publicationDate{%
                 <strong>
                     Season Episodes
                 </strong>
-                
+                {% capture tmp %}Parameters:
+
+- **order:** (optional) "DESC" or "ASC". Default: "ASC"
+{% endcapture %}
+{{ tmp | markdownify }}
                 
             </td>
         </tr>
