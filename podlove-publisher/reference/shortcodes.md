@@ -10,6 +10,7 @@ redirect_from:
 #### Web Player
 
 - `[podlove-episode-web-player]` displays the Podlove Web Player.
+- `[podlove-episode-web-player post_id="123"]` displays the Podlove Web Player for the given episode.
 
 #### Feeds
 
