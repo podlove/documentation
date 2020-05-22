@@ -12,6 +12,6 @@ The main setting you need is `Podlove > Episode Assets > Assign Assets > Episode
 The options are:
 
 - **Use Podcast Cover**: Always use the podcast cover as episode image. This is the default.
-- **Post Thumbnaik**: Use the WordPress "featured image" as episode image. 
+- **Post Thumbnail**: Use the WordPress "featured image" as episode image. 
 - **Manual URL entry per Episode**: Adds a URL field to episode forms where you can manually insert the URL to an image.
 - **Assets**: If you define an image asset (png or jpg) you can choose it here.
