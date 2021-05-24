@@ -1,0 +1,37 @@
+---
+title: 'Tab Overflow'
+---
+
+import { Player } from '../../components/player'
+
+> Displays the tab overflow transition
+
+### Preview
+
+<Player
+  episode="/assets/web-player/v5/episode.json"
+  config="/assets/web-player/v5/config.json"
+  tab="transcripts"
+>
+  <root>
+    <div class="w-full relative overflow-hidden">
+      <tab name="transcripts">
+        <tab-transcripts></tab-transcripts>
+      </tab>
+      <tab-overflow></tab-overflow>
+    </div>
+  </root>
+</Player>
+
+### Code
+
+```html
+<root>
+  <div class="w-full relative overflow-hidden">
+    <tab name="transcripts">
+      <tab-transcripts></tab-transcripts>
+    </tab>
+    <tab-overflow></tab-overflow>
+  </div>
+</root>
+```

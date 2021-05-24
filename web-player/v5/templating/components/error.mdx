@@ -1,0 +1,32 @@
+---
+title: 'Error'
+---
+
+import { Player } from '../../components/player'
+
+> Error overlay that handles issues with configuration, network issues or media issues.
+
+### Preview
+
+<Player
+  config="/assets/web-player/v5/config.json"
+>
+  <root class="p-4 flex justify-center h-64">
+    <error></error>
+  </root>
+</Player>
+
+:::info
+
+* It is only displayed if an error happens
+* Network related issues will also display a retry button to recover from the error
+
+:::
+
+### Code
+
+```html
+<root class="p-4 flex justify-center h-64">
+  <error></error>
+</root>
+```

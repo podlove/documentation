@@ -1,0 +1,27 @@
+---
+title: 'Timer Current'
+---
+
+import { Player } from '../../components/player'
+
+> Displays the current episode playtime
+
+### Preview
+
+<Player
+  episode="/assets/web-player/v5/episode.json"
+  config="/assets/web-player/v5/config.json"
+  playtime={60000}
+>
+  <root class="p-4 flex justify-center">
+    <timer-current></timer-current>
+  </root>
+</Player>
+
+### Code
+
+```html
+<root class="p-4 flex justify-center">
+  <timer-current></timer-current>
+</root>
+```

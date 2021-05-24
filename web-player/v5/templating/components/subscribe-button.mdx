@@ -1,0 +1,35 @@
+---
+title: 'Subscribe Button'
+---
+
+import { Player } from '../../components/player'
+
+> Complete subscribe button modal with toggle
+
+### Preview
+
+<Player
+  episode="/assets/web-player/v5/episode.json"
+  config="/assets/web-player/v5/config.json"
+>
+  <root class="p-4 flex justify-center">
+    <subscribe-button></subscribe-button>
+  </root>
+</Player>
+
+
+:::info
+
+* Is only displayed if a feed and podcast clients are defined
+* Platform sensitivity: only clients that are available on the current operation system are displayed
+
+:::
+
+
+### Code
+
+```html
+<root class="p-4 flex justify-center">
+  <subscribe-button></subscribe-button>
+</root>
+```

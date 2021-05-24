@@ -1,0 +1,253 @@
+---
+title: Podcast
+---
+
+### Title
+> podcast.title
+
+### Subtitle
+> podcast.subtitle
+
+### Summary
+> podcast.summary
+
+### Mnemonic / Abbreviation
+> podcast.mnemonic
+
+### Type
+> podcast.type
+
+* One of: episodic, serial
+
+### Image URL
+> podcast.imageUrl
+
+### Image
+> podcast.image
+
+* see [Image](./image)
+
+### Author name
+> podcast.authorName
+
+### Owner name
+> podcast.ownerEmail
+
+### Publisher name
+> podcast.publisherName
+
+### Publisher URL
+> podcast.publisherUrl
+
+### Podcast Home URL
+> podcast.landingPageUrl
+
+### Episodes
+> podcast.episodes
+
+Filter and order episodes with parameters:
+
+* __post_id__: one episode matching the given post id
+* __post_ids__: list of episodes matching the given list of post ids
+* __category__: list of episodes matching the category slug
+* __slug__: one episode matching the given slug
+* __slugs__: list of episodes matching the given list of slugs
+* __post_status__: Publication status of the post. Defaults to `publish`
+* __order__: Designates the ascending or descending order of the `orderby` parameter. Defaults to `DESC`.
+  * `ASC` - ascending order from lowest to highest values (1, 2, 3; a, b, c).
+  * `DESC` - descending order from highest to lowest values (3, 2, 1; c, b, a).
+* __orderby__: Sort retrieved episodes by parameter. Defaults to `publicationDate`.
+  * `publicationDate` - Order by publication date.
+  * `recordingDate` - Order by recording date.
+  * `title` - Order by title.
+  * `slug` - Order by episode slug.
+* __limit__: Limit the number of returned episodes.
+
+#### Examples
+
+Iterate over all published episodes, ordered by publication date.
+
+```twig
+{% for e in podcast.episodes %}
+  {{ e.title }}
+{% endfor %}
+```
+
+Order by title in ascending order.
+
+```twig
+{% for e in podcast.episodes({orderby: 'title', 'order': 'ASC'}) %}
+  {{ e.title }}
+{% endfor %}
+```
+
+Fetch one [episode](./episode) by slug.
+
+```twig
+{{ podcast.episodes({slug: 'pod001'}).title }}
+```
+
+### Feeds
+> podcast.feeds
+
+see [feed](./feed)
+
+### Feed
+> podcast.feed
+
+Single Feed by Slug/ID
+
+```twig
+{% set feed = podcast.feed("mp3") %}
+The Feed: <a href="{{ feed.url }}">{{ feed.title }}</a>
+```
+
+see [feed](./feed)
+
+### License
+> podcast.license
+
+To render an HTML license, use `{% include '@core/license.twig'` with `{'license': podcast.license} %}`
+
+see [license](./license)
+
+### Setting
+> podcast.setting
+
+Get a podcast setting. Valid namespaces / names:
+
+* website
+  * merge_episodes
+  * hide_wp_feed_discovery
+  * use_post_permastruct
+  * custom_episode_slug
+  * episode_archive
+  * episode_archive_slug
+  * url_template
+  * ssl_verify_peer
+* metadata
+  * enable_episode_recording_date
+  * enable_episode_explicit
+  * enable_episode_license
+* redirects
+  * podlove_setting_redirect
+* tracking
+  * mode
+
+### Contributors
+> podcast.contributors
+
+List of podcast contributors
+
+#### Examples
+
+Iterating over a list of contributors
+
+```twig
+{% for contributor in podcast.contributors({scope: "podcast"}) %}
+	{{ contributor.name }}
+	{% if not loop.last %}, {% endif %}
+{% endfor %}
+```
+
+Iterating over a grouped list of contributors
+
+```twig
+{% for contributorGroup in podcast.contributors({scope: "podcast", groupby: "group"}) %}
+	<strong>{{ contributorGroup.group.title }}:</strong>
+	{% for contributor in contributorGroup.contributors %}
+		{{ contributor.name }}
+		{% if not loop.last %}, {% endif %}
+	{% endfor %}
+{% endfor %}
+```
+
+#### Parameters
+
+* __id__: Fetch one contributor by its id. DEPRECATED: Usepodcast.contributor(id) instead.
+* __scope__: Either `global`, `globa-active` or `podcast`. - `global` returns all contributors. - `globa`-active” returns all contributors with at least one contribution in a published episode. - `podcast` returns the contributors configured in podcast settings. Default: `globa`-active”.
+* __group__: filter by group slug. Defaults to `all`, which does not filter.
+* __role__: filter by role slug. Defaults to `all`, which does not filter.
+* __groupby__: group or role slug. Group by `group` or `role`. If used, the returned data is has another layer for the groups. See examples for more details.
+* __order__: Designates the ascending or descending order of the `orderby` parameter. Defaults to `DESC`.
+  * `ASC` - ascending order from lowest to highest values (1, 2, 3; a, b, c).
+  * `DESC` - descending order from highest to lowest values (3, 2, 1; c, b, a).
+* __orderby__: Sort contributors by parameter. Defaults to `name`.
+  * `name` - Order by public name.
+
+### Contributor
+> podcast.contributor
+
+Get one contributor by id.
+
+#### Examples
+
+Iterating over a list of contributors
+
+```twig
+{{ podcast.contributor('james').name }}
+```
+
+### Seasons
+> podcast.seasons
+
+List of podcast seasons
+
+Parameters:
+* __order__: (optional) `DESC` or `ASC`. Default: `ASC`
+
+### Shows
+> podcast.shows
+
+List of all Podcast shows.
+
+#### Examples
+
+```twig
+This podcast features several shows:
+<ul>
+    {% for show in podcast.shows %}
+     <li>{{ show.title }}</li>
+ {% endfor %}
+</ul>
+```
+
+### Services
+> podcast.services
+
+List of service profiles
+
+#### Parameters
+
+* __category__: (optional) `social`, `donation` or `all`. Default: `all`
+* __type__: (optional) Filter services by type. List of all service types: 500px, amazon wishlist, app.net, bandcamp, bitbucket, bitcoin, deviantart, diaspora, dogecoin, dribbble, facebook, flattr, flickr, generic wishlist, github, google+, instagram, jabber, last.fm, linkedin, litecoin, openstreetmap, paypal, miiverse, pinboard, pinterest, playstation network, skype, soundcloud, soup, steam, steam wishlist, thomann wishlist, twitch, tumblr, twitter, website, xbox live, xing, youtube
+
+#### Example
+
+```twig
+{% for service in podcast.services({category: "social"}) %}
+  <a target="_blank" title="{{ service.title }}" href="{{ service.profileUrl }}">
+	{{ service.image.html({width: 20}) }}
+  </a>
+{% endfor %}
+```
+
+### Subscribe Button
+> podcast.subscribeButton
+
+```twig
+{{ podcast.subscribeButton }}
+
+{{ podcast.subscribeButton({format: 'square', color: '#000000', style: 'frameless', size: 'medium'}) }}
+```
+
+#### Parameters
+
+* __show__: If you are using the "Shows" module, you can set the show slug. The button will then be for that show instead of the main podcast.
+* __format__: Choose a button format, options are `rectangle`, `square` and `cover` (Note: `cover` has a max size of 300px) Default: `cover`
+* __style__: Choose a button style, options are `filled`, `outline` and `frameless`. Default: `filled`
+* __size__: Size and style of the button (`small`, `medium`, `big`). All of the sizes can be combined with `auto` to adapt the button width to the available space like this: `bi` auto’. Default: `big`
+* __color__: Define the color of the button. Allowed are all notations for colors that CSS can understand (keyword, rgb-hex, rgb, rgba, hsl, hsla). Please Note: It is not possible to style multiple buttons/popups on the same page differently.
+* __language__: `de`, `en`, `eo`, `fi`, `fr`, `nl`, `zh` and `ja`. Defaults to podcast language setting. If you set the buttonid to "example123", your element must have the class “podlove-subscribe-button-example123”.
+* __hide__: Set totrue if you want to hide the default button element. Useful if you provide your own button via thebuttonid setting.
+* __buttonid__: Use this if you want to trigger the button by clicking an element controlled by you.

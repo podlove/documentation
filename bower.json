@@ -1,7 +1,0 @@
-{
-  "name": "pwp-docs",
-  "dependencies": {
-    "podlove-web-player": "~v3.0.0",
-    "podlove-font": "~v2.0.0"
-  }
-}

@@ -1,0 +1,193 @@
+{
+  "show": {
+    "title": "Podlovers",
+    "subtitle": "Der Podlove Entwickler:innen Podcast",
+    "summary": "Podlove ist eine Initiative zur Verbesserung der Open Source Infrastruktur zum Podcasting. Podlove ist gleichzeitig auch ein Netzwerk an Entwickler:innen zur Diskussion von Features und Standardisierung.",
+    "poster": "/assets/web-player/show.png",
+    "link": "https://podlovers.org"
+  },
+  "title": "Podlove Web Player",
+  "subtitle": "Podlove Web Player: Motivation, Geschichte, Features, Ausblick",
+  "summary": "Wir holen uns Simon zur Hilfe um \u00fcber die Anf\u00e4nge des Podlove Web Player zu sprechen: Warum es ihn gibt und wie die ersten Versionen aussahen. In der zweiten H\u00e4lfte geht es tief in den Technik-Kaninchenbau: Alex erl\u00e4utert seine Motivation f\u00fcr den Neubau f\u00fcr Podlove Web Player 4 und 5. Zum Schluss besprechen wir das holprige Release des aktuellen Web Player Plugins.",
+  "publicationDate": "2020-08-16T11:58:58+00:00",
+  "duration": "01:31:18.610",
+  "poster": "/assets/web-player/episode.png",
+  "link": "https://podlovers.org/podlove-web-player",
+  "chapters": [
+    {
+      "start": "00:00:00.000",
+      "title": "Begr\u00fc\u00dfung",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:00:26.196",
+      "title": "Simon",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:01:56.397",
+      "title": "Feedback",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:07:08.279",
+      "title": "Erfahrungen beim Publishen",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:13:29.226",
+      "title": "Shownotes",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:20:43.264",
+      "title": "Audio-Hardware",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:22:51.183",
+      "title": "Podlove Web Player: Warum eigentlich?",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:25:41.451",
+      "title": "Podlove Web Player 1",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:28:16.131",
+      "title": "Podlove Web Player 2",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:33:44.999",
+      "title": "Podlove Web Player 3",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "00:44:17.011",
+      "title": "Podlove Web Player 4",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:02:41.149",
+      "title": "Podlove UI",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:05:50.035",
+      "title": "Podlove Web Player 5",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:12:50.121",
+      "title": "Podlove Web Player WordPress Plugin",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:29:23.552",
+      "title": "Ausblick",
+      "href": "",
+      "image": ""
+    },
+    {
+      "start": "01:30:49.849",
+      "title": "Und Tsch\u00fcss",
+      "href": "",
+      "image": ""
+    }
+  ],
+  "audio": [
+    {
+      "url": "https://files.podlovers.org/LOV003.mp3",
+      "size": "76976929",
+      "title": "MP3 Audio (mp3)",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "files": [
+    {
+      "url": "https://files.podlovers.org/LOV003.mp3",
+      "size": "76976929",
+      "title": "MP3 Audio",
+      "mimeType": "audio\/mpeg"
+    }
+  ],
+  "contributors": [
+    {
+      "id": "1",
+      "name": "Alexander Heimbuch",
+      "avatar": "/assets/web-player/alexander-heimbuch.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Michaela Lehr",
+      "avatar": "/assets/web-player/michaela-lehr.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Eric Teubert",
+      "avatar": "/assets/web-player/eric-teubert.jpeg",
+      "role": {
+        "id": "1",
+        "slug": "team",
+        "title": "Team"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Simon",
+      "avatar": "/assets/web-player/simon.jpeg",
+      "role": {
+        "id": "2",
+        "slug": "guest",
+        "title": "Gast"
+      },
+      "group": {
+        "id": "2",
+        "slug": "on-air",
+        "title": "On Air"
+      }
+    }
+  ],
+  "transcripts": "/assets/web-player/v4/transcript.json"
+}

@@ -1,0 +1,96 @@
+---
+title: 'Tab Trigger'
+---
+
+import { Player } from '../../components/player'
+
+> Toggle to show/hide a tab
+
+### Preview
+
+<Player
+  episode="/assets/web-player/v5/episode.json"
+  config="/assets/web-player/v5/config.json"
+>
+  <root class="p-4">
+    <div class="flex justify-between pt-4 px-4">
+      <div class="flex justify-between w-full">
+        <tab-trigger tab="chapters">
+          <icon type="chapter"></icon>
+        </tab-trigger>
+        <tab-trigger tab="transcripts">
+          <icon type="transcripts"></icon>
+        </tab-trigger>
+        <tab-trigger tab="files">
+          <icon type="download"></icon>
+        </tab-trigger>
+        <tab-trigger tab="playlist">
+          <icon type="playlist"></icon>
+        </tab-trigger>
+        <tab-trigger tab="share">
+          <icon type="share"></icon>
+        </tab-trigger>
+      </div>
+    </div>
+    <div class="w-full relative overflow-hidden">
+      <tab name="chapters">
+        Chapters
+      </tab>
+      <tab name="transcripts">
+        Transcripts
+      </tab>
+      <tab name="files">
+        Files
+      </tab>
+      <tab name="playlist">
+        Playlist
+      </tab>
+      <tab name="share">
+        Share
+      </tab>
+    </div>
+  </root>
+</Player>
+
+### Code
+
+```html
+<root class="p-4">
+  <div class="flex justify-between pt-4 px-4">
+    <div class="flex justify-between w-full">
+      <tab-trigger tab="chapters">
+        <icon type="chapter"></icon>
+      </tab-trigger>
+      <tab-trigger tab="transcripts">
+        <icon type="transcripts"></icon>
+      </tab-trigger>
+      <tab-trigger tab="files">
+        <icon type="download"></icon>
+      </tab-trigger>
+      <tab-trigger tab="playlist">
+        <icon type="playlist"></icon>
+      </tab-trigger>
+      <tab-trigger tab="share">
+        <icon type="share"></icon>
+      </tab-trigger>
+    </div>
+  </div>
+  <div class="w-full relative overflow-hidden">
+    <tab name="chapters">
+      Chapters
+    </tab>
+    <tab name="transcripts">
+      Transcripts
+    </tab>
+    <tab name="files">
+      Files
+    </tab>
+    <tab name="playlist">
+      Playlist
+    </tab>
+    <tab name="share">
+      Share
+    </tab>
+  </div>
+</root>
+```

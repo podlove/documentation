@@ -1,0 +1,58 @@
+---
+title: Season
+---
+
+### Title
+> season.title
+
+### Subtitle
+> season.subtitle
+
+### Summary
+> season.summary
+
+### Number
+> season.number
+
+Automatically assigned season number, starting at 1.
+
+### Image
+> season.image
+
+### Start Date
+> season.startDate
+
+This is the configured start date, not the date of the first episode of the season. If you were looking for that, use `season.firstEpisode.publicationDate`.
+
+see [datetime](./date-time)
+
+### First Episode
+> season.firstEpisode
+First episode of the season.
+
+see [episode](./episode)
+
+### Last Episode
+> season.lastEpisode
+
+Last episode of the season.
+
+see [episode](./episode)
+
+### Running
+> season.running
+
+Is this season currently running?
+
+```twig
+{% if season.running %}
+    This season is currently running.
+{% endif %}
+```
+
+### Season Episodes
+> season.episodes
+
+#### Parameters:
+
+* __order__: (optional) `DESC` or `ASC`. Default: `ASC`

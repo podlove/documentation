@@ -1,0 +1,21 @@
+---
+title: 'Play State'
+---
+
+import { PlayState } from '../../components/play-state'
+
+> Conditional components that show/hide other components based on a specific application state
+
+### Preview
+
+<PlayState />
+
+### Code
+
+```html
+<root class="p-4 flex justify-center">
+  <play-state on="initialized"><span>On Initialized</span></play-state>
+  <play-state on="active"><span>On Active</span></play-state>
+  <play-state on="ended"><span>On Ended</span></play-state>
+</root>
+```
