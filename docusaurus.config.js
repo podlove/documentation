@@ -71,16 +71,16 @@ module.exports = {
             {
               label: "Podlovers Podcast",
               href: "https://podlovers.org",
-            }
+            },
           ],
         },
-      ]
+      ],
     },
     colorMode: {
-      disableSwitch: true
+      disableSwitch: true,
     },
     prism: {
-      additionalLanguages: ['twig'],
+      additionalLanguages: ["twig"],
     }
   },
   presets: [
@@ -110,6 +110,46 @@ module.exports = {
         path: "publisher",
         routeBasePath: "podlove-publisher",
         sidebarPath: require.resolve("./publisher/sidebar.js"),
+      },
+    ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        toExtensions: ["html"],
+        redirects: [
+          {
+            from: ['/publisher/guides/join-the-beta'],
+            to: '/publisher/join-the-beta',
+          },
+          {
+            from: ['/publisher/guides/dsgvo-gdpr'],
+            to: '/publisher/reference/dsgvo-gdpr',
+          },
+          {
+            from: ['/publisher/guides/download-analytics'],
+            to: '/publisher/reference/download-analytics',
+          },
+          {
+            from: ['/publisher/guides/image-cache'],
+            to: '/publisher/faq/image-cache'
+          },
+          {
+            from: ['/publisher/guides/chapter-marks'],
+            to: '/publisher/faq/chapter-marks'
+          },
+          {
+            from: ['/publisher/guides/episode-images'],
+            to: '/publisher/faq/episode-images'
+          },
+          {
+            from: ['/publisher/guides/understanding-templates'],
+            to: '/publisher/guides/templates'
+          },
+          {
+            from: ['/publisher/guides/slacknotes'],
+            to: '/publisher/modules/slacknotes'
+          }
+        ],
       },
     ],
   ],

@@ -9,16 +9,16 @@ module.exports = [
       label: "Guides",
       items: [
         'guides/getting-started',
-        'guides/chapter-marks',
-        'guides/episode-images',
         'guides/podcast-migration',
         'guides/podcast-network',
-        'guides/understanding-templates',
-        'guides/download-analytics',
-        'guides/dsgvo-gdpr',
-        'guides/image-cache',
-        'guides/slacknotes',
-        'guides/join-the-beta',
+        'guides/templates'
+      ]
+    },
+    {
+      type: "category",
+      label: "Modules",
+      items: [
+        'modules/slacknotes'
       ]
     },
     {
@@ -26,36 +26,45 @@ module.exports = [
       label: "Reference",
       items:[
         'reference/shortcodes',
-        'reference/templates',
         {
           type: "category",
-          label: "Template Tags",
+          label: "Templates",
           items: [
-            'reference/template-tags/podcast',
-            'reference/template-tags/episode',
-            'reference/template-tags/network',
-            'reference/template-tags/podcast-list',
-            'reference/template-tags/chapter',
-            'reference/template-tags/feed',
-            'reference/template-tags/asset',
-            'reference/template-tags/file',
-            'reference/template-tags/image',
-            'reference/template-tags/tag',
-            'reference/template-tags/category',
-            'reference/template-tags/duration',
-            'reference/template-tags/contributor',
-            'reference/template-tags/season',
-            'reference/template-tags/service',
-            'reference/template-tags/show',
-            'reference/template-tags/license',
-            'reference/template-tags/flattr',
-            'reference/template-tags/date-time',
-            'reference/template-tags/line',
-            'reference/template-tags/group',
+            'reference/templates/templates',
+            {
+              type: "category",
+              label: "Template Tags",
+              items: [
+                'reference/templates/template-tags/podcast',
+                'reference/templates/template-tags/episode',
+                'reference/templates/template-tags/network',
+                'reference/templates/template-tags/podcast-list',
+                'reference/templates/template-tags/chapter',
+                'reference/templates/template-tags/feed',
+                'reference/templates/template-tags/asset',
+                'reference/templates/template-tags/file',
+                'reference/templates/template-tags/image',
+                'reference/templates/template-tags/tag',
+                'reference/templates/template-tags/category',
+                'reference/templates/template-tags/duration',
+                'reference/templates/template-tags/contributor',
+                'reference/templates/template-tags/season',
+                'reference/templates/template-tags/service',
+                'reference/templates/template-tags/show',
+                'reference/templates/template-tags/license',
+                'reference/templates/template-tags/flattr',
+                'reference/templates/template-tags/date-time',
+                'reference/templates/template-tags/line',
+                'reference/templates/template-tags/group',
+              ]
+            },
+            'reference/templates/template-conditionals',
           ]
         },
-        'reference/template-conditionals',
+        
         'reference/php-constants',
+        'reference/dsgvo-gdpr',
+        'reference/download-analytics',
       ]
     },
     {
@@ -66,6 +75,16 @@ module.exports = [
         'developer/modules',
         'developer/projects'
       ]
-    }
+    },
+    {
+      type: "category",
+      label: "Faq",
+      items: [
+        'faq/image-cache',
+        'faq/chapter-marks',
+        'faq/episode-images',
+      ]
+    },
+    'join-the-beta'
   ]
 ]
