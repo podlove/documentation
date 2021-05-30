@@ -15,19 +15,20 @@
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-beta.a9343a191",
-    "@docusaurus/preset-classic": "2.0.0-beta.a9343a191",
-    "@podlove/player-actions": "5.5.0",
     "@docusaurus/plugin-client-redirects": "2.0.0-beta.a9343a191",
+    "@docusaurus/preset-classic": "2.0.0-beta.a9343a191",
+    "@cmfcmf/docusaurus-search-local": "0.6.2",
     "@mdx-js/react": "^1.6.21",
-    "clsx": "^1.1.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "@podlove/player-actions": "5.5.0",
     "@podlove/web-player": "5.5.0",
+    "clsx": "^1.1.1",
     "load-scripts": "1.0.0",
-    "react-color": "2.19.3",
-    "reactcss": "1.2.3",
     "lodash": "4.17.21",
-    "react-youtube": "7.13.1"
+    "react": "^17.0.1",
+    "react-color": "2.19.3",
+    "react-dom": "^17.0.1",
+    "react-youtube": "7.13.1",
+    "reactcss": "1.2.3"
   },
   "browserslist": {
     "production": [

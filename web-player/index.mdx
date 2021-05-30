@@ -5,6 +5,8 @@ sidebar_label: Introduction
 slug: /
 ---
 
+import { Integrations } from './components/integrations'
+
 > The fast, flexible and responsive podcast player powered by podlove meta data.
 
 Podlove Web Player is a HTML5 based web player for audio and video media files that is optimized and extended for the specific needs of podcasters. This player integrates well with the Podlove Podcast Publisher but can also be used independent from it.
@@ -19,4 +21,18 @@ Podlove Web Player is a HTML5 based web player for audio and video media files t
 * Supports multiple audio file formats
 * Supports live streams
 
-### Trusted by 
+### Used by
+
+<Integrations integrations={[{
+    title: 'Der Spiegel',
+    image: 'https://www.spiegel.de/public/spon/images/logos/fb_logo_default.jpg',
+    link: 'https://www.spiegel.de'
+}, {
+    title: 'Norddeutscher Rundfunk',
+    image: 'https://pbs.twimg.com/profile_images/1156477415947984896/-CuyGRgs_400x400.jpg',
+    link: 'https://www.ndr.de/'
+}, {
+    title: 'LetsCast.fm',
+    image: 'https://letscast.fm/assets/lets-cast-logo-f6162920ee5c8687b9ea60595613aecadd6547b25ad353e714d99b4840f0380b.png',
+    link: 'https://letscast.fm/'
+}]} />

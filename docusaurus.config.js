@@ -39,6 +39,10 @@ module.exports = {
           label: "Donation",
           position: "right",
         },
+        {
+          type: "search",
+          position: "right",
+        },
       ],
     },
     footer: {
@@ -81,7 +85,7 @@ module.exports = {
     },
     prism: {
       additionalLanguages: ["twig"],
-    }
+    },
   },
   presets: [
     [
@@ -118,38 +122,44 @@ module.exports = {
         toExtensions: ["html"],
         redirects: [
           {
-            from: ['/publisher/guides/join-the-beta'],
-            to: '/publisher/join-the-beta',
+            from: ["/podlove-publisher/guides/join-the-beta"],
+            to: "/podlove-publisher/join-the-beta",
           },
           {
-            from: ['/publisher/guides/dsgvo-gdpr'],
-            to: '/publisher/reference/dsgvo-gdpr',
+            from: ["/podlove-publisher/guides/dsgvo-gdpr"],
+            to: "/podlove-publisher/reference/dsgvo-gdpr",
           },
           {
-            from: ['/publisher/guides/download-analytics'],
-            to: '/publisher/reference/download-analytics',
+            from: ["/podlove-publisher/guides/download-analytics"],
+            to: "/podlove-publisher/reference/download-analytics",
           },
           {
-            from: ['/publisher/guides/image-cache'],
-            to: '/publisher/faq/image-cache'
+            from: ["/podlove-publisher/guides/image-cache"],
+            to: "/podlove-publisher/faq/image-cache",
           },
           {
-            from: ['/publisher/guides/chapter-marks'],
-            to: '/publisher/faq/chapter-marks'
+            from: ["/podlove-publisher/guides/chapter-marks"],
+            to: "/podlove-publisher/faq/chapter-marks",
           },
           {
-            from: ['/publisher/guides/episode-images'],
-            to: '/publisher/faq/episode-images'
+            from: ["/podlove-publisher/guides/episode-images"],
+            to: "/podlove-publisher/faq/episode-images",
           },
           {
-            from: ['/publisher/guides/understanding-templates'],
-            to: '/publisher/guides/templates'
+            from: ["/podlove-publisher/guides/understanding-templates"],
+            to: "/podlove-publisher/guides/templates",
           },
           {
-            from: ['/publisher/guides/slacknotes'],
-            to: '/publisher/modules/slacknotes'
-          }
+            from: ["/podlove-publisher/guides/slacknotes"],
+            to: "/podlove-publisher/modules/slacknotes",
+          },
         ],
+      },
+    ],
+    [
+      require.resolve('@cmfcmf/docusaurus-search-local'),
+      {
+        docsRouteBasePath: '/'
       },
     ],
   ],
