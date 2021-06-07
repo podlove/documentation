@@ -1,0 +1,120 @@
+---
+title: Getting Started
+---
+
+import { Demo } from '../components/demo';
+
+The Podlove Web Player is a WordPress plugin. In this tutorial we assume that you have a running WordPress installation. Make sure that you match our [general system requirements](/podlove-publisher/requirements) before you get started.
+
+## 1 Installation
+
+- Login to your WordPress administration and navigate to __Plugins__. 
+- Click __Add New__, search for _Podlove Web Player_
+- Install the plugin and __Activate it__
+
+<Demo src="/assets/web-player/guides/podlove-web-player-installation.webm" />
+
+## 2 Basic Configuration
+
+- Navigate to __Settings__ > __Podlove Web Player__
+- Click __Configuration__ > __Add__ to create a new Web Player configuration
+- Enter an identifier that matches your purpose (We will use this configuration on episode pages, therefore we call it _episode_ but also the podcast name could be a good fit)
+- Press __Add__ to create the configuration
+
+<Demo src="/assets/web-player/guides/podlove-web-player-configuration.webm" />
+
+#### Optional: In case you want to use the integrated Subscribe Button
+
+- On the configuration page scroll to __Subscribe Button__
+- Enter your __RSS Feed__
+- Add clients for your subscribers:
+    - Select the clients you want to support
+    - Configure as needed
+- Hit __Save__ to save your changes
+
+:::info
+Blue clients will work out of the box, green clients will need some additional configuration.
+:::
+
+<Demo src="/assets/web-player/guides/podlove-web-player-clients.webm" />
+
+## 3 Customize your Theme
+
+- Navigate to __Settings__ > __Podlove Web Player__
+- Click __Themes__ > __Add__ to create a new Web Player Theme
+- Enter an identifier that matches your purpose (We will use this theme on episode pages, therefore we call it _episode_ but also the podcast name could be a good fit)
+- Adjust the _Colors_ to match your scheme (You should see the changes in the preview on the right side)
+- Hit __Save__ to save your changes
+
+<Demo src="/assets/web-player/guides/podlove-web-player-theme.webm" />
+
+## 4 Default Settings
+
+- Navigate to __Settings__ > __Podlove Web Player__
+- Click __Settings__ to see the Web Player settings
+- Select your newly created configuration from step 2 as the _Default Configuration_
+- Select your newly created theme from step 3 as the _Default Theme_
+- Hit __Save__ to save your changes
+
+<Demo src="/assets/web-player/guides/podlove-web-player-settings.webm" />
+
+## 5 Usage in Posts & Pages
+
+### Shortcode
+
+- Create/edit a page or a post
+- Insert the following shortcode:
+
+```
+[podlove-web-player title="Podlove Web Player" show="Podlovers" poster="https://docs.podlove.org/assets/web-player/episode.png" src="https://files.podlovers.org/LOV003.mp3" size="76976929" duration="01:31:18.610"]
+```
+
+- Hit __Publish__
+- Visit the page or post to see the player in action
+
+<Demo src="/assets/web-player/guides/podlove-web-player-shortcode.webm" />
+
+### Gutenberg Block
+
+- Create a page or a post
+- Add a new block to the page
+- Select _Podlove Web Player_
+- Select _Custom_
+- Adjust the _Settings_
+    - Select your _Config_
+    - Select your _Theme_
+
+
+<Demo src="/assets/web-player/guides/podlove-web-player-block-add.webm" />
+
+- Add _Audio_ information:
+    - Set a _Title_ for the audio file
+    - Upload the audio _File_ to wordpress and select it
+    - Select the file _Type_
+    - Set the file _Size_ in bytes
+
+<Demo src="/assets/web-player/guides/podlove-web-player-block-audio.webm" />
+
+- Add _Episode_ information:
+    - Set the episode _Title_
+    - Add the episode _Duration_
+    - Upload the episode _Poster_ to wordpress and select it
+
+<Demo src="/assets/web-player/guides/podlove-web-player-block-episode.webm" />
+
+- Add _Show_ information:
+    - Set the show _Title_
+- Hit __Publish__
+- Visit the page or post to see the player in action
+
+<Demo src="/assets/web-player/guides/podlove-web-player-block-show.webm" />
+
+## 6 Integrate with Podlove Publisher
+
+- Make sure you have the latest Publisher installed
+- Go to __Podlove__ > __Podcast Settings__ and select the __Player Tab__
+- Select _Podlove Web Player 5_ and hit __Save Changes__
+- Go to __Podlove__ > __Templates__ and add `episode.player()` to the _default_ template
+- Make sure to insert the _Template_ into your episodes
+
+<Demo src="/assets/web-player/guides/podlove-web-player-publisher-integration.webm" />

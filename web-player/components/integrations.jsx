@@ -21,7 +21,7 @@ export class Integrations extends React.Component {
       }
     })
 
-    const intergation = (data) => <a style={styles.image} href={data.link}><img src={data.image} title={data.title} /></a>
+    const intergation = (data) => <a style={styles.image} href={data.link} key={data.image}><img src={data.image} title={data.title} /></a>
 
     return (
         <div style={styles.container}>

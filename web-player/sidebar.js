@@ -6,6 +6,11 @@ module.exports = [
     },
     {
       type: "category",
+      label: "Wordpress Plugin",
+      items: ["wordpress-plugin/getting-started"]
+    },
+    {
+      type: "category",
       label: "Podlove Web Player 5",
       items: [
         "v5/features",

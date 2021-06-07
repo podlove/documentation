@@ -85,6 +85,7 @@ module.exports = [
         'faq/episode-images',
       ]
     },
+    'requirements',
     'join-the-beta'
   ]
 ]
