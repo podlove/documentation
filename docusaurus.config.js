@@ -155,6 +155,18 @@ module.exports = {
             from: ["/podlove-publisher/guides/slacknotes"],
             to: "/podlove-publisher/modules/slacknotes",
           },
+          {
+            from: ["/ref/shortcodes"],
+            to: "/podlove-publisher/reference/shortcodes",
+          },
+          {
+            from: ["/reference/template-tags"],
+            to: "/podlove-publisher/reference/templates/template-tags/podcast",
+          },
+          {
+            from: ["/guides/understanding-templates"],
+            to: "/podlove-publisher/guides/templates",
+          },
         ],
       },
     ],
