@@ -157,7 +157,7 @@ module.exports = {
             to: "/podlove-publisher/modules/slacknotes",
           },
           {
-            from: ["/ref/shortcodes"],
+            from: ["/ref/shortcodes", "/ref/shortcodes.html"],
             to: "/podlove-publisher/reference/shortcodes",
           },
           {
