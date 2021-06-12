@@ -1,0 +1,58 @@
+---
+title: Core Concepts
+---
+
+Podlove Web Player 5 is all about customization. The [companion Wordpress plugin](https://wordpress.org/plugins/podlove-web-player/) gives you access to all the bells and whistles.
+
+## Conceptual Foundation
+Lets sort some basic terms out in order to get a common understanding around the customization concepts of Podlove Web Player. The Podlove Web Player seperates strictly podcast related data (like the episode title, summary, audio, chapters, ...) and data that is used to change the appearance of the player (colors, default tab, ...). Most of the podcast related data is provided from plugins like Podlove Publisher, this plugin is all about managing the data to change the player appearance.
+
+### Configuration
+A configuration is a collection of settings that change the default behaviour of the player. For instance what tab is active by default, what sharing channels should be available in the player and also what podcast clients should be shown in the Subscribe Button.
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-config.png" />
+
+### Themes
+A theme is a collection of color tokens and fonts. You might think about it like a branding for your podcast. Podlove Web Player 5 uses 8 theme colors and 3 different font stacks to change the color and font appearal. 
+See the [Web Player 5 theming](/podlove-web-player/v5/theming) for an interactive playground.
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-theme.png" />
+
+### Templates
+In contrast to previous player versions Podlove Web Player 5 allows you to completely customize its design. This comes in handy if you want to have different designs for different use cases like overview, episodes or sidebar players. It can also be used to strip down features of the player. Since this involves a basic understanding in HTML and the [css framework tailwind](https://tailwindcss.com/) it is a feature for advanced users. This opens up the ability to share designs independently from it's theme. To give you some impressions the Wordpress plugin already ships with 3 different templates.
+See the [Web Player 5 templating reference](/podlove-web-player/v5/templating/getting-started) if you plan to create your own template.
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-template.png" />
+
+## Flexibility is Key
+The feature set of Podlove Web Player 5 can be a bit overwhelming. For a quick start we provide a default for configurations, themes and templates that can be tweaked. Default is, as the name may indicate, the default appearance of the player. Accordingly changing the default will change Podlove Web Player 5 instances that doesn't get a specific configuration, theme or template. 
+
+If you want to go fancy and adapt the player to different use cases, you can add new configurations, themes and templates. Configurations, themes and templates are not connected and can be mixed and matched as you please. For instance: if you have a single podcast but different use cases (overview, episode or sidebar specific players) you propably will have 3 different templates but only one theme and one configuration.
+
+Once defined you can use configurations, themes and templates in shortcodes, blocks and also publisher templates:
+
+### Shortcode
+
+```
+[podlove-web-player
+  theme="mycustomtheme"
+  config="mycustomconfig"
+  template="mycustomtemplate"
+  title="My episode title"
+  subtitle="Episode Subtitle"
+  poster="/files/path/to/poster.png"
+  chapters="/files/path/to/chapters.json"
+  transcripts="/files/path/to/transcripts.json"
+  src="http://mysite.com/mymedia.mp3″
+  size="1337"
+  duration="03:33"
+]
+```
+
+### Gutenberg Block
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-block.png" />
+
+### Podlove Publisher
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-publisher.png" />

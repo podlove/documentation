@@ -1,4 +1,79 @@
 ---
-title: Shortcodes
+title: Shortcode
 ---
 
+### General Attributes
+
+Each shortcode can specify a theme, a config and a template. These attributes are optional and, if not set, use the default configured in the plugin.
+
+```
+[podlove-web-player
+  theme="default"
+  config="default"
+  template="config"
+]
+```
+
+| Attribute     | Description          | Required |
+| ------------- | -------------------- | :----:   |
+| theme         | Player Theme         |          |
+| config        | Player Configuration |          |
+| template      | Player Template      |          |
+
+### Custom
+
+Use a simple shortcode in your posts and pages, and the Podlove Web Player will appear, playing any media file you want to assign. Basic usage:
+
+```
+[podlove-web-player
+  title="My episode title"
+  subtitle="Episode Subtitle"
+  poster="/files/path/to/poster.png"
+  chapters="/files/path/to/chapters.json"
+  transcripts="/files/path/to/transcripts.json"
+  playlist="/files/path/to/playlist.json"
+  src="http://mysite.com/mymedia.mp3"
+  size="1337"
+  show="My show title"
+  duration="03:33"
+]
+```
+
+| Attribute     | Description                                                                       | Required |
+| ------------- | --------------------------------------------------------------------------------- | :----:   |
+| src           | Audio Source                                                                      | ✅       |
+| size          | [Audio File Size in Bytes](https://de.wikipedia.org/wiki/Byte)                    |          |
+| duration      | [Audio Duration in ISO_8601 format](https://en.wikipedia.org/wiki/ISO_8601)       |          |
+| title         | Episode Title                                                                     |          |
+| subtitle      | Episode Subtitle                                                                  |          |
+| poster        | Episode Poster                                                                    |          |
+| show          | Show Title                                                                        |          |
+| chapter       | [Episode Chapter Definition](/podlove-web-player/v5/configuration#chapters)       |          |
+| transcripts   | [Episode Transcripts Definition](/podlove-web-player/v5/configuration#transcripts)|          |
+| playlist      | [Episode Playlist Definition](/podlove-web-player/v5/configuration#playlist)      |          |
+
+### Media Enclosure
+
+Use an existing post with a media enclosure that is provided from plugins like Blubrry:
+
+```
+[podlove-web-player post="1234"]
+```
+
+| Attribute     | Description                                                                       | Required |
+| ------------- | --------------------------------------------------------------------------------- | :----:   |
+| post           | WordPress Post ID                                                                | ✅       |
+
+### Podlove Publisher
+
+In case you have our [Podlove Publisher](https://wordpress.org/plugins/podlove-podcasting-plugin-for-wordpress/) installed:
+
+```
+[podlove-web-player publisher="211"]
+```
+
+| Attribute     | Description                                                                       | Required |
+| ------------- | --------------------------------------------------------------------------------- | :----:   |
+| publisher     | Podlove Publisher Episode ID                                                      | ✅       |
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-shortcode.png" />

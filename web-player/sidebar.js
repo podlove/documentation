@@ -7,7 +7,13 @@ module.exports = [
     {
       type: "category",
       label: "Wordpress Plugin",
-      items: ["wordpress-plugin/getting-started"]
+      items: [
+        "wordpress-plugin/getting-started",
+        "wordpress-plugin/publisher-integration",
+        "wordpress-plugin/shortcode",
+        "wordpress-plugin/subscribe-button",
+        "wordpress-plugin/core-concepts",
+      ],
     },
     {
       type: "category",
@@ -62,7 +68,11 @@ module.exports = [
         {
           type: "category",
           label: "Extensions",
-          items: ["v5/extensions/runtime-api", "v5/extensions/plugin-external", "v5/extensions/player-syncing"],
+          items: [
+            "v5/extensions/runtime-api",
+            "v5/extensions/plugin-external",
+            "v5/extensions/player-syncing",
+          ],
         },
       ],
     },

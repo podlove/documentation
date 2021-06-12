@@ -256,7 +256,53 @@ title: Configuration
   * - can be a plain list or a reference to a json file
   * - if present transcripts tab will be available (if the template includes it)
   */
-  "transcripts": "/assets/web-player/v5/transcript.json"
+  "transcripts": [
+    {
+      "start": "00:00:00.005",
+      "start_ms": 5,
+      "end": "00:00:09.458",
+      "end_ms": 9458,
+      "speaker": "3",
+      "voice": "Eric",
+      "text": "Dann sage ich einfach mal: Hallo und willkommen zu Episode drei des Podlovers Podcasts. Heute das erste Mal mit Gast. Hallo Simon."
+    },
+    {
+      "start": "00:00:09.600",
+      "start_ms": 9600,
+      "end": "00:00:10.800",
+      "end_ms": 10800,
+      "speaker": "4",
+      "voice": "Simon",
+      "text": "Hallo."
+    },
+    {
+      "start": "00:00:10.996",
+      "start_ms": 10996,
+      "end": "00:00:13.875",
+      "end_ms": 13875,
+      "speaker": "3",
+      "voice": "Eric",
+      "text": "Au\u00dferdem wieder mit Michi."
+    },
+    {
+      "start": "00:00:14.900",
+      "start_ms": 14900,
+      "end": "00:00:15.900",
+      "end_ms": 15900,
+      "speaker": "2",
+      "voice": "Michi",
+      "text": "Hallo."
+    },
+    {
+      "start": "00:00:16.000",
+      "start_ms": 16000,
+      "end": "00:00:16.300",
+      "end_ms": 16300,
+      "speaker": "3",
+      "voice": "Eric",
+      "text": "Und Alex."
+    }
+  ]
 }
 ```
 
@@ -457,7 +503,23 @@ version: 5,
    * - can be a plain list or a reference to a json file
    * - if present playlist tab will be available
    */
-  playlist: playlist,
+  playlist: [
+    {
+      "title": "Podlove Web Player",
+      "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/60",
+      "duration": "01:31:18.610"
+    },
+    {
+      "title": "Podlove Publisher",
+      "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/51",
+      "duration": "02:03:30.573"
+    },
+    {
+      "title": "Wir. M\u00fcssen Reden",
+      "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/15",
+      "duration": "00:50:03.900"
+    }
+  ],
 
   /*
     Share Tab
@@ -481,4 +543,181 @@ version: 5,
     outlet: "/share.html",
     sharePlaytime: true
   }
+```
+
+## Chapters
+
+```json  title="chapters.json"
+[
+  {
+    "start": "00:00:00.000",
+    "title": "Begr\u00fc\u00dfung",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:00:26.196",
+    "title": "Simon",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:01:56.397",
+    "title": "Feedback",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:07:08.279",
+    "title": "Erfahrungen beim Publishen",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:13:29.226",
+    "title": "Shownotes",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:20:43.264",
+    "title": "Audio-Hardware",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:22:51.183",
+    "title": "Podlove Web Player: Warum eigentlich?",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:25:41.451",
+    "title": "Podlove Web Player 1",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:28:16.131",
+    "title": "Podlove Web Player 2",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:33:44.999",
+    "title": "Podlove Web Player 3",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "00:44:17.011",
+    "title": "Podlove Web Player 4",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "01:02:41.149",
+    "title": "Podlove UI",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "01:05:50.035",
+    "title": "Podlove Web Player 5",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "01:12:50.121",
+    "title": "Podlove Web Player WordPress Plugin",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "01:29:23.552",
+    "title": "Ausblick",
+    "href": "",
+    "image": ""
+  },
+  {
+    "start": "01:30:49.849",
+    "title": "Und Tsch\u00fcss",
+    "href": "",
+    "image": ""
+  }
+]
+```
+
+## Transcripts
+
+```json title="transcripts.json"
+[
+  {
+    "start": "00:00:00.005",
+    "start_ms": 5,
+    "end": "00:00:09.458",
+    "end_ms": 9458,
+    "speaker": "3",
+    "voice": "Eric",
+    "text": "Dann sage ich einfach mal: Hallo und willkommen zu Episode drei des Podlovers Podcasts. Heute das erste Mal mit Gast. Hallo Simon."
+  },
+  {
+    "start": "00:00:09.600",
+    "start_ms": 9600,
+    "end": "00:00:10.800",
+    "end_ms": 10800,
+    "speaker": "4",
+    "voice": "Simon",
+    "text": "Hallo."
+  },
+  {
+    "start": "00:00:10.996",
+    "start_ms": 10996,
+    "end": "00:00:13.875",
+    "end_ms": 13875,
+    "speaker": "3",
+    "voice": "Eric",
+    "text": "Au\u00dferdem wieder mit Michi."
+  },
+  {
+    "start": "00:00:14.900",
+    "start_ms": 14900,
+    "end": "00:00:15.900",
+    "end_ms": 15900,
+    "speaker": "2",
+    "voice": "Michi",
+    "text": "Hallo."
+  },
+  {
+    "start": "00:00:16.000",
+    "start_ms": 16000,
+    "end": "00:00:16.300",
+    "end_ms": 16300,
+    "speaker": "3",
+    "voice": "Eric",
+    "text": "Und Alex."
+  }
+]
+```
+
+## Playlist
+
+```json title="playlist.json"
+[
+  {
+    "title": "Podlove Web Player",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/60",
+    "duration": "01:31:18.610"
+  },
+  {
+    "title": "Podlove Publisher",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/51",
+    "duration": "02:03:30.573"
+  },
+  {
+    "title": "Wir. M\u00fcssen Reden",
+    "config": "https:\/\/backend.podlovers.org\/wp-json\/podlove-web-player\/shortcode\/publisher\/15",
+    "duration": "00:50:03.900"
+  }
+]
 ```

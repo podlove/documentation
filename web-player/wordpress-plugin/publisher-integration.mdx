@@ -1,0 +1,86 @@
+---
+title: Publisher Integration
+---
+
+### 1 Verify that you have installed the correct plugins
+
+:::caution
+Important: Once you've installed the Podlove Web Player 5 plugin all Web Player related Publisher shortcodes will be rendered by the Podlove Web Player plugin
+:::
+
+- Go to __Plugins__ > __Installed Plugins__
+- Verify that you have installed [Podlove Publisher](https://wordpress.org/plugins/podlove-podcasting-plugin-for-wordpress) in version 2.10.0 or higher
+- Verify that you have installed [Podlove Web Player](https://wordpress.org/plugins/podlove-web-player/) in version 5.0.0 or higher 
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-versions.png" />
+
+
+### 2 Activate the Web Player in Podlove Publisher
+
+- Go to __Podlove__ > __Podcast Settings__
+- Select the tab __Player__
+- Select _Podlove Web Player 5_
+- Click __Save Changes__
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-activation.jpeg" />
+
+### 3 Configure the Podlove Web Player 5 appearance
+
+:::info
+Important: Please read the [Core Concepts](./core-concepts) article to become familiar with its core concepts
+:::
+
+- Go to __Settings__ > __Podlove Web Player__
+- Customise the Player appearance:
+  - Adapt the existing default configuration, theme and template to your needs OR
+  - Create new configurations, themes and templates
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-configuration.png" />
+
+### 4 Insert the Podlove Web Player into Podlove Publisher
+
+#### If you are inserting the player automatically
+
+- Go to __Settings__ > __Podlove Web Player__ > __Settings__
+- Select the default config, theme and template
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-automatic-insertion.png" />
+
+#### If you are using Publisher Templates
+
+- Go to __Podlove__ > __Templates__
+- Select the template you want to edit
+- Extend the `episode.player` call by adding the Podlove Web Player 5 config, theme and template parameters
+- example: `episode.player({ config: "default", theme: "default", template: "compact" })`
+
+<img src="/assets/web-player/guides/podlove-web-player-core-concepts-publisher.png" />
+
+#### If you are using the Publisher Web Player Shortcode
+
+- Go to the episode you want to add the player
+- Add/extend the `podlove-episode-web-player` shortcode with `config`, `theme` or `template` attributes
+- example: `[podlove-episode-web-player template="compact" theme="default" config="default"]`
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-shortcode.png" />
+
+### 5 "Related Episodes" Web Player Feature
+
+You can enable _Related Episodes_ in the configuration section of the player.
+
+#### Default Settings
+
+By default related episodes are disabled.
+
+#### Podcast
+
+To display the latest 25 episodes choose _Podcast_ in __Configuration__ > __[your config]__ > __Related Episodes__.
+
+#### Publisher Shows
+
+You can customise the related episodes by using the shows feature in Podlove Publisher.
+
+- Go to __Podlove__ > __Shows__
+- If you don't already have shows, you might want to have a look at the [documentation](/podlove-publisher/guides/podcast-network#option-2-shows-module) if you want to proceed
+- Assign the episodes to a show: Select the Show in __Configuration__ > __[your config]__ > __Related Episodes__
+
+<img src="/assets/web-player/guides/podlove-web-player-publisher-shows.png" />
