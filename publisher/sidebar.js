@@ -71,9 +71,9 @@ module.exports = [
       type: "category",
       label: "Developer",
       items:[
-        'developer/background-jobs',
+        'developer/projects',
         'developer/modules',
-        'developer/projects'
+        'developer/background-jobs'
       ]
     },
     {
