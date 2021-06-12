@@ -122,6 +122,7 @@ module.exports = {
       "@docusaurus/plugin-client-redirects",
       {
         toExtensions: ["html"],
+        fromExtensions: ["html"],
         redirects: [
           {
             from: ["/podlove-publisher/guides/join-the-beta"],
