@@ -1,10 +1,11 @@
 import React from 'react'
+import { PodloveWebPlayer } from '@podlove/player-react'
 import { toggleTab } from '@podlove/player-actions/tabs'
+
 import { Control } from '../../components/control'
 import { ControlBox } from '../../components/control-box'
 import { Select } from '../../components/select'
 
-import { Player } from './player'
 
 export class Tabs extends React.Component {
   constructor(props) {
@@ -46,7 +47,7 @@ export class Tabs extends React.Component {
   render() {
     return (
       <div>
-        <Player episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
+        <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
           <root class="p-4 flex justify-center">
             <tab name="chapters">Chapters</tab>
             <tab name="share">Share</tab>
@@ -55,7 +56,7 @@ export class Tabs extends React.Component {
             <tab name="playlist">Playlist</tab>
             <tab name="transcripts">Transcripts</tab>
           </root>
-        </Player>
+        </PodloveWebPlayer>
 
         <ControlBox>
         <Control label="tab" description="Active tab" last={ true }>

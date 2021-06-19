@@ -2,13 +2,13 @@
 title: 'Tab Overflow'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Displays the tab overflow transition
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
   tab="transcripts"
@@ -21,7 +21,7 @@ import { Player } from '../../components/player'
       <tab-overflow></tab-overflow>
     </div>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

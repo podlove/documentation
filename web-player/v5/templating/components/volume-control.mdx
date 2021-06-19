@@ -2,20 +2,20 @@
 title: 'Volume Control'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Slider to control the playback volume
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 flex justify-center">
     <volume-control></volume-control>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

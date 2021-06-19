@@ -2,7 +2,7 @@
 title: Getting Started
 ---
 
-import { Player } from '../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 Podlove Web Player 5 has a build in templating engine based on Vue component rendering in combination with the [tailwind css framework 1.x](https://tailwindcss.com/). Each player part is available as an isolated component with an automatic store binding.
 
@@ -30,14 +30,14 @@ podlovePlayer('#variant-m', 'episode.json', 'config.json');
 
 Podlove Web Player grants you access to the complete player dom with state bound components. Instead of using a predefined variant you can provide a template either via the `data-template` attribute or inline as part of the target dom. While creating a custom template keep in mind that the used player components still adhere their styles from the selected theme. Also if you aren't familiar yet with [tailwind css framework](https://tailwindcss.com/) or it's concept around responsive design, make sure to read the basic introduction. It is a fairly simple framework that should enable rapid player templating.
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root style={{maxWidth: '950px', minWidth: '260px'}} class="p-4 flex justify-center rounded">
     <play-button></play-button>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ```html
 <!-- Inline Template -->

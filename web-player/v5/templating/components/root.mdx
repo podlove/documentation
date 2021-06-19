@@ -2,20 +2,20 @@
 title: 'Root Node'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > A custom player template lives in a root node that grants the access to tailwind classes and custom fonts. Since it is the first node in the player it is recommended to add min and max width boundaries.
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root style={{maxWidth: '950px', minWidth: '260px'}} class="p-4 flex justify-center rounded">
     <play-button></play-button>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

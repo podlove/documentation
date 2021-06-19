@@ -2,7 +2,7 @@
 title: Localization
 ---
 
-import { Player } from '../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 The player is localized in 4 different languages. Depending on the browser locale the matching locale is selected. If no matching locale was found english is selected.
 
@@ -15,14 +15,14 @@ Localization files:
 
 #### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 text-center">
     {"{{ $t('PLAYER.PLAY_EPISODE') }}"}
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

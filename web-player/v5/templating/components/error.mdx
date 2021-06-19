@@ -2,19 +2,19 @@
 title: 'Error'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Error overlay that handles issues with configuration, network issues or media issues.
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 flex justify-center h-64">
     <error></error>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 :::info
 

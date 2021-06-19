@@ -2,20 +2,20 @@
 title: 'Chapter Current'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Display current chapter
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 text-center">
     <current-chapter></current-chapter>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

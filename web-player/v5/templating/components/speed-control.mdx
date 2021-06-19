@@ -2,20 +2,20 @@
 title: 'Speed Control'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Toggle to control playback speed
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 flex justify-center">
     <speed-control></speed-control>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

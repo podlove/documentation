@@ -2,20 +2,20 @@
 title: 'Timer Duration'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Displays the current episode duration
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 flex justify-center">
     <timer-duration></timer-duration>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

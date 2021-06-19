@@ -6,7 +6,7 @@ import { Control } from '../../components/control'
 import { ControlBox } from '../../components/control-box'
 import { Select } from '../../components/select'
 
-import { Player } from './player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 export class PlayState extends React.Component {
   constructor(props) {
@@ -54,13 +54,13 @@ export class PlayState extends React.Component {
 
     return (
       <div style={ styles.container }>
-        <Player episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
+        <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
           <root class="p-4 flex justify-center">
             <play-state on="initialized"><span>On Initialized</span></play-state>
             <play-state on="active"><span>On Active</span></play-state>
             <play-state on="ended"><span>On Ended</span></play-state>
           </root>
-        </Player>
+        </PodloveWebPlayer>
         <ControlBox>
           <Control label="on" description="Player states" last={ true }>
             <Select options={this.playStates} onChange={this.updatePlayState.bind(this)}></Select>

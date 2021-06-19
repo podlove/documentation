@@ -2,18 +2,18 @@
 title: 'Episode Title'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
 >
   <root class="p-4 text-center">
     <episode-title></episode-title>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 

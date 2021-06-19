@@ -1,10 +1,10 @@
 import React from 'react'
 import reactCSS from 'reactcss'
+import { PodloveWebPlayer } from '@podlove/player-react'
+
 import { Control } from '../../components/control'
 import { ControlBox } from '../../components/control-box'
 import { Select } from '../../components/select'
-
-import { Player } from './player'
 
 export class PlayButton extends React.Component {
   constructor(props) {
@@ -37,11 +37,11 @@ export class PlayButton extends React.Component {
 
     return (
       <div style={styles.container}>
-        <Player episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json">
+        <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json">
           <root class="p-4 flex justify-center">
             <play-button variant={this.state.variant}></play-button>
           </root>
-        </Player>
+        </PodloveWebPlayer>
         <ControlBox>
           <Control label="variant" description="Play button variants" last={ true }>
             <Select options={this.variantOptions} onChange={this.selectVariant.bind(this)} />

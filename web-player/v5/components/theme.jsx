@@ -1,11 +1,10 @@
 import React from 'react'
 import { setTheme } from '@podlove/player-actions/theme'
+import { PodloveWebPlayer } from '@podlove/player-react'
+
 import { Control } from '../../components/control'
 import { ControlBox } from '../../components/control-box'
 import { ColorPicker } from '../../components/color-picker'
-
-import { Player } from './player'
-
 export class Theme extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +40,7 @@ export class Theme extends React.Component {
   render() {
     return (
       <div>
-        <Player episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) } />
+       <PodloveWebPlayer episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) } />
 
         <ControlBox>
           <Control label="brand" description="Podcast Show Name, Subscribe Button">

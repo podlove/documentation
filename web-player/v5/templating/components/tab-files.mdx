@@ -2,13 +2,13 @@
 title: 'Tab Files'
 ---
 
-import { Player } from '../../components/player'
+import { PodloveWebPlayer } from '@podlove/player-react'
 
 > Displays the files tab
 
 ### Preview
 
-<Player
+<PodloveWebPlayer style={{ marginBottom: '15px' }}
   episode="/assets/web-player/v5/episode.json"
   config="/assets/web-player/v5/config.json"
   tab="files"
@@ -18,7 +18,7 @@ import { Player } from '../../components/player'
       <tab-files></tab-files>
     </tab>
   </root>
-</Player>
+</PodloveWebPlayer>
 
 ### Code
 
