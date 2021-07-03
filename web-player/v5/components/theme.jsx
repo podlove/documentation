@@ -40,8 +40,9 @@ export class Theme extends React.Component {
   render() {
     return (
       <div>
-       <PodloveWebPlayer episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) } />
-
+        <div style={{minHeight: '295px'}}>
+          <PodloveWebPlayer episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) } />
+        </div>
         <ControlBox>
           <Control label="brand" description="Podcast Show Name, Subscribe Button">
             <ColorPicker color={this.state.brand} onChange={this.updateColor('brand')}/>

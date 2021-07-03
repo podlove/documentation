@@ -35,12 +35,15 @@ export class PlayButton extends React.Component {
       }
     })
 
+
     return (
       <div style={styles.container}>
-        <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json">
+        <PodloveWebPlayer style={{ marginBottom: '15px', height: '82px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json">
+          {`
           <root class="p-4 flex justify-center">
-            <play-button variant={this.state.variant}></play-button>
+            <play-button variant="${this.state.variant}"></play-button>
           </root>
+        `}
         </PodloveWebPlayer>
         <ControlBox>
           <Control label="variant" description="Play button variants" last={ true }>

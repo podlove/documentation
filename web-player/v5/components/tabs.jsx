@@ -48,6 +48,7 @@ export class Tabs extends React.Component {
     return (
       <div>
         <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
+          {`
           <root class="p-4 flex justify-center">
             <tab name="chapters">Chapters</tab>
             <tab name="share">Share</tab>
@@ -56,6 +57,7 @@ export class Tabs extends React.Component {
             <tab name="playlist">Playlist</tab>
             <tab name="transcripts">Transcripts</tab>
           </root>
+          `}
         </PodloveWebPlayer>
 
         <ControlBox>

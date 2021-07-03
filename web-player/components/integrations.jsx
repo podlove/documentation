@@ -21,7 +21,17 @@ export class Integrations extends React.Component {
       }
     })
 
-    const intergation = (data) => <a style={styles.image} href={data.link} key={data.image}><img src={data.image} title={data.title} /></a>
+    const imageStyle = data => reactCSS({
+      default: {
+        image: {
+          display: 'block',
+          margin: '1em',
+          width: data.width || '150px'
+        }
+      }
+    })
+
+    const intergation = (data) => <a style={imageStyle(data).image} href={data.link} key={data.image}><img src={data.image} title={data.title} /></a>
 
     return (
         <div style={styles.container}>

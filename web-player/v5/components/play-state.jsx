@@ -55,11 +55,13 @@ export class PlayState extends React.Component {
     return (
       <div style={ styles.container }>
         <PodloveWebPlayer style={{ marginBottom: '15px' }} episode="/assets/web-player/v5/episode.json" config="/assets/web-player/v5/config.json" onLoaded={ this.loadStore.bind(this) }>
+          {`
           <root class="p-4 flex justify-center">
             <play-state on="initialized"><span>On Initialized</span></play-state>
             <play-state on="active"><span>On Active</span></play-state>
             <play-state on="ended"><span>On Ended</span></play-state>
           </root>
+          `}
         </PodloveWebPlayer>
         <ControlBox>
           <Control label="on" description="Player states" last={ true }>
