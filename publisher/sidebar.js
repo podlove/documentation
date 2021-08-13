@@ -18,7 +18,8 @@ module.exports = [
       type: "category",
       label: "Modules",
       items: [
-        'modules/slacknotes'
+        'modules/slacknotes',
+        'guides/transcripts'
       ]
     },
     {
