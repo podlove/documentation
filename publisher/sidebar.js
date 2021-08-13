@@ -19,7 +19,7 @@ module.exports = [
       label: "Modules",
       items: [
         'modules/slacknotes',
-        'guides/transcripts'
+        'modules/transcripts'
       ]
     },
     {
