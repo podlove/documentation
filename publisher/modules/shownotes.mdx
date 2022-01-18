@@ -1,0 +1,66 @@
+---
+layout: page
+title: "Shownotes"
+---
+
+Shownotes helps you manage link based show notes to display on your website and podcatchers.
+
+Automatically add rich meta-data to your URLs, for example the website title, description and icon.
+Change the order of your URLs via drag and drop and sort them into topics.
+
+## Motivation
+
+Manage Shownotes URLs in a dedicated UI. A Shortcode (or custom template) displays them on your website or podcatchers. Since podcatchers only allow very limited HTML, shownotes are rendered as simple link lists there.
+
+<img src="/assets/publisher/shownotes-1-ui-and-website.png" />
+
+URL metadate like the site name, website title, description and icon are extracted automatically. You can edit all fields manually, too.
+
+<img src="/assets/publisher/shownotes-2-editing.png" />
+
+## Setup
+
+1. Navigate to __Podlove__ > __Modules__
+1. Find the __Shownotes__ card and activate the checkbox
+1. Scroll to the bottom of the page and press __Save Changes__
+
+<img src="/assets/publisher/shownotes-3-setup.png" />
+
+## Usage
+
+### Creating URL entries
+
+In your episode pages, find the __Podlove Shownotes__ section. Add links and topics using the __Add Entry__ button or use one of the import functions.
+
+<img src="/assets/publisher/shownotes-4-usage.png" />
+
+Each entry provides the following functions:
+
+1. Order via drag and description
+2. Site favicon
+3. Site title
+4. Hide the entry: Hidden entries will not be visible to listeners
+5. Edit the entry
+
+<img src="/assets/publisher/shownotes-5-entry.png" />
+
+### Importing
+
+The __Import from Episode HTML__ button is especially useful for importing existing, handwritten shownotes. It looks into the episode text content and tries to find URLs and topics from there.
+
+More import options appear for __Slacknotes__ and __OSFX__ for users of these modules / plugins.
+
+
+### Exporting
+
+The __Export as HTML__ button downloads an HTML file with a rendering of the shownotes as a simple HTML list. It does _not_ contain all metadata.
+
+### Using the Shortcode
+
+Add the shortcode `[podlove-episode-shownotes]` to your content.
+
+It renders a simple, unstyled HTML list in the podcast feed for podcatchers and a richer presentation with website icons on your website.
+
+## Disclaimer: URL Metadata Detection Service
+
+URL metadata detection uses a service hosted at [plus.podlove.org](https://plus.podlove.org). It is currently available for all users of Podlove Publisher. In the future, metadata detection may only be availabe to Publisher PLUS users as it requires infrastructure to run. The rest of the Shownotes functionality will stay available to all Podlove users as usual.

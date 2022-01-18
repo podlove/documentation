@@ -18,8 +18,9 @@ module.exports = [
       type: "category",
       label: "Modules",
       items: [
+        'modules/transcripts',
+        'modules/shownotes',
         'modules/slacknotes',
-        'modules/transcripts'
       ]
     },
     {
@@ -52,6 +53,7 @@ module.exports = [
                 'reference/templates/template-tags/season',
                 'reference/templates/template-tags/service',
                 'reference/templates/template-tags/show',
+                'reference/templates/template-tags/shownotes',
                 'reference/templates/template-tags/license',
                 'reference/templates/template-tags/flattr',
                 'reference/templates/template-tags/date-time',
@@ -62,7 +64,7 @@ module.exports = [
             'reference/templates/template-conditionals',
           ]
         },
-        
+
         'reference/php-constants',
         'reference/dsgvo-gdpr',
         'reference/download-analytics',
