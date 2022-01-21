@@ -280,3 +280,66 @@ Grouped by speaker
   </div>
 {% endfor %}
 ```
+
+### Shownotes
+> episode.shownotes
+
+:::info
+
+Requires the __Shownotes__ module.
+
+:::
+
+**Examples**
+
+Display all shownotes in a list.
+
+```twig
+<ul>
+{% for entry in episode.shownotes %}
+  <li class="psn-entry">
+    {% if entry.type == "link" %}
+      {% if entry.icon %}
+        <img class="psn-icon" src="{{ entry.icon }}" />
+      {% endif %}
+      <a class="psn-link" href="{{ entry.url }}">{{ entry.title }}</a>
+    {% elseif entry.type == "topic" %}
+      {{ entry.title }}
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+```
+
+Group shownotes by topic.
+
+```twig
+{% for topic in episode.shownotes({groupby: "topic"}) %}
+  <h3>{{ topic.title }}</h3>
+  <ul>
+    {% for entry in topic.entries %}
+      <li class="psn-entry">
+        {% if entry.type == "link" %}
+          {% if entry.icon %}
+            <img class="psn-icon" src="{{ entry.icon }}"/>
+          {% endif %}
+          <a class="psn-link" href="{{ entry.url }}">{{ entry.title }}</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}
+```
+
+### Has Shownotes?
+> episode.hasShownotes
+
+**Examples**
+
+```twig
+{% if episode.hasShownotes %}
+  Here are some shownotes
+{% else %}
+  ¯\_(ツ)_/¯
+{% endif %}
+```
