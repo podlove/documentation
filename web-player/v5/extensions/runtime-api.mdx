@@ -61,3 +61,15 @@ podlovePlayer('#example', '/path/to/episode/definition/or/object', '/path/to/con
   })
 })
 ```
+
+### Caveats
+
+Some actions will trigger browser APIs and are limited due to device and interaction constraints. 
+
+#### `REQUEST_PLAY`
+
+Audio playback is only allowed after a user interaction happened to prohibit background audio playback. Therefore the play action will only work after a user interaction.
+
+#### `SET_VOLUME`
+
+The volume API is only available on desktop devices. Mobile devices control the volume on a global level and doesn't react to volume changes.
