@@ -1,0 +1,2420 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Podlove Publisher API",
+    "version": "2"
+  },
+  "jsonSchemaDialect": "http://json-schema.org/draft-04/schema#",
+  "servers": [{ "url": "http://podlove.local/wp-json/podlove/v2" }],
+  "paths": {
+    "/": {
+      "get": {
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "context",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/analytics/episodes": {
+      "get": {
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/analytics/episodes/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/analytics/episodes/{ids}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/podcast": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/episodes": {
+      "get": {
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "The filter parameter is used to filter the collection of episodes",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The filter parameter is used to filter the collection of episodes",
+              "enum": ["publish", "draft"]
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/episodes/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Clear, concise name for your episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Clear, concise name for your episode."
+            }
+          },
+          {
+            "name": "subtitle",
+            "in": "query",
+            "description": "Single sentence describing the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Single sentence describing the episode."
+            }
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "description": "A summary of the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "A summary of the episode."
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "An epsiode number.",
+            "required": false,
+            "schema": { "type": "integer", "description": "An epsiode number." }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Episode media file slug.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Episode media file slug."
+            }
+          },
+          {
+            "name": "explicit",
+            "in": "query",
+            "description": "explicit content?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "explicit content?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "soundbite_start",
+            "in": "query",
+            "description": "Start value of podcast:soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Start value of podcast:soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_duration",
+            "in": "query",
+            "description": "Duration value of podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Duration value of podcast::soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_title",
+            "in": "query",
+            "description": "Title for the podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Title for the podcast::soundbite tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Clear, concise name for your episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Clear, concise name for your episode."
+            }
+          },
+          {
+            "name": "subtitle",
+            "in": "query",
+            "description": "Single sentence describing the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Single sentence describing the episode."
+            }
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "description": "A summary of the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "A summary of the episode."
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "An epsiode number.",
+            "required": false,
+            "schema": { "type": "integer", "description": "An epsiode number." }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Episode media file slug.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Episode media file slug."
+            }
+          },
+          {
+            "name": "explicit",
+            "in": "query",
+            "description": "explicit content?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "explicit content?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "soundbite_start",
+            "in": "query",
+            "description": "Start value of podcast:soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Start value of podcast:soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_duration",
+            "in": "query",
+            "description": "Duration value of podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Duration value of podcast::soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_title",
+            "in": "query",
+            "description": "Title for the podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Title for the podcast::soundbite tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Clear, concise name for your episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Clear, concise name for your episode."
+            }
+          },
+          {
+            "name": "subtitle",
+            "in": "query",
+            "description": "Single sentence describing the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Single sentence describing the episode."
+            }
+          },
+          {
+            "name": "summary",
+            "in": "query",
+            "description": "A summary of the episode.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "A summary of the episode."
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "An epsiode number.",
+            "required": false,
+            "schema": { "type": "integer", "description": "An epsiode number." }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Episode media file slug.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Episode media file slug."
+            }
+          },
+          {
+            "name": "explicit",
+            "in": "query",
+            "description": "explicit content?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "explicit content?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "soundbite_start",
+            "in": "query",
+            "description": "Start value of podcast:soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Start value of podcast:soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_duration",
+            "in": "query",
+            "description": "Duration value of podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Duration value of podcast::soundbite tag"
+            }
+          },
+          {
+            "name": "soundbite_title",
+            "in": "query",
+            "description": "Title for the podcast::soundbite tag",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Title for the podcast::soundbite tag"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/chapters/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "chapters",
+            "in": "query",
+            "description": "List of chapters, please use mp4chaps format.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "description": "Chapter begin timestamp"
+                  },
+                  "title": { "type": "string", "description": "Chapter title" },
+                  "href": { "type": "string", "description": "Chapter url" }
+                }
+              },
+              "description": "List of chapters, please use mp4chaps format."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "chapters",
+            "in": "query",
+            "description": "List of chapters, please use mp4chaps format.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "description": "Chapter begin timestamp"
+                  },
+                  "title": { "type": "string", "description": "Chapter title" },
+                  "href": { "type": "string", "description": "Chapter url" }
+                }
+              },
+              "description": "List of chapters, please use mp4chaps format."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "chapters",
+            "in": "query",
+            "description": "List of chapters, please use mp4chaps format.",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "description": "Chapter begin timestamp"
+                  },
+                  "title": { "type": "string", "description": "Chapter title" },
+                  "href": { "type": "string", "description": "Chapter url" }
+                }
+              },
+              "description": "List of chapters, please use mp4chaps format."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/transcripts/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "How many entries should be delivered?",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "How many entries should be delivered?"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "From which entry should the data be delivered?",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "From which entry should the data be delivered?"
+            }
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "description": "How many entries are there? Ignored limit and offset.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "How many entries are there? Ignored limit and offset."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Transcription file",
+            "required": true,
+            "schema": { "type": "string", "description": "Transcription file" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Transcription file",
+            "required": true,
+            "schema": { "type": "string", "description": "Transcription file" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Transcription file",
+            "required": true,
+            "schema": { "type": "string", "description": "Transcription file" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/transcripts/voices/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "voice",
+            "in": "query",
+            "description": "Voice",
+            "required": false,
+            "schema": { "type": "string", "description": "Voice" }
+          },
+          {
+            "name": "contributor_id",
+            "in": "query",
+            "description": "Contributor Id assigned to the voice.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Contributor Id assigned to the voice."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "voice",
+            "in": "query",
+            "description": "Voice",
+            "required": false,
+            "schema": { "type": "string", "description": "Voice" }
+          },
+          {
+            "name": "contributor_id",
+            "in": "query",
+            "description": "Contributor Id assigned to the voice.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Contributor Id assigned to the voice."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "voice",
+            "in": "query",
+            "description": "Voice",
+            "required": false,
+            "schema": { "type": "string", "description": "Voice" }
+          },
+          {
+            "name": "contributor_id",
+            "in": "query",
+            "description": "Contributor Id assigned to the voice.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Contributor Id assigned to the voice."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/transcripts/paragraphs/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the part of the transcription (called chaption)."
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Timestamp begin of the chaption",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp begin of the chaption"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Timestamp end of the chaption",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp end of the chaption"
+            }
+          },
+          {
+            "name": "voices",
+            "in": "query",
+            "description": "Name of the speaker",
+            "required": false,
+            "schema": { "type": "string", "description": "Name of the speaker" }
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "description": "Content",
+            "required": false,
+            "schema": { "type": "string", "description": "Content" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the part of the transcription (called chaption)."
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Timestamp begin of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp begin of the paragraph"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Timestamp end of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp end of the paragraph"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Content",
+            "required": false,
+            "schema": { "type": "string", "description": "Content" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the part of the transcription (called chaption)."
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Timestamp begin of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp begin of the paragraph"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Timestamp end of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp end of the paragraph"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Content",
+            "required": false,
+            "schema": { "type": "string", "description": "Content" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the part of the transcription (called chaption)."
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Timestamp begin of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp begin of the paragraph"
+            }
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "Timestamp end of the paragraph",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Timestamp end of the paragraph"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Content",
+            "required": false,
+            "schema": { "type": "string", "description": "Content" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the part of the transcription (called chaption)."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors": {
+      "get": {
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "The filter parameter is used to filter the collection of contributors.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "The filter parameter is used to filter the collection of contributors.",
+              "enum": ["all", "visible"]
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Gender of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Gender of the contributor",
+              "enum": ["female", "male", "Not attributed"]
+            }
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "description": "Should the participation of the contributor be publicily visible?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Should the participation of the contributor be publicily visible?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "identifier",
+            "required": false,
+            "schema": { "type": "string", "description": "identifier" }
+          },
+          {
+            "name": "organisation",
+            "in": "query",
+            "description": "Organisation",
+            "required": false,
+            "schema": { "type": "string", "description": "Organisation" }
+          },
+          {
+            "name": "department",
+            "in": "query",
+            "description": "Department",
+            "required": false,
+            "schema": { "type": "string", "description": "Department" }
+          },
+          {
+            "name": "jobtitle",
+            "in": "query",
+            "description": "Jobtitle of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Jobtitle of the contributor"
+            }
+          },
+          {
+            "name": "realname",
+            "in": "query",
+            "description": "Name of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Name of the contributor"
+            }
+          },
+          {
+            "name": "nickname",
+            "in": "query",
+            "description": "Nickname of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Nickname of the contributor"
+            }
+          },
+          {
+            "name": "publicname",
+            "in": "query",
+            "description": "Used name in the blog",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Used name in the blog"
+            }
+          },
+          {
+            "name": "avatar",
+            "in": "query",
+            "description": "Avatar of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Avatar of the contributor"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "e-mail of the contributor Do not use external.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "description": "e-mail of the contributor Do not use external."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Gender of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Gender of the contributor",
+              "enum": ["female", "male", "Not attributed"]
+            }
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "description": "Should the participation of the contributor be publicily visible?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Should the participation of the contributor be publicily visible?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "identifier",
+            "required": false,
+            "schema": { "type": "string", "description": "identifier" }
+          },
+          {
+            "name": "organisation",
+            "in": "query",
+            "description": "Organisation",
+            "required": false,
+            "schema": { "type": "string", "description": "Organisation" }
+          },
+          {
+            "name": "department",
+            "in": "query",
+            "description": "Department",
+            "required": false,
+            "schema": { "type": "string", "description": "Department" }
+          },
+          {
+            "name": "jobtitle",
+            "in": "query",
+            "description": "Jobtitle of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Jobtitle of the contributor"
+            }
+          },
+          {
+            "name": "realname",
+            "in": "query",
+            "description": "Name of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Name of the contributor"
+            }
+          },
+          {
+            "name": "nickname",
+            "in": "query",
+            "description": "Nickname of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Nickname of the contributor"
+            }
+          },
+          {
+            "name": "publicname",
+            "in": "query",
+            "description": "Used name in the blog",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Used name in the blog"
+            }
+          },
+          {
+            "name": "avatar",
+            "in": "query",
+            "description": "Avatar of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Avatar of the contributor"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "e-mail of the contributor Do not use external.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "description": "e-mail of the contributor Do not use external."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Gender of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Gender of the contributor",
+              "enum": ["female", "male", "Not attributed"]
+            }
+          },
+          {
+            "name": "visibility",
+            "in": "query",
+            "description": "Should the participation of the contributor be publicily visible?",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Should the participation of the contributor be publicily visible?",
+              "enum": ["yes", "no"]
+            }
+          },
+          {
+            "name": "identifier",
+            "in": "query",
+            "description": "identifier",
+            "required": false,
+            "schema": { "type": "string", "description": "identifier" }
+          },
+          {
+            "name": "organisation",
+            "in": "query",
+            "description": "Organisation",
+            "required": false,
+            "schema": { "type": "string", "description": "Organisation" }
+          },
+          {
+            "name": "department",
+            "in": "query",
+            "description": "Department",
+            "required": false,
+            "schema": { "type": "string", "description": "Department" }
+          },
+          {
+            "name": "jobtitle",
+            "in": "query",
+            "description": "Jobtitle of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Jobtitle of the contributor"
+            }
+          },
+          {
+            "name": "realname",
+            "in": "query",
+            "description": "Name of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Name of the contributor"
+            }
+          },
+          {
+            "name": "nickname",
+            "in": "query",
+            "description": "Nickname of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Nickname of the contributor"
+            }
+          },
+          {
+            "name": "publicname",
+            "in": "query",
+            "description": "Used name in the blog",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Used name in the blog"
+            }
+          },
+          {
+            "name": "avatar",
+            "in": "query",
+            "description": "Avatar of the contributor",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "Avatar of the contributor"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "e-mail of the contributor Do not use external.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "description": "e-mail of the contributor Do not use external."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/groups": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/groups/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor group."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor group."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor group"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor group"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor group."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor group"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor group"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor group."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor group"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor group",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor group"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor group."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/roles": {
+      "get": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/roles/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor role."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor role."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor role"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor role"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor role."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor role"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor role"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor role."
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Title of the contributor role"
+            }
+          },
+          {
+            "name": "slug",
+            "in": "query",
+            "description": "Slug of the contributor role",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Slug of the contributor role"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor role."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/contributors/{id}/episodes": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for contributor."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/episodes/{id}/contributions": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "contributors",
+            "in": "query",
+            "description": "List of contributors of the episode",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contributor_id": {
+                    "type": "integer",
+                    "description": "Id of a contributor"
+                  },
+                  "group_id": {
+                    "type": "integer",
+                    "description": "Id of group of the contributor"
+                  },
+                  "role_id": {
+                    "type": "integer",
+                    "description": "Id of role of the contributor"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Comment to the contributor"
+                  }
+                }
+              },
+              "description": "List of contributors of the episode"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "contributors",
+            "in": "query",
+            "description": "List of contributors of the episode",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contributor_id": {
+                    "type": "integer",
+                    "description": "Id of a contributor"
+                  },
+                  "group_id": {
+                    "type": "integer",
+                    "description": "Id of group of the contributor"
+                  },
+                  "role_id": {
+                    "type": "integer",
+                    "description": "Id of role of the contributor"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Comment to the contributor"
+                  }
+                }
+              },
+              "description": "List of contributors of the episode"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          },
+          {
+            "name": "contributors",
+            "in": "query",
+            "description": "List of contributors of the episode",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "contributor_id": {
+                    "type": "integer",
+                    "description": "Id of a contributor"
+                  },
+                  "group_id": {
+                    "type": "integer",
+                    "description": "Id of group of the contributor"
+                  },
+                  "role_id": {
+                    "type": "integer",
+                    "description": "Id of role of the contributor"
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Comment to the contributor"
+                  }
+                }
+              },
+              "description": "List of contributors of the episode"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/shownotes": {
+      "get": {
+        "parameters": [
+          {
+            "name": "episode_id",
+            "in": "query",
+            "description": "Limit result set by episode.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "Limit result set by episode."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/shownotes/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/shownotes/{id}/unfurl": {
+      "post": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "Unique identifier for the object."
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/shownotes/osf": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/shownotes/html": {
+      "post": {
+        "parameters": [],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/social/services": {
+      "get": {
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category: social, donation, internal",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "category: social, donation, internal"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    },
+    "/social/services/contributor/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "contributor id",
+            "required": true,
+            "schema": { "type": "string", "description": "contributor id" }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category: social, donation, internal",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "category: social, donation, internal"
+            }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "400": { "description": "Bad Request" },
+          "404": { "description": "Not Found" }
+        }
+      }
+    }
+  },
+  "security": [],
+  "components": { "schemas": [] }
+}

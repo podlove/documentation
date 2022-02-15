@@ -96,6 +96,18 @@ module.exports = {
         },
       },
     ],
+    [
+      'redocusaurus',
+      {
+        specs: [
+          {
+            spec: './publisher/api.json',
+            id: 'publisher-api',
+            routePath: '/podlove-publisher/api',
+          },
+        ],
+      },
+    ],
   ],
   plugins: [
     [
@@ -173,9 +185,7 @@ module.exports = {
     ],
     [
       require.resolve('@cmfcmf/docusaurus-search-local'),
-      {
-        docsRouteBasePath: '/'
-      },
-    ],
+      {}
+    ]
   ],
 };
