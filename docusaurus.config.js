@@ -82,10 +82,7 @@ module.exports = {
     },
     colorMode: {
       disableSwitch: true,
-    },
-    prism: {
-      additionalLanguages: ["twig"],
-    },
+    }
   },
   presets: [
     [
