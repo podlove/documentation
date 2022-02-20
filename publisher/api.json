@@ -77,12 +77,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/podcast": {
@@ -101,14 +96,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
           }
         }
       },
@@ -117,73 +104,72 @@
           "podcast"
         ],
         "description": "Update the information about the podcast",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Podcast"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
           "podcast"
         ],
+        "description": "Update the information about the podcast",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Podcast"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
           "podcast"
         ],
+        "description": "Update the information about the podcast",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Podcast"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/episodes": {
@@ -221,45 +207,26 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
           "episodes"
         ],
+        "description": "Create a new episode",
         "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
+          "201": {
+            "$ref": "#/components/responses/CreateEpisode"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
-          "404": {
-            "description": "Not Found",
+          "500": {
+            "description": "Internal Server error",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/episodes/{id}": {
@@ -267,6 +234,7 @@
         "tags": [
           "episodes"
         ],
+        "description": "The information about an episode",
         "parameters": [
           {
             "name": "id",
@@ -281,143 +249,28 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EpisodeOut"
+                }
+              }
+            }
           },
           "400": {
             "description": "Bad Request",
             "content": {}
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
           "episodes"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Clear, concise name for your episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "subtitle",
-            "in": "query",
-            "description": "Single sentence describing the episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "summary",
-            "in": "query",
-            "description": "A summary of the episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "number",
-            "in": "query",
-            "description": "An epsiode number.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "slug",
-            "in": "query",
-            "description": "Episode media file slug.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "explicit",
-            "in": "query",
-            "description": "explicit content?",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "yes",
-                  "no"
-                ]
-              }
-            }
-          },
-          {
-            "name": "soundbite_start",
-            "in": "query",
-            "description": "Start value of podcast:soundbite tag",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "soundbite_duration",
-            "in": "query",
-            "description": "Duration value of podcast::soundbite tag",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "soundbite_title",
-            "in": "query",
-            "description": "Title for the podcast::soundbite tag",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "episodes"
-        ],
+        "description": "Update the information about an episode",
         "parameters": [
           {
             "name": "id",
@@ -431,102 +284,9 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Clear, concise name for your episode."
-                  },
-                  "subtitle": {
-                    "type": "string",
-                    "description": "Single sentence describing the episode."
-                  },
-                  "summary": {
-                    "type": "string",
-                    "description": "A summary of the episode."
-                  },
-                  "number": {
-                    "type": "string",
-                    "description": "An epsiode number."
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Episode media file slug."
-                  },
-                  "explicit": {
-                    "type": "array",
-                    "description": "explicit content?",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "yes",
-                        "no"
-                      ]
-                    }
-                  },
-                  "soundbite_start": {
-                    "type": "string",
-                    "description": "Start value of podcast:soundbite tag"
-                  },
-                  "soundbite_duration": {
-                    "type": "string",
-                    "description": "Duration value of podcast::soundbite tag"
-                  },
-                  "soundbite_title": {
-                    "type": "string",
-                    "description": "Title for the podcast::soundbite tag"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Clear, concise name for your episode."
-                  },
-                  "subtitle": {
-                    "type": "string",
-                    "description": "Single sentence describing the episode."
-                  },
-                  "summary": {
-                    "type": "string",
-                    "description": "A summary of the episode."
-                  },
-                  "number": {
-                    "type": "string",
-                    "description": "An epsiode number."
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Episode media file slug."
-                  },
-                  "explicit": {
-                    "type": "array",
-                    "description": "explicit content?",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "yes",
-                        "no"
-                      ]
-                    }
-                  },
-                  "soundbite_start": {
-                    "type": "string",
-                    "description": "Start value of podcast:soundbite tag"
-                  },
-                  "soundbite_duration": {
-                    "type": "string",
-                    "description": "Duration value of podcast::soundbite tag"
-                  },
-                  "soundbite_title": {
-                    "type": "string",
-                    "description": "Title for the podcast::soundbite tag"
-                  }
-                }
+                "$ref": "#/components/schemas/EpisodeIn"
               }
             }
           }
@@ -536,25 +296,19 @@
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
-      "delete": {
+      "post": {
         "tags": [
           "episodes"
         ],
+        "description": "Update the information about an episode",
         "parameters": [
           {
             "name": "id",
@@ -566,30 +320,33 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeIn"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
           "episodes"
         ],
+        "description": "Update the information about an episode",
         "parameters": [
           {
             "name": "id",
@@ -599,84 +356,41 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Clear, concise name for your episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "subtitle",
-            "in": "query",
-            "description": "Single sentence describing the episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "summary",
-            "in": "query",
-            "description": "A summary of the episode.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "number",
-            "in": "query",
-            "description": "An epsiode number.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "slug",
-            "in": "query",
-            "description": "Episode media file slug.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "explicit",
-            "in": "query",
-            "description": "explicit content?",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "yes",
-                  "no"
-                ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeIn"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {}
           },
-          {
-            "name": "soundbite_start",
-            "in": "query",
-            "description": "Start value of podcast:soundbite tag",
-            "schema": {
-              "type": "string"
-            }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Move an episode to the wordpress trash",
+        "parameters": [
           {
-            "name": "soundbite_duration",
-            "in": "query",
-            "description": "Duration value of podcast::soundbite tag",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "soundbite_title",
-            "in": "query",
-            "description": "Title for the podcast::soundbite tag",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -687,20 +401,13 @@
             "description": "OK",
             "content": {}
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/chapters/{id}": {
@@ -708,7 +415,7 @@
         "tags": [
           "chapters"
         ],
-        "description": "List of chapters to an episode",
+        "description": "The list of chapters to an episode",
         "parameters": [
           {
             "name": "id",
@@ -723,22 +430,18 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Chapters"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -754,36 +457,28 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "chapters",
-            "in": "query",
-            "description": "List of chapters, please use mp4chaps format.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chapters"
+              }
+            }
           }
         },
-        "security": [
-          {
-            "basic": []
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Updated"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -803,89 +498,24 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "chapters"
-                ],
-                "properties": {
-                  "chapters": {
-                    "type": "string",
-                    "description": "List of chapters, please use mp4chaps format."
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "chapters"
-                ],
-                "properties": {
-                  "chapters": {
-                    "type": "string",
-                    "description": "List of chapters, please use mp4chaps format."
-                  }
-                }
+                "$ref": "#/components/schemas/Chapters"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
+          "201": {
+            "$ref": "#/components/responses/Created"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "chapters"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -901,11 +531,39 @@
             "schema": {
               "type": "string"
             }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chapters"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/Updated"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete the chapters list for an epsiode.",
+        "tags": [
+          "chapters"
+        ],
+        "parameters": [
           {
-            "name": "chapters",
-            "in": "query",
-            "description": "List of chapters, please use mp4chaps format.",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
             "required": true,
             "schema": {
               "type": "string"
@@ -914,23 +572,15 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/Updated"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/transcripts/{id}": {
@@ -986,12 +636,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -1030,12 +675,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1096,12 +736,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -1131,12 +766,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -1175,12 +805,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/transcripts/voices/{id}": {
@@ -1212,12 +837,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -1263,12 +883,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1330,12 +945,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -1381,12 +991,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/transcripts/paragraphs/{id}": {
@@ -1450,12 +1055,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -1510,12 +1110,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1586,12 +1181,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -1622,12 +1212,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -1682,12 +1267,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/social/services": {
@@ -1718,12 +1298,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/social/services/contributor/{id}": {
@@ -1763,12 +1338,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/shownotes": {
@@ -1799,12 +1369,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1823,12 +1388,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/shownotes/{id}": {
@@ -1860,12 +1420,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -1895,12 +1450,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -1930,12 +1480,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -1965,12 +1510,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -2000,12 +1540,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/shownotes/{id}/unfurl": {
@@ -2037,12 +1572,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -2072,12 +1602,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -2107,12 +1632,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/shownotes/osf": {
@@ -2133,12 +1653,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/shownotes/html": {
@@ -2159,12 +1674,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors": {
@@ -2204,12 +1714,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -2228,12 +1733,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/{id}": {
@@ -2265,12 +1765,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -2408,12 +1903,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -2432,6 +1922,9 @@
         ],
         "requestBody": {
           "content": {
+            "application/json": {
+              "schema": null
+            },
             "application/x-www-form-urlencoded": {
               "schema": {
                 "properties": {
@@ -2579,12 +2072,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -2614,12 +2102,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -2757,12 +2240,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/groups": {
@@ -2783,12 +2261,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -2807,12 +2280,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/groups/{id}": {
@@ -2844,12 +2312,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -2897,12 +2360,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -2973,12 +2431,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -3008,12 +2461,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -3061,12 +2509,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/roles": {
@@ -3087,12 +2530,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -3111,12 +2549,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/roles/{id}": {
@@ -3148,12 +2581,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -3201,12 +2629,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -3277,12 +2700,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -3312,12 +2730,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -3365,12 +2778,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/contributors/{id}/episodes": {
@@ -3402,12 +2810,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     },
     "/podlove/v2/episodes/{id}/contributions": {
@@ -3439,12 +2842,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "put": {
         "tags": [
@@ -3482,12 +2880,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "post": {
         "tags": [
@@ -3541,12 +2934,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "delete": {
         "tags": [
@@ -3576,12 +2964,7 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       },
       "patch": {
         "tags": [
@@ -3619,22 +3002,80 @@
             "description": "Not Found",
             "content": {}
           }
-        },
-        "security": [
-          {
-            "basic": []
-          }
-        ]
+        }
       }
     }
   },
   "components": {
+    "responses": {
+      "NotFound": {
+        "description": "we do not found the requested resource",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Authorization information is missing or invalid.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Created": {
+        "description": "Creation request was successfully.",
+        "content": {
+          "application:/json": {
+            "schema": {
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Updated": {
+        "description": "Update request was successfully.",
+        "content": {
+          "application:/json": {
+            "schema": {
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "CreateEpisode": {
+        "description": "Info about the created episode",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateEpisode"
+            }
+          }
+        }
+      }
+    },
     "schemas": {
       "Podcast": {
         "type": "object",
         "properties": {
-          "version": {
-            "type": "string"
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
           },
           "title": {
             "type": "string"
@@ -3649,7 +3090,11 @@
             "type": "string"
           },
           "itunes_type": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "episodic",
+              "serial"
+            ]
           },
           "author_name": {
             "type": "string"
@@ -3660,13 +3105,27 @@
           "link": {
             "type": "string"
           }
+        },
+        "example": {
+          "version": "v2",
+          "title": "Podlovers",
+          "subtitle": "Der Podlove Entwickler:innen Podcast",
+          "summary": "Podlove ist eine Initiative zur Verbesserung der Open Source Infrastruktur zum Podcasting. Podlove ist gleichzeitig auch ein Netzwerk an Entwickler:innen zur Diskussion von Features und Standardisierung.",
+          "mnemonic": "LOV",
+          "itunes_type": "episodic",
+          "author_name": "Podlove team",
+          "poster": null,
+          "link": "https://podlovers.org"
         }
       },
       "ArrayOfEpisodes": {
         "type": "object",
         "properties": {
           "_version": {
-            "type": "string"
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
           },
           "results": {
             "type": "array",
@@ -3681,13 +3140,248 @@
               }
             }
           }
+        },
+        "example": {
+          "_version": "v2",
+          "results": [
+            {
+              "id": 10,
+              "title": "Folge 1"
+            },
+            {
+              "id": 11,
+              "title": "Folge 2"
+            }
+          ]
         }
-      }
-    },
-    "securitySchemes": {
-      "basic": {
-        "type": "http",
-        "scheme": "basic"
+      },
+      "EpisodeOut": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "id": {
+            "description": "Unique identifier for the episode.",
+            "type": "integer"
+          },
+          "post_id": {
+            "type": "integer"
+          },
+          "title": {
+            "description": "Clear, concise name for your episode.",
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string",
+            "description": "Single sentence describing the episode."
+          },
+          "summary": {
+            "type": "string",
+            "description": "A summary of the episode."
+          },
+          "duration": {
+            "type": "string",
+            "description": "The duration of the episode."
+          },
+          "poster": {
+            "type": "string"
+          },
+          "link": {
+            "type": "string"
+          },
+          "audio": {
+            "type": "string"
+          },
+          "files": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "description": "An epsiode number."
+          },
+          "mnemonic": {
+            "type": "string"
+          },
+          "soundbite_start": {
+            "type": "string",
+            "description": "Start value of podcast:soundbite tag"
+          },
+          "soundbite_duration": {
+            "type": "string",
+            "description": "Duration value of podcast::soundbite tag"
+          },
+          "soundbite_title": {
+            "type": "string",
+            "description": "Title for the podcast::soundbite tag"
+          },
+          "explizit": {
+            "type": "string",
+            "description": "explicit content?",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id": 10,
+          "post_id": 80,
+          "title": "Title of the episode",
+          "subtitle": "Subtitle of the episode",
+          "summary": "Summary of the episode",
+          "number": 10,
+          "mnemonic": "LOV010",
+          "soundbite_start": "00:00:10",
+          "soundbite_duration": "00:00:59",
+          "soundbite_title": "A short soundbite from the episode",
+          "explizit": "no"
+        }
+      },
+      "EpisodeIn": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "description": "Clear, concise name for your episode.",
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string",
+            "description": "Single sentence describing the episode."
+          },
+          "summary": {
+            "type": "string",
+            "description": "A summary of the episode."
+          },
+          "number": {
+            "type": "integer",
+            "description": "An epsiode number."
+          },
+          "slug": {
+            "type": "string"
+          },
+          "soundbite_start": {
+            "type": "string",
+            "description": "Start value of podcast:soundbite tag"
+          },
+          "soundbite_duration": {
+            "type": "string",
+            "description": "Duration value of podcast::soundbite tag"
+          },
+          "soundbite_title": {
+            "type": "string",
+            "description": "Title for the podcast::soundbite tag"
+          },
+          "explizit": {
+            "type": "string",
+            "description": "explicit content?",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id": 10,
+          "post_id": 80,
+          "title": "Title of the episode",
+          "subtitle": "Subtitle of the episode",
+          "summary": "Summary of the episode",
+          "number": 10,
+          "mnemonic": "LOV010",
+          "soundbite_start": "00:00:10",
+          "soundbite_duration": "00:00:59",
+          "soundbite_title": "A short soundbite from the episode",
+          "explizit": "no"
+        }
+      },
+      "Chapters": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "chapters": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "start": {
+                  "type": "string",
+                  "description": "Chapter begin timestamp"
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Chapter title"
+                },
+                "href": {
+                  "type": "string",
+                  "description": "Chapter url"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "chapters": [
+            {
+              "start": "00:00:00",
+              "title": "Intro"
+            },
+            {
+              "start": "00:00:50",
+              "title": "Begrüßung",
+              "href": "http://docs.podlove.org"
+            }
+          ]
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "401": {
+            "code": 401,
+            "message": "we do not found the requested resource"
+          },
+          "404": {
+            "code": 404,
+            "message": "sorry, we do not found the requested resource"
+          }
+        }
+      },
+      "CreateEpisode": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "message": "Episode successfully created with id 10",
+          "location": null,
+          "id": 10
+        }
       }
     }
   }
