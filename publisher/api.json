@@ -139,8 +139,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -163,8 +162,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -257,10 +255,6 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           }
@@ -293,8 +287,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -331,8 +324,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -369,8 +361,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -398,8 +389,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -470,7 +460,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Updated"
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -544,7 +534,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Updated"
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -572,7 +562,7 @@
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/Updated"
+            "$ref": "#/components/responses/OK"
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -588,6 +578,8 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Returns the transcript of the episode.",
+        "description": "Wihtout limit and offset, you get the whole transcript.",
         "parameters": [
           {
             "name": "id",
@@ -626,54 +618,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "transcripts"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transcripts"
+                }
+              }
             }
           },
-          {
-            "name": "content",
-            "in": "query",
-            "description": "Transcription file",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -681,6 +635,8 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Add a transcript to the episode.",
+        "description": "The content part of the request have to use the vtt format and must be UTF-8 encoded.",
         "parameters": [
           {
             "name": "id",
@@ -694,54 +650,58 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "content"
-                ],
                 "properties": {
-                  "content": {
+                  "type": {
                     "type": "string",
-                    "description": "Transcription file"
+                    "enum": [
+                      "vtt"
+                    ]
+                  },
+                  "content": {
+                    "type": "string"
                   }
                 }
               }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "content"
-                ],
-                "properties": {
-                  "content": {
-                    "type": "string",
-                    "description": "Transcription file"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "transcript": {
+                      "$ref": "#/components/schemas/Transcripts"
+                    }
                   }
                 }
               }
             }
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ParseError"
           }
         }
       },
-      "delete": {
+      "put": {
         "tags": [
           "transcripts"
         ],
+        "summary": "Add a transcript to the episode.",
+        "description": "The content part of the request have to use the vtt format and must be UTF-8 encoded.",
         "parameters": [
           {
             "name": "id",
@@ -753,18 +713,69 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "vtt"
+                    ]
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "transcript": {
+                      "$ref": "#/components/schemas/Transcripts"
+                    }
+                  }
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 500,
+                  "message": "Sorry, we can not parse your vtt content."
+                }
+              }
+            }
           }
         }
       },
@@ -772,6 +783,8 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Add a transcript to the episode.",
+        "description": "The content part of the request have to use the vtt format and must be UTF-8 encoded.",
         "parameters": [
           {
             "name": "id",
@@ -781,11 +794,84 @@
             "schema": {
               "type": "string"
             }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "vtt"
+                    ]
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    },
+                    "transcript": {
+                      "$ref": "#/components/schemas/Transcripts"
+                    }
+                  }
+                }
+              }
+            }
           },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "code": 500,
+                  "message": "Sorry, we can not parse your vtt content."
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "transcripts"
+        ],
+        "description": "Delete the transcript of an episode.",
+        "parameters": [
           {
-            "name": "content",
-            "in": "query",
-            "description": "Transcription file",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
             "required": true,
             "schema": {
               "type": "string"
@@ -794,16 +880,10 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -813,6 +893,7 @@
         "tags": [
           "transcripts"
         ],
+        "description": "A list of the voices on the episode's transcript.",
         "parameters": [
           {
             "name": "id",
@@ -827,15 +908,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Voices"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -843,52 +925,7 @@
         "tags": [
           "transcripts"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "voice",
-            "in": "query",
-            "description": "Voice",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "contributor_id",
-            "in": "query",
-            "description": "Contributor Id assigned to the voice.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "transcripts"
-        ],
+        "description": "Update the list of the voices on the episode's transcript.",
         "parameters": [
           {
             "name": "id",
@@ -902,55 +939,30 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "properties": {
-                  "voice": {
-                    "type": "string",
-                    "description": "Voice"
-                  },
-                  "contributor_id": {
-                    "type": "string",
-                    "description": "Contributor Id assigned to the voice."
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "voice": {
-                    "type": "string",
-                    "description": "Voice"
-                  },
-                  "contributor_id": {
-                    "type": "string",
-                    "description": "Contributor Id assigned to the voice."
-                  }
-                }
+                "$ref": "#/components/schemas/Voices"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
-      "patch": {
+      "post": {
         "tags": [
           "transcripts"
         ],
+        "description": "Update the list of the voices on the episode's transcript.",
         "parameters": [
           {
             "name": "id",
@@ -960,36 +972,63 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "voice",
-            "in": "query",
-            "description": "Voice",
-            "schema": {
-              "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voices"
+              }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "transcripts"
+        ],
+        "description": "Update the list of the voices on the episode's transcript.",
+        "parameters": [
           {
-            "name": "contributor_id",
-            "in": "query",
-            "description": "Contributor Id assigned to the voice.",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
             "schema": {
               "type": "string"
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Voices"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -999,6 +1038,7 @@
         "tags": [
           "transcripts"
         ],
+        "description": "A part of the transcription (called chaption).",
         "parameters": [
           {
             "name": "id",
@@ -1008,52 +1048,21 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Timestamp begin of the chaption",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "end",
-            "in": "query",
-            "description": "Timestamp end of the chaption",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "voices",
-            "in": "query",
-            "description": "Name of the speaker",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "content",
-            "in": "query",
-            "description": "Content",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChaptionOut"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1071,44 +1080,26 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Timestamp begin of the paragraph",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "end",
-            "in": "query",
-            "description": "Timestamp end of the paragraph",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "text",
-            "in": "query",
-            "description": "Content",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChaptionIn"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1130,56 +1121,59 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "properties": {
-                  "start": {
-                    "type": "string",
-                    "description": "Timestamp begin of the paragraph"
-                  },
-                  "end": {
-                    "type": "string",
-                    "description": "Timestamp end of the paragraph"
-                  },
-                  "text": {
-                    "type": "string",
-                    "description": "Content"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "start": {
-                    "type": "string",
-                    "description": "Timestamp begin of the paragraph"
-                  },
-                  "end": {
-                    "type": "string",
-                    "description": "Timestamp end of the paragraph"
-                  },
-                  "text": {
-                    "type": "string",
-                    "description": "Content"
-                  }
-                }
+                "$ref": "#/components/schemas/ChaptionIn"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "transcripts"
+        ],
+        "description": "Edit a chaption of the transcript",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the part of the transcription (called chaption).",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChaptionIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1201,71 +1195,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "transcripts"
-        ],
-        "description": "Edit a chaption of the transcript",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the part of the transcription (called chaption).",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "start",
-            "in": "query",
-            "description": "Timestamp begin of the paragraph",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "end",
-            "in": "query",
-            "description": "Timestamp end of the paragraph",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "text",
-            "in": "query",
-            "description": "Content",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -1922,9 +1858,6 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
-              "schema": null
-            },
             "application/x-www-form-urlencoded": {
               "schema": {
                 "properties": {
@@ -3008,12 +2941,40 @@
   },
   "components": {
     "responses": {
-      "NotFound": {
-        "description": "we do not found the requested resource",
+      "OK": {
+        "description": "The request was successfully.",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "properties": {
+                "status": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "status": "ok"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "Requested resources was not found.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "code": 404,
+              "message": "sorry, we do not found the requested resource"
             }
           }
         }
@@ -3023,7 +2984,18 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/Error"
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "code": 401,
+              "message": "sorry, you do not have permissions to use this REST API endpoint"
             }
           }
         }
@@ -3042,26 +3014,33 @@
           }
         }
       },
-      "Updated": {
-        "description": "Update request was successfully.",
-        "content": {
-          "application:/json": {
-            "schema": {
-              "properties": {
-                "status": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
-      },
       "CreateEpisode": {
         "description": "Info about the created episode",
         "content": {
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/CreateEpisode"
+            }
+          }
+        }
+      },
+      "ParseError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            },
+            "example": {
+              "code": 500,
+              "message": "Sorry, we can not parse your vtt content."
             }
           }
         }
@@ -3303,7 +3282,7 @@
       "Chapters": {
         "type": "object",
         "properties": {
-          "version": {
+          "_version": {
             "type": "string",
             "enum": [
               "v2"
@@ -3330,6 +3309,7 @@
           }
         },
         "example": {
+          "_version": "v2",
           "chapters": [
             {
               "start": "00:00:00",
@@ -3343,25 +3323,210 @@
           ]
         }
       },
-      "Error": {
+      "Transcripts": {
         "type": "object",
         "properties": {
-          "code": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "prev": {
             "type": "string"
           },
-          "message": {
+          "next": {
             "type": "string"
+          },
+          "transcript": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Id of the part of the transcription."
+                },
+                "start": {
+                  "type": "string",
+                  "description": "Timestamp begin of the chaption. (Format HH:MM:SS.sss)"
+                },
+                "start_ms": {
+                  "type": "integer",
+                  "description": "Timestamp begin of the chaption. (ms)"
+                },
+                "end": {
+                  "type": "string",
+                  "description": "Timestamp end of the chaption. (Format HH:MM:SS.sss)"
+                },
+                "end_ms": {
+                  "type": "integer",
+                  "description": "Timestamp end of the chaption. (ms)"
+                },
+                "voice": {
+                  "type": "string",
+                  "description": "Name of the speaker."
+                },
+                "text": {
+                  "type": "string",
+                  "description": "Content."
+                }
+              }
+            }
           }
         },
         "example": {
-          "401": {
-            "code": 401,
-            "message": "we do not found the requested resource"
+          "count": {
+            "_version": "v2",
+            "count": 723
           },
-          "404": {
-            "code": 404,
-            "message": "sorry, we do not found the requested resource"
+          "offset_limit": {
+            "_version": "v2",
+            "prev": "podlove/v2/transcripts/2?offset=10?limit=10",
+            "next": "podlove/v2/transcripts/2?offset=30?limit=10",
+            "transcript": [
+              {
+                "start": "00:00:00.005",
+                "start_ms": 5,
+                "end": "00:00:12.648",
+                "end_ms": 12648,
+                "voice": "Michi",
+                "text": "Hallo und herzlich willkommen zur Folge zwanzig, Episode zwanzig. Ich sage erstmal hallo und dann sage ich kurz wer wir sind. Hallo Alex."
+              },
+              {
+                "start": "00:00:14.385",
+                "start_ms": 14385,
+                "end": "00:00:15.376",
+                "end_ms": 15376,
+                "voice": "Michi",
+                "text": "Hallo Eric"
+              }
+            ]
+          },
+          "transcript": {
+            "_version": "v2",
+            "transcript": [
+              {
+                "start": "00:00:00.005",
+                "start_ms": 5,
+                "end": "00:00:12.648",
+                "end_ms": 12648,
+                "voice": "Michi",
+                "text": "Hallo und herzlich willkommen zur Folge zwanzig, Episode zwanzig. Ich sage erstmal hallo und dann sage ich kurz wer wir sind. Hallo Alex."
+              },
+              {
+                "start": "00:00:14.385",
+                "start_ms": 14385,
+                "end": "00:00:15.376",
+                "end_ms": 15376,
+                "voice": "Michi",
+                "text": "Hallo Eric"
+              }
+            ]
           }
+        }
+      },
+      "Voices": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "voices": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "voice": {
+                  "type": "string",
+                  "description": "Name of the speaker."
+                },
+                "contributor_id": {
+                  "type": "integer",
+                  "description": "Id of the contributor connected with the voice."
+                }
+              }
+            }
+          }
+        }
+      },
+      "ChaptionOut": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier for the part of the transcription."
+          },
+          "episode": {
+            "type": "integer",
+            "description": "Identifier of the episode connected with this part of the transcription."
+          },
+          "start": {
+            "type": "string",
+            "description": "Timestamp begin of the chaption. (Format HH:MM:SS.sss)"
+          },
+          "start_ms": {
+            "type": "string",
+            "description": "Timestamp begin of the chaption. (ms)"
+          },
+          "end": {
+            "type": "string",
+            "description": "Timestamp end of the chaption. (Format HH:MM:SS.sss)"
+          },
+          "end_ms": {
+            "type": "string",
+            "description": "Timestamp end of the chaption. (ms)"
+          },
+          "voice": {
+            "type": "string",
+            "description": "Name of the speaker"
+          },
+          "text": {
+            "type": "string",
+            "description": "Content"
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id": 1082,
+          "episode": 20,
+          "start": "00:00:00.005",
+          "start_ms": 5,
+          "end": "00:00:12.648",
+          "end_ms": 12648,
+          "voice": "Michi",
+          "text": "Hallo und herzlich willkommen zur Folge zwanzig, Episode zwanzig. Ich sage erstmal hallo und dann sage ich kurz wer wir sind. Hallo Alex."
+        }
+      },
+      "ChaptionIn": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string",
+            "description": "Timestamp begin of the chaption. (Format HH:MM:SS.sss)"
+          },
+          "end": {
+            "type": "string",
+            "description": "Timestamp end of the chaption. (Format HH:MM:SS.sss)"
+          },
+          "text": {
+            "type": "string",
+            "description": "Content"
+          }
+        },
+        "example": {
+          "id": 1082,
+          "episode": 20,
+          "start": "00:00:00.005",
+          "end": "00:00:12.648",
+          "text": "Hallo und herzlich willkommen zur Folge zwanzig, Episode zwanzig. Ich sage erstmal hallo und dann sage ich kurz wer wir sind. Hallo Alex."
         }
       },
       "CreateEpisode": {
