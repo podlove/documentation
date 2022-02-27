@@ -688,6 +688,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
@@ -753,6 +756,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
@@ -836,6 +842,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
@@ -882,6 +891,9 @@
           "200": {
             "$ref": "#/components/responses/OK"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
           "404": {
             "$ref": "#/components/responses/NotFound"
           }
@@ -893,6 +905,7 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "A list of the voices.",
         "description": "A list of the voices on the episode's transcript.",
         "parameters": [
           {
@@ -925,6 +938,7 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
         "parameters": [
           {
@@ -962,6 +976,7 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
         "parameters": [
           {
@@ -999,6 +1014,7 @@
         "tags": [
           "transcripts"
         ],
+        "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
         "parameters": [
           {
@@ -1618,6 +1634,8 @@
         "tags": [
           "contributors"
         ],
+        "summary": "A list of contributors of the podcast",
+        "description": "If you are not authentificate, you will get only the visible contributors. The all filter will be ignored.",
         "parameters": [
           {
             "name": "filter",
@@ -1640,15 +1658,13 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorsOut"
+                }
+              }
+            }
           }
         }
       },
@@ -1656,18 +1672,13 @@
         "tags": [
           "contributors"
         ],
+        "description": "Add a contributor to the podcast.",
         "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
+          "201": {
+            "$ref": "#/components/responses/CreateContributor"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         }
       }
@@ -1677,6 +1688,8 @@
         "tags": [
           "contributors"
         ],
+        "summary": "A contributor of the podcast",
+        "description": "If you are not authentificate, you will get only the information, if the contributor visible.",
         "parameters": [
           {
             "name": "id",
@@ -1691,15 +1704,19 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorsOut"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1707,144 +1724,7 @@
         "tags": [
           "contributors"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for contributor.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "gender",
-            "in": "query",
-            "description": "Gender of the contributor",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "female",
-                  "male",
-                  "Not attributed"
-                ]
-              }
-            }
-          },
-          {
-            "name": "visibility",
-            "in": "query",
-            "description": "Should the participation of the contributor be publicily visible?",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "yes",
-                  "no"
-                ]
-              }
-            }
-          },
-          {
-            "name": "identifier",
-            "in": "query",
-            "description": "identifier",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "organisation",
-            "in": "query",
-            "description": "Organisation",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "department",
-            "in": "query",
-            "description": "Department",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "jobtitle",
-            "in": "query",
-            "description": "Jobtitle of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "realname",
-            "in": "query",
-            "description": "Name of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "nickname",
-            "in": "query",
-            "description": "Nickname of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "publicname",
-            "in": "query",
-            "description": "Used name in the blog",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "avatar",
-            "in": "query",
-            "description": "Avatar of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "email",
-            "in": "query",
-            "description": "e-mail of the contributor Do not use external.",
-            "schema": {
-              "type": "string",
-              "format": "email"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "contributors"
-        ],
+        "description": "Update the information about a contributor.",
         "parameters": [
           {
             "name": "id",
@@ -1858,159 +1738,30 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "properties": {
-                  "gender": {
-                    "type": "array",
-                    "description": "Gender of the contributor",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "female",
-                        "male",
-                        "Not attributed"
-                      ]
-                    }
-                  },
-                  "visibility": {
-                    "type": "array",
-                    "description": "Should the participation of the contributor be publicily visible?",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "yes",
-                        "no"
-                      ]
-                    }
-                  },
-                  "identifier": {
-                    "type": "string",
-                    "description": "identifier"
-                  },
-                  "organisation": {
-                    "type": "string",
-                    "description": "Organisation"
-                  },
-                  "department": {
-                    "type": "string",
-                    "description": "Department"
-                  },
-                  "jobtitle": {
-                    "type": "string",
-                    "description": "Jobtitle of the contributor"
-                  },
-                  "realname": {
-                    "type": "string",
-                    "description": "Name of the contributor"
-                  },
-                  "nickname": {
-                    "type": "string",
-                    "description": "Nickname of the contributor"
-                  },
-                  "publicname": {
-                    "type": "string",
-                    "description": "Used name in the blog"
-                  },
-                  "avatar": {
-                    "type": "string",
-                    "description": "Avatar of the contributor"
-                  },
-                  "email": {
-                    "type": "string",
-                    "description": "e-mail of the contributor Do not use external.",
-                    "format": "email"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "gender": {
-                    "type": "array",
-                    "description": "Gender of the contributor",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "female",
-                        "male",
-                        "Not attributed"
-                      ]
-                    }
-                  },
-                  "visibility": {
-                    "type": "array",
-                    "description": "Should the participation of the contributor be publicily visible?",
-                    "items": {
-                      "type": "string",
-                      "enum": [
-                        "yes",
-                        "no"
-                      ]
-                    }
-                  },
-                  "identifier": {
-                    "type": "string",
-                    "description": "identifier"
-                  },
-                  "organisation": {
-                    "type": "string",
-                    "description": "Organisation"
-                  },
-                  "department": {
-                    "type": "string",
-                    "description": "Department"
-                  },
-                  "jobtitle": {
-                    "type": "string",
-                    "description": "Jobtitle of the contributor"
-                  },
-                  "realname": {
-                    "type": "string",
-                    "description": "Name of the contributor"
-                  },
-                  "nickname": {
-                    "type": "string",
-                    "description": "Nickname of the contributor"
-                  },
-                  "publicname": {
-                    "type": "string",
-                    "description": "Used name in the blog"
-                  },
-                  "avatar": {
-                    "type": "string",
-                    "description": "Avatar of the contributor"
-                  },
-                  "email": {
-                    "type": "string",
-                    "description": "e-mail of the contributor Do not use external.",
-                    "format": "email"
-                  }
-                }
+                "$ref": "#/components/schemas/ContributorsIn"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
-      "delete": {
+      "post": {
         "tags": [
           "contributors"
         ],
+        "description": "Update the information about a contributor.",
         "parameters": [
           {
             "name": "id",
@@ -2022,18 +1773,24 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorsIn"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -2041,6 +1798,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "Update the information about a contributor.",
         "parameters": [
           {
             "name": "id",
@@ -2050,128 +1808,54 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "gender",
-            "in": "query",
-            "description": "Gender of the contributor",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "female",
-                  "male",
-                  "Not attributed"
-                ]
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorsIn"
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
           },
-          {
-            "name": "visibility",
-            "in": "query",
-            "description": "Should the participation of the contributor be publicily visible?",
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "yes",
-                  "no"
-                ]
-              }
-            }
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contributors"
+        ],
+        "description": "Delete the information about a contributor.",
+        "parameters": [
           {
-            "name": "identifier",
-            "in": "query",
-            "description": "identifier",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "organisation",
-            "in": "query",
-            "description": "Organisation",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor.",
+            "required": true,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "department",
-            "in": "query",
-            "description": "Department",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "jobtitle",
-            "in": "query",
-            "description": "Jobtitle of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "realname",
-            "in": "query",
-            "description": "Name of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "nickname",
-            "in": "query",
-            "description": "Nickname of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "publicname",
-            "in": "query",
-            "description": "Used name in the blog",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "avatar",
-            "in": "query",
-            "description": "Avatar of the contributor",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "email",
-            "in": "query",
-            "description": "e-mail of the contributor Do not use external.",
-            "schema": {
-              "type": "string",
-              "format": "email"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2181,18 +1865,17 @@
         "tags": [
           "contributors"
         ],
+        "description": "A list of groups to divide contributors by type of participation.",
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorGroupsArray"
+                }
+              }
+            }
           }
         }
       },
@@ -2200,18 +1883,10 @@
         "tags": [
           "contributors"
         ],
+        "description": "Create a group of contributors.",
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           }
         }
       }
@@ -2221,6 +1896,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "Get the information about a group of contributors.",
         "parameters": [
           {
             "name": "id",
@@ -2233,17 +1909,18 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContributorGroup"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         }
       },
@@ -2251,54 +1928,7 @@
         "tags": [
           "contributors"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for contributor group.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Title of the contributor group",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "slug",
-            "in": "query",
-            "description": "Slug of the contributor group",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "contributors"
-        ],
+        "description": "Update the group of contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2312,64 +1942,30 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "slug",
-                  "title"
-                ],
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the contributor group"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Slug of the contributor group"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "slug",
-                  "title"
-                ],
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the contributor group"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Slug of the contributor group"
-                  }
-                }
+                "$ref": "#/components/schemas/ContributorGroup"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
-      "delete": {
+      "post": {
         "tags": [
           "contributors"
         ],
+        "description": "Update the group of contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2381,18 +1977,24 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorGroup"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -2400,6 +2002,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "Update the group of contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2409,20 +2012,39 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Title of the contributor group",
-            "required": true,
-            "schema": {
-              "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorGroup"
+              }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contributors"
+        ],
+        "description": "Delete a contributor group.",
+        "parameters": [
           {
-            "name": "slug",
-            "in": "query",
-            "description": "Slug of the contributor group",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor group.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2431,16 +2053,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2450,18 +2069,18 @@
         "tags": [
           "contributors"
         ],
+        "summary": "A list of roles for contributors.",
+        "description": "Use roles to assign a certain type of activity to a single contributor independent of any assigned group.",
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorRolesArray"
+                }
+              }
+            }
           }
         }
       },
@@ -2469,18 +2088,10 @@
         "tags": [
           "contributors"
         ],
+        "description": "Create a role for contributors.",
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           }
         }
       }
@@ -2490,6 +2101,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "Get the information about a role for contributors.",
         "parameters": [
           {
             "name": "id",
@@ -2502,17 +2114,18 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContributorRole"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         }
       },
@@ -2520,54 +2133,7 @@
         "tags": [
           "contributors"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for contributor role.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Title of the contributor role",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "slug",
-            "in": "query",
-            "description": "Slug of the contributor role",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "contributors"
-        ],
+        "description": "Update the role for contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2581,64 +2147,30 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "required": [
-                  "slug",
-                  "title"
-                ],
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the contributor role"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Slug of the contributor role"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "required": [
-                  "slug",
-                  "title"
-                ],
-                "properties": {
-                  "title": {
-                    "type": "string",
-                    "description": "Title of the contributor role"
-                  },
-                  "slug": {
-                    "type": "string",
-                    "description": "Slug of the contributor role"
-                  }
-                }
+                "$ref": "#/components/schemas/ContributorRole"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
-      "delete": {
+      "post": {
         "tags": [
           "contributors"
         ],
+        "description": "Update the role for contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2650,18 +2182,24 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorRole"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -2669,6 +2207,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "Update the role for contributor informations.",
         "parameters": [
           {
             "name": "id",
@@ -2678,20 +2217,39 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Title of the contributor role",
-            "required": true,
-            "schema": {
-              "type": "string"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorRole"
+              }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contributors"
+        ],
+        "description": "Delete a contributor role.",
+        "parameters": [
           {
-            "name": "slug",
-            "in": "query",
-            "description": "Slug of the contributor role",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for contributor role.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2700,16 +2258,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2719,6 +2274,7 @@
         "tags": [
           "contributors"
         ],
+        "description": "A list of episodes with the contributor",
         "parameters": [
           {
             "name": "id",
@@ -2733,15 +2289,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfEpisodesContributor"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2751,6 +2308,7 @@
         "tags": [
           "episodes"
         ],
+        "description": "A list of contributors who contribute to the episode.",
         "parameters": [
           {
             "name": "id",
@@ -2765,15 +2323,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionsEpisodeArray"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -2781,44 +2340,7 @@
         "tags": [
           "episodes"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "contributors",
-            "in": "query",
-            "description": "List of contributors of the episode",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "episodes"
-        ],
+        "description": "Add a contributor to the episode.",
         "parameters": [
           {
             "name": "id",
@@ -2832,47 +2354,30 @@
         ],
         "requestBody": {
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "properties": {
-                  "contributors": {
-                    "type": "string",
-                    "description": "List of contributors of the episode"
-                  }
-                }
-              }
-            },
-            "multipart/form-data": {
-              "schema": {
-                "properties": {
-                  "contributors": {
-                    "type": "string",
-                    "description": "List of contributors of the episode"
-                  }
-                }
+                "$ref": "#/components/schemas/ContributionsEpisode"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
-      "delete": {
+      "post": {
         "tags": [
           "episodes"
         ],
+        "description": "Add a contributor to the episode.",
         "parameters": [
           {
             "name": "id",
@@ -2884,18 +2389,24 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisode"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -2903,6 +2414,7 @@
         "tags": [
           "episodes"
         ],
+        "description": "Add a contributor to the episode.",
         "parameters": [
           {
             "name": "id",
@@ -2912,11 +2424,40 @@
             "schema": {
               "type": "string"
             }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisode"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
           },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Remove a contributor from the contribution list of an episode.",
+        "parameters": [
           {
-            "name": "contributors",
-            "in": "query",
-            "description": "List of contributors of the episode",
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2924,16 +2465,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -3020,6 +2558,36 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/CreateEpisode"
+            }
+          }
+        }
+      },
+      "CreateContributor": {
+        "description": "Info about the created contributor group.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateContributorGroup"
+            }
+          }
+        }
+      },
+      "CreateContributorGroup": {
+        "description": "Info about the created contributor.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateContributorRole"
+            }
+          }
+        }
+      },
+      "CreateContributorRole": {
+        "description": "Info about the created contributor role.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateContributor"
             }
           }
         }
@@ -3130,6 +2698,38 @@
             {
               "id": 11,
               "title": "Folge 2"
+            }
+          ]
+        }
+      },
+      "ArrayOfEpisodesContributor": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "results": [
+            {
+              "id": 10
+            },
+            {
+              "id": 11
             }
           ]
         }
@@ -3449,6 +3049,19 @@
               }
             }
           }
+        },
+        "example": {
+          "_version": "v2",
+          "voices": [
+            {
+              "voice": "Eric",
+              "contributor_id": 10
+            },
+            {
+              "voice": "Alex",
+              "contributor_id": 11
+            }
+          ]
         }
       },
       "ChaptionOut": {
@@ -3546,6 +3159,428 @@
           "message": "Episode successfully created with id 10",
           "location": null,
           "id": 10
+        }
+      },
+      "CreateContributor": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "status": "ok",
+          "id": 2
+        }
+      },
+      "CreateContributorGroup": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "status": "ok",
+          "id": 2
+        }
+      },
+      "CreateContributorRole": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "status": "ok",
+          "id": 2
+        }
+      },
+      "ContributorsOut": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "contributors": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor."
+                },
+                "identifier": {
+                  "type": "string",
+                  "description": "The identifier will be used as in internal identifier for e.g. shortcodes."
+                },
+                "avatar": {
+                  "type": "string",
+                  "description": "Either a Gravatar email adress or a URL."
+                },
+                "name": {
+                  "type": "string",
+                  "description": "The Public Name will be used for public mentions."
+                },
+                "mail": {
+                  "type": "string",
+                  "description": "Mail address"
+                },
+                "department": {
+                  "type": "string",
+                  "description": "Department of the contributor."
+                },
+                "organisation": {
+                  "type": "string",
+                  "description": "Organisation of the contributor."
+                },
+                "jobtitle": {
+                  "type": "string",
+                  "description": "Jobtitle of the contributor."
+                },
+                "gender": {
+                  "type": "string",
+                  "description": "Gender of the contributor.",
+                  "enum": [
+                    "male",
+                    "female",
+                    "Not attributed"
+                  ]
+                },
+                "nickname": {
+                  "type": "string",
+                  "description": "Nickname of the contributor."
+                },
+                "count": {
+                  "type": "integer",
+                  "description": "Number of contributions of the contributor."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "contributors": [
+            {
+              "id": 1,
+              "identifier": "Dirk_Developer",
+              "avatar": "https://podlove.local/wp-content/uploads/pics/dirk.jpg",
+              "name": "Dirk",
+              "mail": null,
+              "department": "Entwicklung",
+              "organisation": "Podlove",
+              "jobtitle": "Entwickler",
+              "gender": "male",
+              "nickname": "schumi",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "ContributorsIn": {
+        "type": "object",
+        "properties": {
+          "visibility": {
+            "type": "string",
+            "description": "Should the participation of the contributor be publicilyh visible?",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier will be used as in internal identifier for e.g. shortcodes."
+          },
+          "avatar": {
+            "type": "string",
+            "description": "Either a Gravatar email adress or a URL."
+          },
+          "realname": {
+            "type": "string",
+            "description": "Name of contributor."
+          },
+          "publicname": {
+            "type": "string",
+            "description": "The publicname will be used for public mentions."
+          },
+          "nickname": {
+            "type": "string",
+            "description": "Nickname of the contributor."
+          },
+          "mail": {
+            "type": "string",
+            "description": "Mail address"
+          },
+          "department": {
+            "type": "string",
+            "description": "Department of the contributor."
+          },
+          "organisation": {
+            "type": "string",
+            "description": "Organisation of the contributor."
+          },
+          "jobtitle": {
+            "type": "string",
+            "description": "Jobtitle of the contributor."
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender of the contributor.",
+            "enum": [
+              "male",
+              "female",
+              "Not attributed"
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "e-mail of the contributor Do not use external."
+          }
+        },
+        "example": {
+          "identifier": "Dirk_Developer",
+          "avatar": "https://podlove.local/wp-content/uploads/pics/dirk.jpg",
+          "realname": "Dirk Schumann",
+          "publicname": "Dirk",
+          "nickname": "Schumi",
+          "mail": null,
+          "department": "Entwicklung",
+          "organisation": "Podlove",
+          "jobtitle": "Entwickler",
+          "gender": "male",
+          "email": "dirk@podlove.local"
+        }
+      },
+      "ContributorGroupsArray": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor group."
+                },
+                "slug": {
+                  "type": "string",
+                  "description": "Slug of the contributor group."
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Title of the contributor group."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "groups": [
+            {
+              "id": 2,
+              "slug": "production",
+              "title": "The group who are responsible for the production"
+            }
+          ]
+        }
+      },
+      "ContributorGroup": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the contributor group."
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug of the contributor group."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the contributor group."
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id": 2,
+          "slug": "production",
+          "title": "The group who are responsible for the production"
+        }
+      },
+      "ContributorRolesArray": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor role."
+                },
+                "slug": {
+                  "type": "string",
+                  "description": "Slug of the contributor role."
+                },
+                "title": {
+                  "type": "string",
+                  "description": "Title of the contributor role."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "roles": [
+            {
+              "id": 1,
+              "slug": "moderator",
+              "title": "The moderator of the episode."
+            }
+          ]
+        }
+      },
+      "ContributorRole": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the contributor role."
+          },
+          "slug": {
+            "type": "string",
+            "description": "Slug of the contributor role."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the contributor role."
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id": 1,
+          "slug": "moderator",
+          "title": "The moderator of the episode."
+        }
+      },
+      "ContributionsEpisodeArray": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "contributors": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "contributor_id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor."
+                },
+                "role_id": {
+                  "type": "integer",
+                  "description": "Id of the role for the contributor."
+                },
+                "group_id": {
+                  "type": "integer",
+                  "description": "Id of the group for the contributor."
+                },
+                "comment": {
+                  "type": "string",
+                  "description": "Comment to the contributor."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "contributors": [
+            {
+              "contributor_id": 10,
+              "role_id": 1,
+              "group_id": 1,
+              "comment": "Host of the episode."
+            }
+          ]
+        }
+      },
+      "ContributionsEpisode": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "contributor_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor."
+          },
+          "role_id": {
+            "type": "integer",
+            "description": "Id of the role for the contributor."
+          },
+          "group_id": {
+            "type": "integer",
+            "description": "Id of the group for the contributor."
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment to the contributor."
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "contributor_id": 10,
+          "role_id": 1,
+          "group_id": 1,
+          "comment": "Host of the episode."
         }
       }
     }
