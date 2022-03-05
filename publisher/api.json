@@ -16,27 +16,41 @@
         "tags": [
           "analytics"
         ],
+        "description": "Get download numbers per episode for all episodes.",
         "parameters": [
           {
             "name": "format",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "json",
+                  "csv"
+                ]
+              }
             }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyticsArray"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           }
         }
       }
@@ -46,14 +60,8 @@
         "tags": [
           "analytics"
         ],
+        "description": "Get download numbers for an episode.",
         "parameters": [
-          {
-            "name": "format",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
           {
             "name": "id",
             "in": "path",
@@ -62,20 +70,36 @@
               "type": "integer",
               "format": "int64"
             }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Analytics"
+                }
+              },
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -1227,28 +1251,32 @@
         "tags": [
           "social"
         ],
+        "description": "A list of supported social services.",
         "parameters": [
           {
             "name": "category",
             "in": "query",
-            "description": "category: social, donation, internal",
+            "description": "Select a category of social services",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "social",
+                "donation",
+                "internal"
+              ]
             }
           }
         ],
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialServicesArray"
+                }
+              }
+            }
           }
         }
       }
@@ -1258,6 +1286,7 @@
         "tags": [
           "social"
         ],
+        "description": "A list of social services from a contributor.",
         "parameters": [
           {
             "name": "id",
@@ -1280,15 +1309,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialServicesArray"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2663,6 +2693,216 @@
           "author_name": "Podlove team",
           "poster": null,
           "link": "https://podlovers.org"
+        }
+      },
+      "SocialServicesArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/SocialServices"
+        }
+      },
+      "SocialServices": {
+        "type": "object",
+        "description": "Social service data",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the service"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of the service",
+            "enum": [
+              "social",
+              "donation",
+              "internal"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the service"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the service"
+          },
+          "logo": {
+            "type": "string",
+            "description": "Logo of the service"
+          },
+          "url_schema": {
+            "type": "string",
+            "description": "Url schema that the service use"
+          },
+          "logo_url": {
+            "type": "string",
+            "description": "Url of the logo of the service"
+          }
+        },
+        "example": {
+          "id": 12,
+          "category": "social",
+          "type": "github",
+          "title": "GitHub",
+          "description": "GitHub Account",
+          "logo": "github.png",
+          "url_scheme": "https://github.com/%account-placeholder%",
+          "logo_url": "http://podlove.local/wp-content/plugins/podlove-publisher/lib/modules/social/images/icons/github.png"
+        }
+      },
+      "AnalyticsArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Analytics"
+        }
+      },
+      "Analytics": {
+        "type": "object",
+        "description": "Analytics data",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "Title of the episode"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Id of the episode"
+          },
+          "post_id": {
+            "type": "integer",
+            "description": "Releated post id to the episode."
+          },
+          "post_date": {
+            "type": "string",
+            "description": "Releasedate (local time)"
+          },
+          "post_date_gmt": {
+            "type": "string",
+            "description": "Releasedate (gmt time)"
+          },
+          "days_since_release": {
+            "type": "integer",
+            "description": "Days since the release of the episode."
+          },
+          "hours_since_release": {
+            "type": "integer",
+            "description": "Hours since the release of the episode."
+          },
+          "downloads": {
+            "type": "string"
+          },
+          "3y": {
+            "type": "string",
+            "description": "Number of downloads 3 years after release."
+          },
+          "2y": {
+            "type": "string",
+            "description": "Number of downloads 2 years after release."
+          },
+          "1y": {
+            "type": "string",
+            "description": "Number of downloads 1 year after release."
+          },
+          "3q": {
+            "type": "string",
+            "description": "Number of downloads 3 quarters after release."
+          },
+          "2q": {
+            "type": "string",
+            "description": "Number of downloads 2 quarters after release."
+          },
+          "1q": {
+            "type": "string",
+            "description": "Number of downloads 1 quarter after release."
+          },
+          "4w": {
+            "type": "string",
+            "description": "Number of downloads 4 weeks after release."
+          },
+          "3w": {
+            "type": "string",
+            "description": "Number of downloads 3 weeks after release."
+          },
+          "2w": {
+            "type": "string",
+            "description": "Number of downloads 2 weeks after release."
+          },
+          "1w": {
+            "type": "string",
+            "description": "Number of downloads 1 week after release."
+          },
+          "6d": {
+            "type": "string",
+            "description": "Number of downloads 6 days after release."
+          },
+          "5d": {
+            "type": "string",
+            "description": "Number of downloads 5 days after release."
+          },
+          "4d": {
+            "type": "string",
+            "description": "Number of downloads 4 days after release."
+          },
+          "3d": {
+            "type": "string",
+            "description": "Number of downloads 3 days after release."
+          },
+          "2d": {
+            "type": "string",
+            "description": "Number of downloads 2 days after release."
+          },
+          "1d": {
+            "type": "string",
+            "description": "Number of downloads 1 day after release."
+          },
+          "_links": {
+            "type": "object",
+            "description": "a few releated links",
+            "properties": {
+              "self": {
+                "type": "string",
+                "description": "Link to this analytics page"
+              },
+              "podlove:episode": {
+                "type": "string",
+                "description": "Link to the releated episode"
+              }
+            }
+          }
+        },
+        "example": {
+          "title": "Folge 2",
+          "id": 2,
+          "post_id": 25,
+          "post_date": "2021-08-05T20:53:44.000Z",
+          "post_date_gmt": "2021-08-05T20:53:44.000Z",
+          "days_since_release": 207,
+          "hours_since_release": 4967,
+          "downloads": 3,
+          "3y": null,
+          "2y": null,
+          "1y": null,
+          "3q": null,
+          "2q": 3,
+          "1q": 3,
+          "4w": 3,
+          "3w": 3,
+          "2w": 3,
+          "1w": 3,
+          "6d": 3,
+          "5d": 3,
+          "4d": 3,
+          "3d": 3,
+          "2d": 3,
+          "1d": 3,
+          "_links": {
+            "self": "http://podlove.local/wp-json/podlove/v2/analytics/episodes/25",
+            "podlove:episode": "http://podlove.local/wp-json/wp/v2/episodes/25"
+          }
         }
       },
       "ArrayOfEpisodes": {
