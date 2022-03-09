@@ -1328,11 +1328,13 @@
         "tags": [
           "shownotes"
         ],
+        "description": "A list of shownotes for an episode.",
         "parameters": [
           {
             "name": "episode_id",
             "in": "query",
             "description": "Limit result set by episode.",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -1341,15 +1343,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShownotesArray"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1357,18 +1360,65 @@
         "tags": [
           "shownotes"
         ],
+        "description": "Add a shownotes item for an episode.",
+        "parameters": [
+          {
+            "name": "episode_id",
+            "in": "query",
+            "description": "Limit result set by episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of the created shownotes",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "topic",
+                "link"
+              ]
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "description": "Title of the created shownotes.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShownotesIn"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "description": "Info about the created contributor group.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shownotes"
+                }
+              }
+            }
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -1378,6 +1428,7 @@
         "tags": [
           "shownotes"
         ],
+        "description": "A shownote item for an episode.",
         "parameters": [
           {
             "name": "id",
@@ -1392,15 +1443,16 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shownotes"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1408,6 +1460,7 @@
         "tags": [
           "shownotes"
         ],
+        "description": "Update a shownotes item for an episode.",
         "parameters": [
           {
             "name": "id",
@@ -1419,18 +1472,24 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShownotesIn"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1438,6 +1497,7 @@
         "tags": [
           "shownotes"
         ],
+        "description": "Update a shownotes item for an episode.",
         "parameters": [
           {
             "name": "id",
@@ -1449,48 +1509,24 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "shownotes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the object.",
-            "required": true,
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShownotesIn"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       },
@@ -1498,6 +1534,44 @@
         "tags": [
           "shownotes"
         ],
+        "description": "Update a shownotes item for an episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the object.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShownotesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "shownotes"
+        ],
+        "description": "Delete a shownotes item for an episode.",
         "parameters": [
           {
             "name": "id",
@@ -1511,16 +1585,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {}
+            "$ref": "#/components/responses/OK"
           },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
-            "description": "Not Found",
-            "content": {}
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -2752,6 +2823,182 @@
           "logo": "github.png",
           "url_scheme": "https://github.com/%account-placeholder%",
           "logo_url": "http://podlove.local/wp-content/plugins/podlove-publisher/lib/modules/social/images/icons/github.png"
+        }
+      },
+      "ShownotesArray": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Shownotes"
+        },
+        "example": [
+          {
+            "id": 1,
+            "episode_id": 2,
+            "type": "topic",
+            "state": null,
+            "position": -2,
+            "unfurl_data": null,
+            "original_url": null,
+            "affiliate_url": null,
+            "url": null,
+            "title": "Dieser Text gehört zu den Shownotes",
+            "description": null,
+            "site_name": null,
+            "site_url": null,
+            "icon": null,
+            "image": null,
+            "created_at": null,
+            "hidden": null
+          },
+          {
+            "id": 6,
+            "episode_id": 2,
+            "type": "link",
+            "state": "fetched",
+            "position": 3,
+            "unfurl_data": {
+              "description": null,
+              "embed": null,
+              "icon": {
+                "height": "32,",
+                "type": "icon,",
+                "url": "https://podlove.org/files/2014/06/cropped-podlove-avatar-bkd-1024-32x32.png,",
+                "width": 32
+              },
+              "image": null,
+              "locations": [
+                "https://podlove.org"
+              ],
+              "original_url": "https://podlove.org",
+              "screenshot_url": "https://plus.podlove.org/api/rest/v1/unfurl/screenshot?url=https%3A%2F%2Fpodlove.org",
+              "site_name": "podlove.org",
+              "site_url": "https://podlove.org",
+              "title": "Podlove | Personal Media Development",
+              "url": "https://podlove.org/"
+            },
+            "original_url": "https://podlove.org",
+            "affiliate_url": null,
+            "url": "https://podlove.org/",
+            "title": "Podlove | Personal Media Development,",
+            "description": null,
+            "site_name": "podlove.org",
+            "site_url": "https://podlove.org",
+            "icon": "https://podlove.org/files/2014/06/cropped-podlove-avatar-bkd-1024-32x32.png",
+            "image": null,
+            "created_at": null,
+            "hidden": null
+          }
+        ]
+      },
+      "Shownotes": {
+        "type": "object",
+        "description": "A single item in the shownotes",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the shownotes item."
+          },
+          "episode_id": {
+            "type": "integer",
+            "description": "Identifier of the releated episode for the shownotes item."
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the shownotes item.",
+            "enum": [
+              "topic",
+              "link"
+            ]
+          },
+          "state": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "unfurl_data": {
+            "type": "string"
+          },
+          "original_url": {
+            "type": "string"
+          },
+          "affiliate_url": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "site_name": {
+            "type": "string"
+          },
+          "site_url": {
+            "type": "string"
+          },
+          "icon": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "hidden": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 1,
+          "episode_id": 2,
+          "type": "topic",
+          "state": null,
+          "position": -2,
+          "unfurl_data": null,
+          "original_url": null,
+          "affiliate_url": null,
+          "url": null,
+          "title": "Dieser Text gehört zu den Shownotes",
+          "description": null,
+          "site_name": null,
+          "site_url": null,
+          "icon": null,
+          "image": null,
+          "created_at": null,
+          "hidden": null
+        }
+      },
+      "ShownotesIn": {
+        "type": "object",
+        "description": "A single modified shownnote item.",
+        "properties": {
+          "original_url": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "position": {
+            "type": "integer"
+          },
+          "hidden": {
+            "type": "string",
+            "enum": [
+              "yes",
+              "no"
+            ]
+          }
         }
       },
       "AnalyticsArray": {
