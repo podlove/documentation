@@ -1597,70 +1597,12 @@
       }
     },
     "/podlove/v2/shownotes/{id}/unfurl": {
-      "put": {
-        "tags": [
-          "shownotes"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the object.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
       "post": {
         "tags": [
           "shownotes"
         ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the object.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {}
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {}
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {}
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "shownotes"
-        ],
+        "summary": "Extract URL metadata",
+        "description": "Uses the backend at https://plus.podlove.org/api/unfurl with the `original_url` of the entry to automatically set title, description, site name, site url, image and icon.",
         "parameters": [
           {
             "name": "id",
@@ -1693,6 +1635,18 @@
         "tags": [
           "shownotes"
         ],
+        "summary": "Import from OSF plugin",
+        "description": "Generates shownotes entries from the \"OSF\" plugin.",
+        "parameters": [
+            {
+              "name": "post_id",
+              "description": "Releated post id to the episode.",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1714,6 +1668,19 @@
         "tags": [
           "shownotes"
         ],
+        "summary": "Import from HTML",
+        "description": "The HTML used is either the provided `html` parameter or `the_content` of the WordPress post.\n\nEvery link (`a` tag) encountered creates a shownotes entry of type `link` with the `original_url` set to its `href` attribute and the `title` set to the `a` content.\n\nEvery section heading (`h1`–`h6` tag) encountered creates a shownotes entry of type `topic` with the `title` set to the heading content.",
+        "parameters": [
+            {
+              "name": "html",
+              "in": "query",
+              "description": "html string. If not supplied, the content of the post is used.",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
         "responses": {
           "200": {
             "description": "OK",
