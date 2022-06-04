@@ -539,9 +539,13 @@ version: 5,
       "mail",
       "link"
     ],
-    // share outlet, if not provided embed snippet is not available
+    sharePlaytime: true,
+    /**
+     * Share Outlet
+     * - outlet path required in order to provide embed snippet
+     * - also ensure that the configuration as well as the episode is available via urls to enable embedding
+    **/
     outlet: "/share.html",
-    sharePlaytime: true
   }
 ```
 
