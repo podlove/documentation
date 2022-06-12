@@ -1281,20 +1281,51 @@
         }
       }
     },
-    "/podlove/v2/social/services/contributor/{id}": {
+    "/podlove/v2/social/services/{id}": {
       "get": {
         "tags": [
           "social"
         ],
-        "description": "A list of social services from a contributor.",
+        "description": "A supported social services.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "contributor id",
+            "description": "Select a category of social services",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SocialServices"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/podlove/v2/social/contributors/{id}": {
+      "get": {
+        "tags": [
+          "social"
+        ],
+        "description": "A list of social services of a contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Identifier of the contributor",
+            "schema": {
+              "type": "integer"
             }
           },
           {
@@ -1312,10 +1343,460 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SocialServicesArray"
+                  "$ref": "#/components/schemas/ContributorSocialServicesArray"
                 }
               }
             }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "social"
+        ],
+        "description": "Add a social services of a contributor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Identifier of the contributor",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category: social, donation, internal",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorSocialServicesAdd"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/social/contributors/service/{id}": {
+      "get": {
+        "tags": [
+          "social"
+        ],
+        "description": "A social services of a contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Social service id from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorSocialServices"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service of a contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service of a contributor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service of a contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service of a contributor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service of a contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service of a contributor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "social"
+        ],
+        "description": "Delete a social service of a contributor",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service of a contributor",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/social/podcast": {
+      "get": {
+        "tags": [
+          "social"
+        ],
+        "description": "A list of social services from the podcast.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category: social, donation, internal",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PodcastSocialServicesArray"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "social"
+        ],
+        "description": "Add a social services for the podcast.",
+        "parameters": [
+          {
+            "name": "category",
+            "in": "query",
+            "description": "category: social, donation, internal",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PodcastSocialServicesAdd"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/social/podcast/service/{id}": {
+      "get": {
+        "tags": [
+          "social"
+        ],
+        "description": "A social services from the podcast.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Social service id from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PodcastSocialServices"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service from the podcast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PodcastSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service from the podcast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PodcastSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "social"
+        ],
+        "description": "Modify a social service from the podcast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PodcastSocialServicesIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "social"
+        ],
+        "description": "Delete a social service from the podcast",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Identifier of the social service from the podcast",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -1638,15 +2119,16 @@
         "summary": "Import from OSF plugin",
         "description": "Generates shownotes entries from the \"OSF\" plugin.",
         "parameters": [
-            {
-              "name": "post_id",
-              "description": "Releated post id to the episode.",
-              "required": true,
-              "schema": {
-                "type": "integer"
-              }
+          {
+            "name": "post_id",
+            "in": "query",
+            "description": "Releated post id to the episode.",
+            "required": true,
+            "schema": {
+              "type": "integer"
             }
-          ],
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1671,16 +2153,16 @@
         "summary": "Import from HTML",
         "description": "The HTML used is either the provided `html` parameter or `the_content` of the WordPress post.\n\nEvery link (`a` tag) encountered creates a shownotes entry of type `link` with the `original_url` set to its `href` attribute and the `title` set to the `a` content.\n\nEvery section heading (`h1`–`h6` tag) encountered creates a shownotes entry of type `topic` with the `title` set to the heading content.",
         "parameters": [
-            {
-              "name": "html",
-              "in": "query",
-              "description": "html string. If not supplied, the content of the post is used.",
-              "required": false,
-              "schema": {
-                "type": "string"
-              }
+          {
+            "name": "html",
+            "in": "query",
+            "description": "html string. If not supplied, the content of the post is used.",
+            "required": false,
+            "schema": {
+              "type": "string"
             }
-          ],
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -2408,7 +2890,7 @@
         "tags": [
           "episodes"
         ],
-        "description": "Add a contributor to the episode.",
+        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
         "parameters": [
           {
             "name": "id",
@@ -2424,7 +2906,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisode"
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
               }
             }
           }
@@ -2445,7 +2927,7 @@
         "tags": [
           "episodes"
         ],
-        "description": "Add a contributor to the episode.",
+        "description": "Add a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
         "parameters": [
           {
             "name": "id",
@@ -2461,7 +2943,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisode"
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
               }
             }
           }
@@ -2482,12 +2964,12 @@
         "tags": [
           "episodes"
         ],
-        "description": "Add a contributor to the episode.",
+        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Unique identifier for the episode.",
+            "description": "UUnique identifier for the episode.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2498,7 +2980,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisode"
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
               }
             }
           }
@@ -2519,12 +3001,185 @@
         "tags": [
           "episodes"
         ],
-        "description": "Remove a contributor from the contribution list of an episode.",
+        "description": "Remove all contributors who contribute to the episode.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/episodes/contributions/{id}": {
+      "get": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "A contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionsEpisode"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "UUnique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "episodes"
+        ],
+        "description": "Remove a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
             "required": true,
             "schema": {
               "type": "string"
@@ -2731,65 +3386,6 @@
           "author_name": "Podlove team",
           "poster": null,
           "link": "https://podlovers.org"
-        }
-      },
-      "SocialServicesArray": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/SocialServices"
-        }
-      },
-      "SocialServices": {
-        "type": "object",
-        "description": "Social service data",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "Identifier of the service"
-          },
-          "category": {
-            "type": "string",
-            "description": "Category of the service",
-            "enum": [
-              "social",
-              "donation",
-              "internal"
-            ]
-          },
-          "type": {
-            "type": "string",
-            "description": "Type of the service"
-          },
-          "title": {
-            "type": "string",
-            "description": "Title of the service"
-          },
-          "description": {
-            "type": "string",
-            "description": "Description of the service"
-          },
-          "logo": {
-            "type": "string",
-            "description": "Logo of the service"
-          },
-          "url_schema": {
-            "type": "string",
-            "description": "Url schema that the service use"
-          },
-          "logo_url": {
-            "type": "string",
-            "description": "Url of the logo of the service"
-          }
-        },
-        "example": {
-          "id": 12,
-          "category": "social",
-          "type": "github",
-          "title": "GitHub",
-          "description": "GitHub Account",
-          "logo": "github.png",
-          "url_scheme": "https://github.com/%account-placeholder%",
-          "logo_url": "http://podlove.local/wp-content/plugins/podlove-publisher/lib/modules/social/images/icons/github.png"
         }
       },
       "ShownotesArray": {
@@ -3220,6 +3816,10 @@
             "type": "string",
             "description": "The duration of the episode."
           },
+          "publicationDate": {
+            "type": "string",
+            "description": "Date of the publication of the episode."
+          },
           "poster": {
             "type": "string"
           },
@@ -3297,6 +3897,10 @@
           "slug": {
             "type": "string"
           },
+          "duration": {
+            "type": "string",
+            "description": "Duration of the episode. Please, use NormalPlayTime format."
+          },
           "soundbite_start": {
             "type": "string",
             "description": "Start value of podcast:soundbite tag"
@@ -3326,7 +3930,8 @@
           "subtitle": "Subtitle of the episode",
           "summary": "Summary of the episode",
           "number": 10,
-          "mnemonic": "LOV010",
+          "slug": "PodloveTest001",
+          "duration": "00:48:10",
           "soundbite_start": "00:00:10",
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
@@ -3357,6 +3962,10 @@
                 "href": {
                   "type": "string",
                   "description": "Chapter url"
+                },
+                "image": {
+                  "type": "string",
+                  "description": "Chapter image"
                 }
               }
             }
@@ -3372,7 +3981,8 @@
             {
               "start": "00:00:50",
               "title": "Begrüßung",
-              "href": "http://docs.podlove.org"
+              "href": "http://docs.podlove.org",
+              "image": "http://podlove.local/wp-content/2022/05/chapter.jpg"
             }
           ]
         }
@@ -3971,6 +4581,10 @@
             "type": "array",
             "items": {
               "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Identifier of the contribution to an episode"
+                },
                 "contributor_id": {
                   "type": "integer",
                   "description": "Identifier of the contributor."
@@ -3982,6 +4596,10 @@
                 "group_id": {
                   "type": "integer",
                   "description": "Id of the group for the contributor."
+                },
+                "position": {
+                  "type": "integer",
+                  "description": "Identifier to sort the contribution to an episode"
                 },
                 "comment": {
                   "type": "string",
@@ -3995,10 +4613,70 @@
           "_version": "v2",
           "contributors": [
             {
+              "id": 7,
               "contributor_id": 10,
               "role_id": 1,
               "group_id": 1,
+              "position": 0,
               "comment": "Host of the episode."
+            },
+            {
+              "id": 8,
+              "contributor_id": 11,
+              "role_id": 2,
+              "group_id": 1,
+              "position": 1,
+              "comment": "Guest of the episode."
+            }
+          ]
+        }
+      },
+      "ContributionsEpisodeArrayIn": {
+        "type": "object",
+        "properties": {
+          "contributors": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "contributor_id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor."
+                },
+                "role_id": {
+                  "type": "integer",
+                  "description": "Id of the role for the contributor."
+                },
+                "group_id": {
+                  "type": "integer",
+                  "description": "Id of the group for the contributor."
+                },
+                "position": {
+                  "type": "integer",
+                  "description": "Identifier to sort the contribution to an episode"
+                },
+                "comment": {
+                  "type": "string",
+                  "description": "Comment to the contributor."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "contributors": [
+            {
+              "contributor_id": 10,
+              "role_id": 1,
+              "group_id": 1,
+              "position": 0,
+              "comment": "Host of the episode."
+            },
+            {
+              "contributor_id": 11,
+              "role_id": 2,
+              "group_id": 1,
+              "position": 1,
+              "comment": "Guest of the episode."
             }
           ]
         }
@@ -4006,11 +4684,9 @@
       "ContributionsEpisode": {
         "type": "object",
         "properties": {
-          "_version": {
-            "type": "string",
-            "enum": [
-              "v2"
-            ]
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the contribution to an episode"
           },
           "contributor_id": {
             "type": "integer",
@@ -4024,17 +4700,406 @@
             "type": "integer",
             "description": "Id of the group for the contributor."
           },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the contribution to an episode"
+          },
           "comment": {
             "type": "string",
             "description": "Comment to the contributor."
           }
         },
         "example": {
-          "_version": "v2",
+          "id": 7,
           "contributor_id": 10,
           "role_id": 1,
           "group_id": 1,
+          "position": 0,
           "comment": "Host of the episode."
+        }
+      },
+      "ContributionsEpisodeIn": {
+        "type": "object",
+        "properties": {
+          "contributor_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor."
+          },
+          "role_id": {
+            "type": "integer",
+            "description": "Id of the role for the contributor."
+          },
+          "group_id": {
+            "type": "integer",
+            "description": "Id of the group for the contributor."
+          },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the contribution to an episode"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment to the contributor."
+          }
+        },
+        "example": {
+          "contributor_id": 10,
+          "role_id": 1,
+          "group_id": 1,
+          "position": 0,
+          "comment": "Host of the episode."
+        }
+      },
+      "SocialServicesArray": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Identifier of the service"
+            },
+            "category": {
+              "type": "string",
+              "description": "Category of the service",
+              "enum": [
+                "social",
+                "donation",
+                "internal"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of the service"
+            },
+            "title": {
+              "type": "string",
+              "description": "Title of the service"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of the service"
+            },
+            "logo": {
+              "type": "string",
+              "description": "Logo of the service"
+            },
+            "url_schema": {
+              "type": "string",
+              "description": "Url schema that the service use"
+            },
+            "logo_url": {
+              "type": "string",
+              "description": "Url of the logo of the service"
+            }
+          },
+          "example": [
+            {
+              "id": 12,
+              "category": "social",
+              "type": "github",
+              "title": "GitHub",
+              "description": "GitHub Account",
+              "logo": "github.png",
+              "url_scheme": "https://github.com/%account-placeholder%",
+              "logo_url": "http://podlove.local/wp-content/plugins/podlove-publisher/lib/modules/social/images/icons/github.png        $ref: '#/components/schemas/SocialServices'"
+            }
+          ]
+        }
+      },
+      "SocialServices": {
+        "type": "object",
+        "description": "Social service data",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Category of the service",
+            "enum": [
+              "social",
+              "donation",
+              "internal"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the service"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the service"
+          },
+          "logo": {
+            "type": "string",
+            "description": "Logo of the service"
+          },
+          "url_schema": {
+            "type": "string",
+            "description": "Url schema that the service use"
+          },
+          "logo_url": {
+            "type": "string",
+            "description": "Url of the logo of the service"
+          }
+        },
+        "example": {
+          "category": "social",
+          "type": "github",
+          "title": "GitHub",
+          "description": "GitHub Account",
+          "logo": "github.png",
+          "url_scheme": "https://github.com/%account-placeholder%",
+          "logo_url": "http://podlove.local/wp-content/plugins/podlove-publisher/lib/modules/social/images/icons/github.png"
+        }
+      },
+      "ContributorSocialServicesArray": {
+        "type": "array",
+        "description": "A list of social services from a contributor",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Identifier of the service from the contributor"
+            },
+            "contributor_id": {
+              "type": "integer",
+              "description": "Identifier of the contributor"
+            },
+            "service_id": {
+              "type": "integer",
+              "description": "Identifier of the service"
+            },
+            "account_url": {
+              "type": "string",
+              "description": "Url of the account from the contributor"
+            },
+            "title": {
+              "type": "string",
+              "description": "Title of the service - contributor connection"
+            },
+            "position": {
+              "type": "integer",
+              "description": "Identifier to sort the services from the contributor"
+            }
+          },
+          "example": [
+            {
+              "id": 10,
+              "contributor_id": 2,
+              "service_id": 36,
+              "account_url": "http://twitter.com/podlove_org",
+              "title": null,
+              "position": 1
+            },
+            {
+              "id": 11,
+              "contributor_id": 2,
+              "service_id": 12,
+              "account_url": "http://github.com/podlove",
+              "title": null,
+              "position": 2
+            }
+          ]
+        }
+      },
+      "ContributorSocialServices": {
+        "type": "object",
+        "description": "A social service data from a contributor",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the service from the contributor"
+          },
+          "contributor_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor"
+          },
+          "service_id": {
+            "type": "integer",
+            "description": "Identifier of the service"
+          },
+          "account_url": {
+            "type": "string",
+            "description": "Url of the account from the contributor"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service - contributor connection"
+          },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the services from the contributor"
+          }
+        },
+        "example": {
+          "id": 10,
+          "contributor_id": 2,
+          "service_id": 36,
+          "account_url": "http://twitter.com/podlove_org",
+          "title": null,
+          "position": 1
+        }
+      },
+      "ContributorSocialServicesIn": {
+        "type": "object",
+        "description": "Modified social service data for the podcast",
+        "properties": {
+          "contributor_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor"
+          },
+          "service_id": {
+            "type": "integer",
+            "description": "Identifier of the service"
+          },
+          "account": {
+            "type": "string",
+            "description": "Account value of the social service to create the account_url"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service - contributor connection"
+          },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the services from the contributor"
+          }
+        },
+        "example": {
+          "id": 13,
+          "service_id": 36,
+          "account": "podlove_org",
+          "title": "Podlove twitter account",
+          "position": 1
+        }
+      },
+      "ContributorSocialServicesAdd": {
+        "type": "object",
+        "description": "Add a social service for the podcast",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status message"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the added social service for the podcast"
+          }
+        }
+      },
+      "PodcastSocialServicesArray": {
+        "type": "array",
+        "description": "A list of social services from the podcast",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Identifier of the service from the contributor"
+            },
+            "service_id": {
+              "type": "integer",
+              "description": "Identifier of the service"
+            },
+            "account_url": {
+              "type": "string",
+              "description": "Url of the account from the contributor"
+            },
+            "title": {
+              "type": "string",
+              "description": "Title of the service - contributor connection"
+            },
+            "position": {
+              "type": "integer",
+              "description": "Identifier to sort the services from the contributor"
+            }
+          },
+          "example": [
+            {
+              "id": 13,
+              "service_id": 36,
+              "account_url": "http://twitter.com/podlove_org",
+              "title": null,
+              "position": 1
+            }
+          ]
+        }
+      },
+      "PodcastSocialServices": {
+        "type": "object",
+        "description": "A social service data from the podcast",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the service from the contributor"
+          },
+          "service_id": {
+            "type": "integer",
+            "description": "Identifier of the service"
+          },
+          "account_url": {
+            "type": "string",
+            "description": "Url of the account from the contributor"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service - contributor connection"
+          },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the services from the contributor"
+          }
+        },
+        "example": {
+          "id": 13,
+          "service_id": 36,
+          "account_url": "http://twitter.com/podlove_org",
+          "title": null,
+          "position": 1
+        }
+      },
+      "PodcastSocialServicesIn": {
+        "type": "object",
+        "description": "Modified social service data for the podcast",
+        "properties": {
+          "service_id": {
+            "type": "integer",
+            "description": "Identifier of the service"
+          },
+          "account": {
+            "type": "string",
+            "description": "Account value of the social service to create the account_url"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the service - contributor connection"
+          },
+          "position": {
+            "type": "integer",
+            "description": "Identifier to sort the services from the contributor"
+          }
+        },
+        "example": {
+          "id": 13,
+          "service_id": 36,
+          "account": "podlove_org",
+          "title": "Podlove twitter account",
+          "position": 1
+        }
+      },
+      "PodcastSocialServicesAdd": {
+        "type": "object",
+        "description": "Add a social service for the podcast",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status message"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the added social service for the podcast"
+          }
         }
       }
     }
