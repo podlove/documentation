@@ -3798,10 +3798,19 @@
             "type": "integer"
           },
           "post_id": {
+            "description": "Releated post_id to the episode.",
+            "type": "integer"
+          },
+          "season_id": {
+            "description": "Season Id to Episode. This entry is only available if the Seasons module is active.",
             "type": "integer"
           },
           "title": {
-            "description": "Clear, concise name for your episode.",
+            "description": "Episode title generated according to the set of rules",
+            "type": "string"
+          },
+          "title_clean": {
+            "description": "Entered title at the episode",
             "type": "string"
           },
           "subtitle": {
@@ -3815,6 +3824,15 @@
           "duration": {
             "type": "string",
             "description": "The duration of the episode."
+          },
+          "type": {
+            "type": "string",
+            "description": "Episode type. May be used by podcast clients.",
+            "enum": [
+              "full",
+              "trailer",
+              "bonus"
+            ]
           },
           "publicationDate": {
             "type": "string",
@@ -3864,9 +3882,13 @@
           "_version": "v2",
           "id": 10,
           "post_id": 80,
+          "season_id": 2,
           "title": "Title of the episode",
           "subtitle": "Subtitle of the episode",
           "summary": "Summary of the episode",
+          "duration": "00:02:03.453",
+          "type": "full",
+          "publicationDate": "2022-03-20T12:30:08.000Z",
           "number": 10,
           "mnemonic": "LOV010",
           "soundbite_start": "00:00:10",
@@ -3896,6 +3918,19 @@
           },
           "slug": {
             "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "description": "Episode type. May be used by podcast clients.",
+            "enum": [
+              "full",
+              "trailer",
+              "bonus"
+            ]
+          },
+          "cover": {
+            "type": "string",
+            "description": "An url for the episode cover. This value is only applied if the Episode Asset Image option is set to manual."
           },
           "duration": {
             "type": "string",
