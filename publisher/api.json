@@ -3869,7 +3869,7 @@
             "type": "string",
             "description": "Title for the podcast::soundbite tag"
           },
-          "explizit": {
+          "explicit": {
             "type": "string",
             "description": "explicit content?",
             "enum": [
@@ -3894,7 +3894,7 @@
           "soundbite_start": "00:00:10",
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
-          "explizit": "no"
+          "explicit": "no"
         }
       },
       "EpisodeIn": {
@@ -3948,7 +3948,7 @@
             "type": "string",
             "description": "Title for the podcast::soundbite tag"
           },
-          "explizit": {
+          "explicit": {
             "type": "string",
             "description": "explicit content?",
             "enum": [
@@ -3970,7 +3970,7 @@
           "soundbite_start": "00:00:10",
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
-          "explizit": "no"
+          "explicit": "no"
         }
       },
       "Chapters": {
