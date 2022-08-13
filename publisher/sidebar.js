@@ -12,6 +12,7 @@ module.exports = [
         "guides/podcast-migration",
         "guides/podcast-network",
         "guides/templates",
+        "guides/api-usage"
       ],
     },
     {
