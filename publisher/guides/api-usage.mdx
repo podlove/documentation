@@ -1,0 +1,50 @@
+---
+title: How to use the Rest API
+---
+
+import YouTube from 'react-youtube';
+
+# How to use the Rest API with authentification
+
+To authenticate the requests against the Podlove Publisher API we recommend the WordPress application password functionality. 
+In the example you can also see how you can test the API with Postman and the WordPress application passwords.
+
+All changes to data using the API require the authentication of the user. In addition, only authenticated users can query non-public data. 
+An authorized user must have the right to modify posts in order to modify or query data. 
+
+## WordPress application password
+
+This option is provided directly by WordPress (since version 5.6.). The application password is directly assigned to a user and can not be used for an
+interactive login. A user can create multiple application passwords and it is recommended to assign a separate application password for each client 
+application for security reasons. If a client application was compromised, the user can revoke the password specifically for this application.
+
+### Create an application password
+
+<img src="/assets/publisher/api-users.png" />
+
+WordPress admins can create Application Passwords for each user, users can also create Application Passwords for their account in the users profile page.
+
+<img src="/assets/publisher/api-application-password-create.png" />
+
+It is important to save the now visible password securely right away. After leaving the page, the password is no longer visible and 
+cannot be displayed again. In the list all created Application Passwords are listed and can be revoked individually.
+
+<img src="/assets/publisher/api-application-password-list.png" />
+
+### Test der API mit Postman
+
+The generation of an episode exemplifies the usage.
+
+1. Select HTTP method POST
+2. Enter the URL http://podlove.local/wp-json/podlove/v2/episodes
+3. Select the Authorization tab
+4. Select Basic Auth as type
+5. Enter username and application password
+6. Press the Send button
+7. The response (status and body) appears in the lower part of the screen
+
+<img src="/assets/publisher/api-postman.png" />
+
+### Video (German)
+
+<YouTube videoId="I1qqbXXZmYA" opts={{ width: '100%' }} />

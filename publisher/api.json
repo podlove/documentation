@@ -3870,12 +3870,8 @@
             "description": "Title for the podcast::soundbite tag"
           },
           "explicit": {
-            "type": "string",
-            "description": "explicit content?",
-            "enum": [
-              "yes",
-              "no"
-            ]
+            "type": "boolean",
+            "description": "explicit content?"
           }
         },
         "example": {
@@ -3894,7 +3890,7 @@
           "soundbite_start": "00:00:10",
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
-          "explicit": "no"
+          "explicit": false
         }
       },
       "EpisodeIn": {
@@ -3949,12 +3945,8 @@
             "description": "Title for the podcast::soundbite tag"
           },
           "explicit": {
-            "type": "string",
-            "description": "explicit content?",
-            "enum": [
-              "yes",
-              "no"
-            ]
+            "type": "boolean",
+            "description": "explicit content?"
           }
         },
         "example": {
@@ -3970,7 +3962,7 @@
           "soundbite_start": "00:00:10",
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
-          "explicit": "no"
+          "explicit": false
         }
       },
       "Chapters": {
