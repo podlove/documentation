@@ -424,6 +424,352 @@
         }
       }
     },
+    "/podlove/v2/episodes/{id}/contributions": {
+      "get": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "A list of contributors who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionsEpisodeArray"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Add a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "UUnique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Remove all contributors who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/episodes/contributions/{id}": {
+      "get": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "A contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionsEpisode"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Add a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "UUnique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributionsEpisodeIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "episodes/contributions"
+        ],
+        "description": "Remove a contributor who contribute to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the contribution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/podlove/v2/chapters/{id}": {
       "get": {
         "tags": [
@@ -927,7 +1273,7 @@
     "/podlove/v2/transcripts/voices/{id}": {
       "get": {
         "tags": [
-          "transcripts"
+          "transcripts/voices"
         ],
         "summary": "A list of the voices.",
         "description": "A list of the voices on the episode's transcript.",
@@ -960,7 +1306,7 @@
       },
       "put": {
         "tags": [
-          "transcripts"
+          "transcripts/voices"
         ],
         "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
@@ -998,7 +1344,7 @@
       },
       "post": {
         "tags": [
-          "transcripts"
+          "transcripts/voices"
         ],
         "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
@@ -1036,7 +1382,7 @@
       },
       "patch": {
         "tags": [
-          "transcripts"
+          "transcripts/voices"
         ],
         "summary": "Update the list of the voices.",
         "description": "Update the list of the voices on the episode's transcript.",
@@ -1076,7 +1422,7 @@
     "/podlove/v2/transcripts/paragraphs/{id}": {
       "get": {
         "tags": [
-          "transcripts"
+          "transcripts/paragraphs"
         ],
         "description": "A part of the transcription (called chaption).",
         "parameters": [
@@ -1108,7 +1454,7 @@
       },
       "put": {
         "tags": [
-          "transcripts"
+          "transcripts/paragraphs"
         ],
         "description": "Edit a chaption of the transcript",
         "parameters": [
@@ -1145,7 +1491,7 @@
       },
       "post": {
         "tags": [
-          "transcripts"
+          "transcripts/paragraphs"
         ],
         "description": "Edit a chaption of the transcript",
         "parameters": [
@@ -1182,7 +1528,7 @@
       },
       "patch": {
         "tags": [
-          "transcripts"
+          "transcripts/paragraphs"
         ],
         "description": "Edit a chaption of the transcript",
         "parameters": [
@@ -1219,7 +1565,7 @@
       },
       "delete": {
         "tags": [
-          "transcripts"
+          "transcripts/paragraphs"
         ],
         "description": "Delete a chaption of the transcript",
         "parameters": [
@@ -1315,7 +1661,7 @@
     "/podlove/v2/social/contributors/{id}": {
       "get": {
         "tags": [
-          "social"
+          "social/contributors"
         ],
         "description": "A list of social services of a contributor.",
         "parameters": [
@@ -1355,7 +1701,7 @@
       },
       "post": {
         "tags": [
-          "social"
+          "social/contributors"
         ],
         "description": "Add a social services of a contributor",
         "parameters": [
@@ -1397,7 +1743,7 @@
     "/podlove/v2/social/contributors/service/{id}": {
       "get": {
         "tags": [
-          "social"
+          "social/contributors/service"
         ],
         "description": "A social services of a contributor.",
         "parameters": [
@@ -1429,7 +1775,7 @@
       },
       "post": {
         "tags": [
-          "social"
+          "social/contributors/service"
         ],
         "description": "Modify a social service of a contributor.",
         "parameters": [
@@ -1466,7 +1812,7 @@
       },
       "patch": {
         "tags": [
-          "social"
+          "social/contributors/service"
         ],
         "description": "Modify a social service of a contributor.",
         "parameters": [
@@ -1503,7 +1849,7 @@
       },
       "put": {
         "tags": [
-          "social"
+          "social/contributors/service"
         ],
         "description": "Modify a social service of a contributor.",
         "parameters": [
@@ -1540,7 +1886,7 @@
       },
       "delete": {
         "tags": [
-          "social"
+          "social/contributors/service"
         ],
         "description": "Delete a social service of a contributor",
         "parameters": [
@@ -1570,7 +1916,7 @@
     "/podlove/v2/social/podcast": {
       "get": {
         "tags": [
-          "social"
+          "social/podcast"
         ],
         "description": "A list of social services from the podcast.",
         "parameters": [
@@ -1601,7 +1947,7 @@
       },
       "post": {
         "tags": [
-          "social"
+          "social/podcast"
         ],
         "description": "Add a social services for the podcast.",
         "parameters": [
@@ -1634,7 +1980,7 @@
     "/podlove/v2/social/podcast/service/{id}": {
       "get": {
         "tags": [
-          "social"
+          "social/podcast/service"
         ],
         "description": "A social services from the podcast.",
         "parameters": [
@@ -1666,7 +2012,7 @@
       },
       "post": {
         "tags": [
-          "social"
+          "social/podcast/service"
         ],
         "description": "Modify a social service from the podcast",
         "parameters": [
@@ -1703,7 +2049,7 @@
       },
       "patch": {
         "tags": [
-          "social"
+          "social/podcast/service"
         ],
         "description": "Modify a social service from the podcast",
         "parameters": [
@@ -1740,7 +2086,7 @@
       },
       "put": {
         "tags": [
-          "social"
+          "social/podcast/service"
         ],
         "description": "Modify a social service from the podcast",
         "parameters": [
@@ -1777,7 +2123,7 @@
       },
       "delete": {
         "tags": [
-          "social"
+          "social/podcast/service"
         ],
         "description": "Delete a social service from the podcast",
         "parameters": [
@@ -2413,7 +2759,7 @@
     "/podlove/v2/contributors/groups": {
       "get": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "A list of groups to divide contributors by type of participation.",
         "responses": {
@@ -2431,7 +2777,7 @@
       },
       "post": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Create a group of contributors.",
         "responses": {
@@ -2444,7 +2790,7 @@
     "/podlove/v2/contributors/groups/{id}": {
       "get": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Get the information about a group of contributors.",
         "parameters": [
@@ -2476,7 +2822,7 @@
       },
       "put": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Update the group of contributor informations.",
         "parameters": [
@@ -2513,7 +2859,7 @@
       },
       "post": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Update the group of contributor informations.",
         "parameters": [
@@ -2550,7 +2896,7 @@
       },
       "patch": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Update the group of contributor informations.",
         "parameters": [
@@ -2587,7 +2933,7 @@
       },
       "delete": {
         "tags": [
-          "contributors"
+          "contributors/groups"
         ],
         "description": "Delete a contributor group.",
         "parameters": [
@@ -2617,7 +2963,7 @@
     "/podlove/v2/contributors/roles": {
       "get": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "summary": "A list of roles for contributors.",
         "description": "Use roles to assign a certain type of activity to a single contributor independent of any assigned group.",
@@ -2636,7 +2982,7 @@
       },
       "post": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Create a role for contributors.",
         "responses": {
@@ -2649,7 +2995,7 @@
     "/podlove/v2/contributors/roles/{id}": {
       "get": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Get the information about a role for contributors.",
         "parameters": [
@@ -2681,7 +3027,7 @@
       },
       "put": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Update the role for contributor informations.",
         "parameters": [
@@ -2718,7 +3064,7 @@
       },
       "post": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Update the role for contributor informations.",
         "parameters": [
@@ -2755,7 +3101,7 @@
       },
       "patch": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Update the role for contributor informations.",
         "parameters": [
@@ -2792,7 +3138,7 @@
       },
       "delete": {
         "tags": [
-          "contributors"
+          "contributors/roles"
         ],
         "description": "Delete a contributor role.",
         "parameters": [
@@ -2819,10 +3165,215 @@
         }
       }
     },
+    "/podlove/v2/contributors/defaults": {
+      "get": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "summary": "A list of default contributors.",
+        "description": "Default Contributors will be automatically added to the list of contributors for new episodes.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributorDefaultsArray"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Create a default contributors.",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CreateContributorDefault"
+          }
+        }
+      }
+    },
+    "/podlove/v2/contributors/defaults/{id}": {
+      "get": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Get the information about a default contributors.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for default contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContributorRole"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Update the default contributor informations.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for default contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorDefault"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Update the default contributor informations.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for default contributor.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorDefault"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Update the default contributor informations.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for default contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContributorDefault"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "contributors/defaults"
+        ],
+        "description": "Delete a default contributor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for default contributor.",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
     "/podlove/v2/contributors/{id}/episodes": {
       "get": {
         "tags": [
-          "contributors"
+          "contributors/episodes"
         ],
         "description": "A list of episodes with the contributor",
         "parameters": [
@@ -2846,352 +3397,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/podlove/v2/episodes/{id}/contributions": {
-      "get": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "A list of contributors who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContributionsEpisodeArray"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Add a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Modify a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "UUnique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Remove all contributors who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      }
-    },
-    "/podlove/v2/episodes/contributions/{id}": {
-      "get": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "A contributor who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the contribution.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ContributionsEpisode"
-                }
-              }
-            }
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Add a contributor who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the contribution.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Add a contributor who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the contribution.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Add a contributor who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "UUnique identifier for the contribution.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "episodes"
-        ],
-        "description": "Remove a contributor who contribute to the episode.",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the contribution.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
@@ -3311,6 +3516,16 @@
           "application/json": {
             "schema": {
               "$ref": "#/components/schemas/CreateContributor"
+            }
+          }
+        }
+      },
+      "CreateContributorDefault": {
+        "description": "Info about the created default contributor.",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CreateContributorDefault"
             }
           }
         }
@@ -4297,6 +4512,21 @@
           "id": 2
         }
       },
+      "CreateContributorDefault": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "example": {
+          "status": "ok",
+          "id": 2
+        }
+      },
       "ContributorsOut": {
         "type": "object",
         "properties": {
@@ -4593,6 +4823,115 @@
           "id": 1,
           "slug": "moderator",
           "title": "The moderator of the episode."
+        }
+      },
+      "ContributorDefaultsArray": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "defaults": {
+            "type": "array",
+            "items": {
+              "properties": {
+                "id": {
+                  "type": "integer",
+                  "description": "Identifier of the default contributor."
+                },
+                "contributor_id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor."
+                },
+                "show_id": {
+                  "type": "integer",
+                  "description": "Identifier of the show."
+                },
+                "role_id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor role."
+                },
+                "group_id": {
+                  "type": "integer",
+                  "description": "Identifier of the contributor group."
+                },
+                "position": {
+                  "type": "integer",
+                  "description": "Position of the default contributor in the list."
+                },
+                "comment": {
+                  "type": "string",
+                  "description": "Comment to the default contributor."
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "defaults": [
+            {
+              "id": 1,
+              "contributor_id": "2",
+              "show_id": null,
+              "role_id": "1",
+              "group_id": "1",
+              "position": "0",
+              "comment": null
+            }
+          ]
+        }
+      },
+      "ContributorDefault": {
+        "type": "object",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the default contributor."
+          },
+          "contributor_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor."
+          },
+          "show_id": {
+            "type": "integer",
+            "description": "Identifier of the show."
+          },
+          "role_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor role."
+          },
+          "group_id": {
+            "type": "integer",
+            "description": "Identifier of the contributor group."
+          },
+          "position": {
+            "type": "integer",
+            "description": "Position of the default contributor in the list."
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment to the default contributor."
+          }
+        },
+        "example": {
+          "_version": "v2",
+          "id" : "1",
+          "contributor_id": "2",
+          "show_id": null,
+          "role_id": "1",
+          "group_id": "1",
+          "position": "0",
+          "comment": null
         }
       },
       "ContributionsEpisodeArray": {
