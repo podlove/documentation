@@ -424,6 +424,161 @@
         }
       }
     },
+    "/podlove/v2/episodes/{id}/media": {
+      "get": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "The information about the assets of an episode",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfEpisodesMedia"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an asset of the episode",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeMediaIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an asset of the episode",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeMediaIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an asset of the episode",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeMediaIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ]
+    },
     "/podlove/v2/episodes/{id}/contributions": {
       "get": {
         "tags": [
@@ -1147,7 +1302,7 @@
                   }
                 },
                 "example": {
-                  "code": 500,
+                  "code": "500",
                   "message": "Sorry, we can not parse your vtt content."
                 }
               }
@@ -1233,7 +1388,7 @@
                   }
                 },
                 "example": {
-                  "code": 500,
+                  "code": "500",
                   "message": "Sorry, we can not parse your vtt content."
                 }
               }
@@ -3439,7 +3594,7 @@
               }
             },
             "example": {
-              "code": 404,
+              "code": "404",
               "message": "sorry, we do not found the requested resource"
             }
           }
@@ -3460,7 +3615,7 @@
               }
             },
             "example": {
-              "code": 401,
+              "code": "401",
               "message": "sorry, you do not have permissions to use this REST API endpoint"
             }
           }
@@ -3545,7 +3700,7 @@
               }
             },
             "example": {
-              "code": 500,
+              "code": "500",
               "message": "Sorry, we can not parse your vtt content."
             }
           }
@@ -3555,42 +3710,6 @@
     "schemas": {
       "Podcast": {
         "type": "object",
-        "properties": {
-          "_version": {
-            "type": "string",
-            "enum": [
-              "v2"
-            ]
-          },
-          "title": {
-            "type": "string"
-          },
-          "subtitle": {
-            "type": "string"
-          },
-          "summary": {
-            "type": "string"
-          },
-          "mnemonic": {
-            "type": "string"
-          },
-          "itunes_type": {
-            "type": "string",
-            "enum": [
-              "episodic",
-              "serial"
-            ]
-          },
-          "author_name": {
-            "type": "string"
-          },
-          "poster": {
-            "type": "string"
-          },
-          "link": {
-            "type": "string"
-          }
-        },
         "example": {
           "version": "v2",
           "title": "Podlovers",
@@ -3600,7 +3719,190 @@
           "itunes_type": "episodic",
           "author_name": "Podlove team",
           "poster": null,
-          "link": "https://podlovers.org"
+          "link": "https://podlovers.org",
+          "funding_url": "",
+          "funding_label": "",
+          "copyright": "© 2022 Podlovers",
+          "expicit": false,
+          "category": "Technology"
+        },
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the podcast"
+          },
+          "subtitle": {
+            "type": "string",
+            "description": "Extension to the title. Clarify what the podcast is about."
+          },
+          "summary": {
+            "type": "string",
+            "description": "Elaborate description of the podcasts content."
+          },
+          "mnemonic": {
+            "type": "string",
+            "description": "Abbreviation for your podcast."
+          },
+          "itunes_type": {
+            "type": "string",
+            "enum": [
+              "episodic",
+              "serial"
+            ]
+          },
+          "author_name": {
+            "type": "string",
+            "description": "Name of the podcast author. Publicly displayed in Podcast directories."
+          },
+          "podcast_email": {
+            "type": "string",
+            "description": "Used by iTunes and other Podcast directories to contact you."
+          },
+          "poster": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string"
+          },
+          "funding_url": {
+            "type": "string",
+            "description": "Can be used by podcatchers show funding/donation links for the podcast."
+          },
+          "funding_label": {
+            "type": "string",
+            "description": "Label for funding/donation URL."
+          },
+          "copyright": {
+            "type": "string",
+            "description": "Copyright notice for content in the channel."
+          },
+          "explicit": {
+            "type": "boolean",
+            "description": "Is the overall content of the podcast explicit?"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Arts",
+              "Design",
+              "Fashion & Beauty",
+              "Food",
+              "Books",
+              "Performing Arts",
+              "Visual Arts",
+              "Business",
+              "Careers",
+              "Investing",
+              "Management",
+              "Entrepreneurship",
+              "Marketing",
+              "Non-Profit",
+              "Comedy",
+              "Comedy Interviews",
+              "Improv",
+              "Stand-Up",
+              "Education",
+              "Language Learning",
+              "Courses",
+              "How To",
+              "Self-Improvement",
+              "Fiction",
+              "Comedy Fiction",
+              "Drama",
+              "Science Fiction",
+              "Government",
+              "History",
+              "Health & Fitness",
+              "Alternative Health",
+              "Fitness",
+              "Sexuality",
+              "Medicine",
+              "Mental Health",
+              "Nutrition",
+              "Kids & Family",
+              "Education for Kids",
+              "Parenting",
+              "Pets & Animals",
+              "Stories for Kids",
+              "Leisure",
+              "Animation & Manga",
+              "Automotive",
+              "Aviation",
+              "Crafts",
+              "Games",
+              "Hobbies",
+              "Home & Garden",
+              "Video Games",
+              "Music",
+              "Music Commentary",
+              "Music History",
+              "Music Interviews",
+              "News",
+              "Business News",
+              "Daily News",
+              "Entertainment News",
+              "News Commentary",
+              "Politics",
+              "Sports News",
+              "Tech News",
+              "Religion & Spirituality",
+              "Buddhism",
+              "Christianity",
+              "Hinduism",
+              "Islam",
+              "Judaism",
+              "Religion",
+              "Spirituality",
+              "Science",
+              "Natural Sciences",
+              "Social Sciences",
+              "Astronomy",
+              "Chemistry",
+              "Earth Sciences",
+              "Life Sciences",
+              "Mathematics",
+              "Nature",
+              "Physics",
+              "Society & Culture",
+              "Personal Journals",
+              "Philosophy",
+              "Places & Travel",
+              "Relationships",
+              "Documentary",
+              "Sports",
+              "Baseball",
+              "Basketball",
+              "Cricket",
+              "Fantasy Sports",
+              "Football",
+              "Golf",
+              "Hockey",
+              "Rugby",
+              "Running",
+              "Soccer",
+              "Swimming",
+              "Tennis",
+              "Volleyball",
+              "Wilderness",
+              "Wrestling",
+              "Technology",
+              "True Crime",
+              "TV & Film",
+              "After Shows",
+              "Film History",
+              "Film Interviews",
+              "Film Reviews",
+              "TV Reviews"
+            ],
+            "description": "iTunes category of the podcast"
+          }
         }
       },
       "ShownotesArray": {
@@ -3613,20 +3915,20 @@
             "id": 1,
             "episode_id": 2,
             "type": "topic",
-            "state": null,
+            "state": "null",
             "position": -2,
             "unfurl_data": null,
-            "original_url": null,
-            "affiliate_url": null,
-            "url": null,
+            "original_url": "null",
+            "affiliate_url": "null",
+            "url": "null",
             "title": "Dieser Text gehört zu den Shownotes",
-            "description": null,
-            "site_name": null,
-            "site_url": null,
-            "icon": null,
-            "image": null,
-            "created_at": null,
-            "hidden": null
+            "description": "null",
+            "site_name": "null",
+            "site_url": "null",
+            "icon": "null",
+            "image": "null",
+            "created_at": "null",
+            "hidden": "null"
           },
           {
             "id": 6,
@@ -3671,6 +3973,25 @@
       "Shownotes": {
         "type": "object",
         "description": "A single item in the shownotes",
+        "example": {
+          "id": 1,
+          "episode_id": 2,
+          "type": "topic",
+          "state": "null",
+          "position": -2,
+          "unfurl_data": null,
+          "original_url": "null",
+          "affiliate_url": "null",
+          "url": "null",
+          "title": "Dieser Text gehört zu den Shownotes",
+          "description": "null",
+          "site_name": "null",
+          "site_url": "null",
+          "icon": "null",
+          "image": "null",
+          "created_at": "null",
+          "hidden": "null"
+        },
         "properties": {
           "id": {
             "type": "integer",
@@ -3695,13 +4016,70 @@
             "type": "integer"
           },
           "unfurl_data": {
-            "type": "string"
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "description": {
+                "type": "string",
+                "nullable": true
+              },
+              "embed": {
+                "type": "string",
+                "nullable": true
+              },
+              "icon": {
+                "type": "object",
+                "properties": {
+                  "height": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "url": {
+                    "type": "string"
+                  },
+                  "width": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "image": {
+                "type": "string",
+                "nullable": true
+              },
+              "locations": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "original_url": {
+                "type": "string"
+              },
+              "screenshot_url": {
+                "type": "string"
+              },
+              "site_name": {
+                "type": "string"
+              },
+              "site_url": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
           },
           "original_url": {
             "type": "string"
           },
           "affiliate_url": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "url": {
             "type": "string"
@@ -3710,7 +4088,8 @@
             "type": "string"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "site_name": {
             "type": "string"
@@ -3722,33 +4101,17 @@
             "type": "string"
           },
           "image": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "created_at": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           },
           "hidden": {
-            "type": "string"
+            "type": "string",
+            "nullable": true
           }
-        },
-        "example": {
-          "id": 1,
-          "episode_id": 2,
-          "type": "topic",
-          "state": null,
-          "position": -2,
-          "unfurl_data": null,
-          "original_url": null,
-          "affiliate_url": null,
-          "url": null,
-          "title": "Dieser Text gehört zu den Shownotes",
-          "description": null,
-          "site_name": null,
-          "site_url": null,
-          "icon": null,
-          "image": null,
-          "created_at": null,
-          "hidden": null
         }
       },
       "ShownotesIn": {
@@ -3821,67 +4184,67 @@
             "type": "string"
           },
           "3y": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 3 years after release."
           },
           "2y": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 2 years after release."
           },
           "1y": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 1 year after release."
           },
           "3q": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 3 quarters after release."
           },
           "2q": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 2 quarters after release."
           },
           "1q": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 1 quarter after release."
           },
           "4w": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 4 weeks after release."
           },
           "3w": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 3 weeks after release."
           },
           "2w": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 2 weeks after release."
           },
           "1w": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 1 week after release."
           },
           "6d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 6 days after release."
           },
           "5d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 5 days after release."
           },
           "4d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 4 days after release."
           },
           "3d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 3 days after release."
           },
           "2d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 2 days after release."
           },
           "1d": {
-            "type": "string",
+            "type": "integer",
             "description": "Number of downloads 1 day after release."
           },
           "_links": {
@@ -3907,11 +4270,11 @@
           "post_date_gmt": "2021-08-05T20:53:44.000Z",
           "days_since_release": 207,
           "hours_since_release": 4967,
-          "downloads": 3,
-          "3y": null,
-          "2y": null,
-          "1y": null,
-          "3q": null,
+          "downloads": "3",
+          "3y": 0,
+          "2y": 0,
+          "1y": 0,
+          "3q": 0,
           "2q": 3,
           "1q": 3,
           "4w": 3,
@@ -3967,6 +4330,60 @@
           ]
         }
       },
+      "ArrayOfEpisodesMedia": {
+        "type": "object",
+        "example": {
+          "_version": "v2",
+          "results": [
+            {
+              "asset_id": 1,
+              "asset": "MP3 Audio",
+              "url": "http://podlove.local/wp-content/uploads/podcast/PodloveTest000.mp3",
+              "size": 1502969,
+              "enable": true
+            },
+            {
+              "asset_id": 2,
+              "asset": "Podlove Simple Chapters",
+              "enable": false
+            }
+          ]
+        },
+        "title": "",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "asset_id": {
+                  "type": "integer"
+                },
+                "asset": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer",
+                  "nullable": true
+                },
+                "enable": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        },
+        "description": ""
+      },
       "ArrayOfEpisodesContributor": {
         "type": "object",
         "properties": {
@@ -4001,6 +4418,46 @@
       },
       "EpisodeOut": {
         "type": "object",
+        "example": {
+          "_version": "v2",
+          "id": 10,
+          "post_id": 80,
+          "title": "Title of the episode",
+          "title_clean": "Title of the episode",
+          "subtitle": "Subtitle of the episode",
+          "summary": "Summary of the episode",
+          "slug": "PodloveTest000",
+          "duration": "00:02:03.453",
+          "type": "full",
+          "publicationDate": "2022-03-20T12:30:08.000Z",
+          "recording_date": "2022-02-20T12:30:08.000Z",
+          "poster": "",
+          "episode_poster": "",
+          "link": "",
+          "audio": [
+            {
+              "url": "http://podlove.local/podlove/file/1/s/webplayer/c/website/PodloveTest000.mp3",
+              "size": 1502969,
+              "title": "MP3 Audio (mp3)",
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "files": [
+            {
+              "url": "http://podlove.local/podlove/file/1/s/webplayer/PodloveTest000.mp3",
+              "size": 1502969,
+              "title": "MP3 Audio (mp3)",
+              "mimeType": "audio/mpeg"
+            }
+          ],
+          "number": 10,
+          "mnemonic": "LOV010",
+          "soundbite_start": "00:00:10",
+          "soundbite_duration": "00:00:59",
+          "soundbite_title": "A short soundbite from the episode",
+          "explicit": false,
+          "season_id": 2
+        },
         "properties": {
           "_version": {
             "type": "string",
@@ -4014,10 +4471,6 @@
           },
           "post_id": {
             "description": "Releated post_id to the episode.",
-            "type": "integer"
-          },
-          "season_id": {
-            "description": "Season Id to Episode. This entry is only available if the Seasons module is active.",
             "type": "integer"
           },
           "title": {
@@ -4036,6 +4489,10 @@
             "type": "string",
             "description": "A summary of the episode."
           },
+          "slug": {
+            "type": "string",
+            "description": "Episode media file slug."
+          },
           "duration": {
             "type": "string",
             "description": "The duration of the episode."
@@ -4053,17 +4510,57 @@
             "type": "string",
             "description": "Date of the publication of the episode."
           },
+          "recording_date": {
+            "type": "string"
+          },
           "poster": {
+            "type": "string"
+          },
+          "episode_poster": {
             "type": "string"
           },
           "link": {
             "type": "string"
           },
           "audio": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "mimeType": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "files": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "mimeType": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "number": {
             "type": "integer",
@@ -4087,29 +4584,27 @@
           "explicit": {
             "type": "boolean",
             "description": "explicit content?"
+          },
+          "season_id": {
+            "description": "Season Id to Episode. This entry is only available if the Seasons module is active.",
+            "type": "integer"
           }
-        },
-        "example": {
-          "_version": "v2",
-          "id": 10,
-          "post_id": 80,
-          "season_id": 2,
-          "title": "Title of the episode",
-          "subtitle": "Subtitle of the episode",
-          "summary": "Summary of the episode",
-          "duration": "00:02:03.453",
-          "type": "full",
-          "publicationDate": "2022-03-20T12:30:08.000Z",
-          "number": 10,
-          "mnemonic": "LOV010",
-          "soundbite_start": "00:00:10",
-          "soundbite_duration": "00:00:59",
-          "soundbite_title": "A short soundbite from the episode",
-          "explicit": false
         }
       },
       "EpisodeIn": {
         "type": "object",
+        "example": {
+          "title": "Title of the episode",
+          "subtitle": "Subtitle of the episode",
+          "summary": "Summary of the episode",
+          "number": 10,
+          "slug": "PodloveTest001",
+          "duration": "00:48:10",
+          "soundbite_start": "00:00:10",
+          "soundbite_duration": "00:00:59",
+          "soundbite_title": "A short soundbite from the episode",
+          "explicit": false
+        },
         "properties": {
           "title": {
             "description": "Clear, concise name for your episode.",
@@ -4128,7 +4623,8 @@
             "description": "An epsiode number."
           },
           "slug": {
-            "type": "string"
+            "type": "string",
+            "description": "Episode media file slug"
           },
           "type": {
             "type": "string",
@@ -4139,7 +4635,7 @@
               "bonus"
             ]
           },
-          "cover": {
+          "episode_poster": {
             "type": "string",
             "description": "An url for the episode cover. This value is only applied if the Episode Asset Image option is set to manual."
           },
@@ -4162,22 +4658,27 @@
           "explicit": {
             "type": "boolean",
             "description": "explicit content?"
+          },
+          "recording_date": {
+            "type": "string"
           }
-        },
+        }
+      },
+      "EpisodeMediaIn": {
+        "type": "object",
         "example": {
-          "_version": "v2",
-          "id": 10,
-          "post_id": 80,
-          "title": "Title of the episode",
-          "subtitle": "Subtitle of the episode",
-          "summary": "Summary of the episode",
-          "number": 10,
-          "slug": "PodloveTest001",
-          "duration": "00:48:10",
-          "soundbite_start": "00:00:10",
-          "soundbite_duration": "00:00:59",
-          "soundbite_title": "A short soundbite from the episode",
-          "explicit": false
+          "asset_id": 2,
+          "enable": true
+        },
+        "properties": {
+          "asset_id": {
+            "type": "integer",
+            "description": "Identifier for the asset of an episode"
+          },
+          "enable": {
+            "type": "boolean",
+            "description": "Should the asset enable?"
+          }
         }
       },
       "Chapters": {
@@ -4308,7 +4809,7 @@
               }
             ]
           },
-          "transcript": {
+          "Transcripts": {
             "_version": "v2",
             "transcript": [
               {
@@ -4392,7 +4893,7 @@
             "description": "Timestamp begin of the chaption. (Format HH:MM:SS.sss)"
           },
           "start_ms": {
-            "type": "string",
+            "type": "integer",
             "description": "Timestamp begin of the chaption. (ms)"
           },
           "end": {
@@ -4400,7 +4901,7 @@
             "description": "Timestamp end of the chaption. (Format HH:MM:SS.sss)"
           },
           "end_ms": {
-            "type": "string",
+            "type": "integer",
             "description": "Timestamp end of the chaption. (ms)"
           },
           "voice": {
@@ -4463,7 +4964,7 @@
         },
         "example": {
           "message": "Episode successfully created with id 10",
-          "location": null,
+          "location": "null",
           "id": 10
         }
       },
@@ -4601,7 +5102,7 @@
               "identifier": "Dirk_Developer",
               "avatar": "https://podlove.local/wp-content/uploads/pics/dirk.jpg",
               "name": "Dirk",
-              "mail": null,
+              "mail": "null",
               "department": "Entwicklung",
               "organisation": "Podlove",
               "jobtitle": "Entwickler",
@@ -4679,7 +5180,7 @@
           "realname": "Dirk Schumann",
           "publicname": "Dirk",
           "nickname": "Schumi",
-          "mail": null,
+          "mail": "null",
           "department": "Entwicklung",
           "organisation": "Podlove",
           "jobtitle": "Entwickler",
@@ -4875,12 +5376,12 @@
           "defaults": [
             {
               "id": 1,
-              "contributor_id": "2",
-              "show_id": null,
-              "role_id": "1",
-              "group_id": "1",
-              "position": "0",
-              "comment": null
+              "contributor_id": 2,
+              "show_id": 0,
+              "role_id": 1,
+              "group_id": 1,
+              "position": 0,
+              "comment": "null"
             }
           ]
         }
@@ -4925,13 +5426,13 @@
         },
         "example": {
           "_version": "v2",
-          "id" : "1",
-          "contributor_id": "2",
-          "show_id": null,
-          "role_id": "1",
-          "group_id": "1",
-          "position": "0",
-          "comment": null
+          "id": 1,
+          "contributor_id": 2,
+          "show_id": 0,
+          "role_id": 1,
+          "group_id": 1,
+          "position": 0,
+          "comment": "null"
         }
       },
       "ContributionsEpisodeArray": {
@@ -5264,7 +5765,7 @@
               "contributor_id": 2,
               "service_id": 12,
               "account_url": "http://github.com/podlove",
-              "title": null,
+              "title": "null",
               "position": 2
             }
           ]
@@ -5304,7 +5805,7 @@
           "contributor_id": 2,
           "service_id": 36,
           "account_url": "http://twitter.com/podlove_org",
-          "title": null,
+          "title": "null",
           "position": 1
         }
       },
@@ -5421,7 +5922,7 @@
           "id": 13,
           "service_id": 36,
           "account_url": "http://twitter.com/podlove_org",
-          "title": null,
+          "title": "null",
           "position": 1
         }
       },
