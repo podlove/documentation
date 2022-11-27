@@ -202,13 +202,13 @@
         "description": "A list of episodes",
         "parameters": [
           {
-            "name": "filter",
+            "name": "status",
             "in": "query",
-            "description": "The filter parameter is used to filter the collection of episodes",
+            "description": "The status parameter is used to filter the collection of episodes",
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "array",
+              "type": "string",
               "items": {
                 "type": "string",
                 "enum": [
@@ -578,6 +578,372 @@
           "required": true
         }
       ]
+    },
+    "/podlove/v2/episodes/{id}/related": {
+      "get": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Get a list of related episode to the episode.\n",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "status",
+            "description": "The result should be included the episodes in the draft status. As a public user you get only published episodes and the filter has no impact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfEpisodesRelated"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "summary": ""
+      },
+      "put": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Set a list of related episodes to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeRelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Set a list of related episodes to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeRelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Set a list of related episodes to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeRelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Unique identifier for the episode"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "episodes/related"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          }
+        },
+        "description": "Delete the related episode to the episode",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier for the episode"
+          }
+        ]
+      }
+    },
+    "/podlove/v2/episodes/{id}/tags": {
+      "get": {
+        "tags": [
+          "episodes/tags"
+        ],
+        "description": "Get a list of tags to the episode.\n",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfEpisodesTags"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "summary": ""
+      },
+      "put": {
+        "tags": [
+          "episodes/tags"
+        ],
+        "description": "Set a tag or a list of tags to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeTagsIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/tags"
+        ],
+        "description": "Set a tag or a list of tags to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeTagsIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/tags"
+        ],
+        "description": "Set a tag or a list of tags to the episode.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeTagsIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Unique identifier for the episode"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "episodes/tags"
+        ],
+        "description": "Delete the tags to the episode.\nOnly the links to the tags will be deleted. The tags themselves are not removed.\n",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          }
+        },
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier for the episode"
+          }
+        ]
+      }
     },
     "/podlove/v2/episodes/{id}/contributions": {
       "get": {
@@ -4384,6 +4750,69 @@
         },
         "description": ""
       },
+      "ArrayOfEpisodesRelated": {
+        "type": "object",
+        "example": {
+          "_version": "v2",
+          "relatedEpisodes": [
+            3,
+            15
+          ]
+        },
+        "title": "",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": ""
+      },
+      "ArrayOfEpisodesTags": {
+        "type": "object",
+        "example": {
+          "_version": "v2",
+          "tags": [
+            {
+              "term_id": 5,
+              "name": "Podcast"
+            },
+            {
+              "term_id": 6,
+              "name": "Podlove Publisher"
+            }
+          ]
+        },
+        "title": "",
+        "description": "",
+        "properties": {
+          "_version": {
+            "type": "string",
+            "enum": [
+              "v2"
+            ]
+          },
+          "results": {
+            "type": "object",
+            "properties": {
+              "term_id": {
+                "type": "integer"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "ArrayOfEpisodesContributor": {
         "type": "object",
         "properties": {
@@ -4456,6 +4885,8 @@
           "soundbite_duration": "00:00:59",
           "soundbite_title": "A short soundbite from the episode",
           "explicit": false,
+          "license_name": "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License",
+          "license_url": "http://creativecommons.org/licenses/by-nc-sa/4.0",
           "season_id": 2
         },
         "properties": {
@@ -4585,6 +5016,14 @@
             "type": "boolean",
             "description": "explicit content?"
           },
+          "license_name": {
+            "type": "string",
+            "description": "Name of the license"
+          },
+          "license_url": {
+            "type": "string",
+            "description": "URL to the license"
+          },
           "season_id": {
             "description": "Season Id to Episode. This entry is only available if the Seasons module is active.",
             "type": "integer"
@@ -4661,6 +5100,14 @@
           },
           "recording_date": {
             "type": "string"
+          },
+          "license_name": {
+            "type": "string",
+            "description": "Name of the license"
+          },
+          "license_url": {
+            "type": "string",
+            "description": "URL to the license"
           }
         }
       },
@@ -4678,6 +5125,29 @@
           "enable": {
             "type": "boolean",
             "description": "Should the asset enable?"
+          }
+        }
+      },
+      "EpisodeRelatedIn": {
+        "type": "object",
+        "example": {
+          "related": 5
+        },
+        "properties": {
+          "related": {
+            "type": "integer"
+          }
+        },
+        "title": ""
+      },
+      "EpisodeTagsIn": {
+        "type": "object",
+        "example": {
+          "term_id": 5
+        },
+        "properties": {
+          "term_id": {
+            "type": "integer"
           }
         }
       },
