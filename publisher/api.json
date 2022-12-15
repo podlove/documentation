@@ -597,11 +597,14 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "draft"
+              ]
             },
             "in": "query",
             "name": "status",
-            "description": "The result should be included the episodes in the draft status. As a public user you get only published episodes and the filter has no impact"
+            "description": "The result should be included the episodes in the published and draft status. As a public user you get only published episodes and the filter has no impact"
           }
         ],
         "responses": {
@@ -625,7 +628,7 @@
         "tags": [
           "episodes/related"
         ],
-        "description": "Set a list of related episodes to the episode.",
+        "description": "Set a list of related episodes to the episode. The existing items will be deleted before the new values set.",
         "parameters": [
           {
             "name": "id",
@@ -662,7 +665,7 @@
         "tags": [
           "episodes/related"
         ],
-        "description": "Set a list of related episodes to the episode.",
+        "description": "Set a list of related episodes to the episode. The existing items will be deleted before the new values set.",
         "parameters": [
           {
             "name": "id",
@@ -699,7 +702,7 @@
         "tags": [
           "episodes/related"
         ],
-        "description": "Set a list of related episodes to the episode.",
+        "description": "Set a list of related episodes to the episode. The existing items will be deleted before the new values set.",
         "parameters": [
           {
             "name": "id",
@@ -750,6 +753,9 @@
         "responses": {
           "200": {
             "$ref": "#/components/responses/OK"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         },
         "description": "Delete the related episode to the episode",
@@ -762,6 +768,224 @@
             "in": "path",
             "required": true,
             "description": "Unique identifier for the episode"
+          }
+        ]
+      }
+    },
+    "/podlove/v2/episodes/related": {
+      "post": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Create an episode relation.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      }
+    },
+    "/podlove/v2/episodes/related/{id}": {
+      "get": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Get an episode relation.\n",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode relation.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "draft"
+              ]
+            },
+            "in": "query",
+            "name": "status",
+            "description": "The result should be included the episodes in the published and draft status. As a public user you get only published episodes and the filter has no impact"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArrayOfEpisodesRelated"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "summary": ""
+      },
+      "put": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Modify an episode relation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Modify an episode relation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EpisodeRelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "episodes/related"
+        ],
+        "description": "Modify an episode relation.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier for the episode.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RelatedIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "Unique identifier for the episode relation"
+        }
+      ],
+      "delete": {
+        "tags": [
+          "episodes/related"
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          }
+        },
+        "description": "Delete an episode relation.",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier for the episode relation"
           }
         ]
       }
@@ -4755,11 +4979,16 @@
         "example": {
           "_version": "v2",
           "relatedEpisodes": [
-            3,
-            15
+            {
+              "episode_relation_id": 16,
+              "episode_id": 3
+            },
+            {
+              "episode_relation_id": 18,
+              "episode_id": 5
+            }
           ]
         },
-        "title": "",
         "properties": {
           "_version": {
             "type": "string",
@@ -4770,11 +4999,18 @@
           "results": {
             "type": "array",
             "items": {
-              "type": "integer"
+              "type": "object",
+              "properties": {
+                "episode_relation_id": {
+                  "type": "integer"
+                },
+                "episode_id": {
+                  "type": "integer"
+                }
+              }
             }
           }
-        },
-        "description": ""
+        }
       },
       "ArrayOfEpisodesTags": {
         "type": "object",
@@ -5135,10 +5371,55 @@
         },
         "properties": {
           "related": {
+            "type": [
+              "integer",
+              "array"
+            ],
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "RelatedIn": {
+        "type": "object",
+        "example": {
+          "episode_id": 1,
+          "related_episode_id": 5
+        },
+        "properties": {
+          "related": {
+            "type": "object",
+            "properties": {
+              "episode_id": {
+                "type": "string"
+              },
+              "related_episode_id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "RelatedOut": {
+        "type": "object",
+        "example": {
+          "version": "v2",
+          "episode_id": 1,
+          "related_episode_id": 3
+        },
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "episode_id": {
+            "type": "integer"
+          },
+          "related_episode_id": {
             "type": "integer"
           }
         },
-        "title": ""
+        "description": "Info about an episode relation"
       },
       "EpisodeTagsIn": {
         "type": "object",
