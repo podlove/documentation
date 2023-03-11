@@ -209,13 +209,11 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "publish",
-                  "draft"
-                ]
-              }
+              "enum": [
+                "publish",
+                "draft",
+                "all"
+              ]
             }
           }
         ],
@@ -599,12 +597,14 @@
             "schema": {
               "type": "string",
               "enum": [
-                "draft"
+                "publish",
+                "draft",
+                "all"
               ]
             },
             "in": "query",
             "name": "status",
-            "description": "The result should be included the episodes in the published and draft status. As a public user you get only published episodes and the filter has no impact"
+            "description": "The result should be included the episodes in the published and draft status. As a public user you get only published episodes and the status parameter has no impact"
           }
         ],
         "responses": {
@@ -820,6 +820,7 @@
             "schema": {
               "type": "string",
               "enum": [
+                "publish",
                 "draft"
               ]
             },
@@ -834,7 +835,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArrayOfEpisodesRelated"
+                  "$ref": "#/components/schemas/RelatedOut"
                 }
               }
             }
@@ -4981,11 +4982,13 @@
           "relatedEpisodes": [
             {
               "episode_relation_id": 16,
-              "episode_id": 3
+              "related_episode_id": 3,
+              "related_episode_title": "Episode 3"
             },
             {
               "episode_relation_id": 18,
-              "episode_id": 5
+              "related_episode_id": 5,
+              "related_episode_title": "Episode 5"
             }
           ]
         },
@@ -4999,15 +5002,7 @@
           "results": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "episode_relation_id": {
-                  "type": "integer"
-                },
-                "episode_id": {
-                  "type": "integer"
-                }
-              }
+              "$ref": "#/components/schemas/Related"
             }
           }
         }
@@ -5401,12 +5396,33 @@
           }
         }
       },
+      "Related": {
+        "type": "object",
+        "example": {
+          "episode_id": 1,
+          "related_episode_id": 3,
+          "related_episode_title": "Episode 3"
+        },
+        "properties": {
+          "episode_id": {
+            "type": "integer"
+          },
+          "related_episode_id": {
+            "type": "integer"
+          },
+          "related_episode_title": {
+            "type": "string"
+          }
+        },
+        "description": "Info about an episode relation"
+      },
       "RelatedOut": {
         "type": "object",
         "example": {
           "version": "v2",
           "episode_id": 1,
-          "related_episode_id": 3
+          "related_episode_id": 3,
+          "related_episode_title": "Episode 3"
         },
         "properties": {
           "version": {
@@ -5417,6 +5433,9 @@
           },
           "related_episode_id": {
             "type": "integer"
+          },
+          "related_episode_title": {
+            "type": "string"
           }
         },
         "description": "Info about an episode relation"
@@ -6723,3 +6742,4 @@
     }
   }
 }
+
