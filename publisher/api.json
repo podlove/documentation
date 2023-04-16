@@ -1244,7 +1244,7 @@
         "tags": [
           "episodes/contributions"
         ],
-        "description": "Add a list contributor who contribute to the episode.  The existing entries are deleted before the transferred entries are added.",
+        "description": "Add a contributor to the episode. ",
         "parameters": [
           {
             "name": "id",
@@ -1256,18 +1256,16 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContributionsEpisodeArrayIn"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContributionCreated"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/Unauthorized"
@@ -6353,6 +6351,23 @@
           "group_id": 1,
           "position": 0,
           "comment": "Host of the episode."
+        }
+      },
+      "ContributionCreated": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Was the operation succcessfully?"
+          },
+          "id": {
+            "type": "integer",
+            "description": "Identifier of the contributor."
+          }
+        },
+        "example": {
+          "status": "ok",
+          "id": 7
         }
       },
       "ContributionsEpisodeIn": {
