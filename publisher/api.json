@@ -455,117 +455,6 @@
           }
         }
       },
-      "put": {
-        "tags": [
-          "episodes/media"
-        ],
-        "description": "Enable an asset of the episode",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EpisodeMediaIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "episodes/media"
-        ],
-        "description": "Enable an asset of the episode",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EpisodeMediaIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "episodes/media"
-        ],
-        "description": "Enable an asset of the episode",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Unique identifier for the episode.",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/EpisodeMediaIn"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/OK"
-          },
-          "401": {
-            "$ref": "#/components/responses/Unauthorized"
-          },
-          "404": {
-            "$ref": "#/components/responses/NotFound"
-          }
-        }
-      },
       "parameters": [
         {
           "schema": {
@@ -576,6 +465,303 @@
           "required": true
         }
       ]
+    },
+    "/podlove/v2/episodes/{id}/media/{asset_id}/disable": {
+      "post": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Disable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Disable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Disable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      }
+    },
+    "/podlove/v2/episodes/{id}/media/{asset_id}/enable": {
+      "post": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Enable an episode asset",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      }
+    },
+    "/podlove/v2/episodes/{id}/media/{asset_id}/verify": {
+      "post": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Verify an episode asset",
+        "responses": {
+          "200": {
+            "description": "The request was successful. Includes file size and url.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "file_size": {
+                      "type": "integer"
+                    },
+                    "file_url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "ok",
+                  "file_size": 12596,
+                  "file_url": "https://example.com/audio.mp3"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Verify an episode asset",
+        "responses": {
+          "200": {
+            "description": "The request was successful. Includes file size and url.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "file_size": {
+                      "type": "integer"
+                    },
+                    "file_url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "ok",
+                  "file_size": 12596,
+                  "file_url": "https://example.com/audio.mp3"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "episodes/media"
+        ],
+        "description": "Verify an episode asset",
+        "responses": {
+          "200": {
+            "description": "The request was successful. Includes file size and url.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "file_size": {
+                      "type": "integer"
+                    },
+                    "file_url": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "status": "ok",
+                  "file_size": 12596,
+                  "file_url": "https://example.com/audio.mp3"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/EpisodeId"
+          },
+          {
+            "$ref": "#/components/parameters/AssetId"
+          }
+        ]
+      }
     },
     "/podlove/v2/episodes/{id}/related": {
       "get": {
@@ -6754,7 +6940,26 @@
           }
         }
       }
+    },
+    "parameters": {
+      "EpisodeId": {
+        "name": "id",
+        "in": "path",
+        "description": "Unique identifier for the episode.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "AssetId": {
+        "name": "asset_id",
+        "in": "path",
+        "description": "Unique identifier for the asset.",
+        "required": true,
+        "schema": {
+          "type": "string"
+        }
+      }
     }
   }
 }
-
