@@ -215,6 +215,15 @@
                 "all"
               ]
             }
+          },
+          {
+            "name": "show",
+            "in": "query",
+            "description": "Filter by show slug.",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2521,6 +2530,24 @@
           }
         }
       }
+    },
+    "/podlove/v2/shows": {
+      "get": {
+        "tags": ["shows"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShowsArray"
+                }
+              }
+            }
+          }
+        }
+      },
+      "description": "A list of podcast shows.",
     },
     "/podlove/v2/social/services": {
       "get": {
@@ -6586,6 +6613,60 @@
           "group_id": 1,
           "position": 0,
           "comment": "Host of the episode."
+        }
+      },
+      "ShowsArray": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "id": {
+              "type": "integer",
+              "description": "Identifier of the show"
+            },
+            "title": {
+              "type": "string",
+              "description": "Title for the show."
+            },
+            "subtitle": {
+              "type": "string",
+              "description": "Subtitle for the show."
+            },
+            "slug": {
+              "type": "string",
+              "description": "Slug for the show."
+            },
+            "summary": {
+              "type": "string",
+              "description": "Summary for the show."
+            },
+            "image": {
+              "type": "string",
+              "description": "Cover Image URL for the show."
+            },
+            "language": {
+              "type": "string",
+              "description": "Language for the show."
+            },
+            "category": {
+              "type": "string",
+              "description": "(internal) Podcast category code."
+            },
+            "auphonic_preset": {
+              "type": "string",
+              "description": "(internal) Auphonic preset used by this show."
+            }
+          }
+        },
+        "example": {
+          "id": 1,
+          "title": "My First Show",
+          "subtitle": "",
+          "slug": "my-first-show",
+          "summary": "",
+          "image": "https://example.com/media/cover.jpg",
+          "language": "de",
+          "category": "",
+          "auphonic_preset": ""
         }
       },
       "SocialServicesArray": {
