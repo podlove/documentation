@@ -22,7 +22,7 @@ const projects = [
   {
     title: "Podlove Subscribe Button",
     imageUrl: "img/podlove-subscribe-icon.svg",
-    link: "https://subscribe-button.podlove.org",
+    link: "https://subscribe.podlove.org",
     description: (
       <>A universal and easy-to-use button, to subscribe to podcasts with player clients or website players.</>
     ),
