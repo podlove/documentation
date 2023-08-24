@@ -30,7 +30,7 @@ module.exports = {
           position: "left",
         },
         {
-          href: "https://subscribe-button.podlove.org",
+          href: "https://subscribe.podlove.org",
           label: "Podlove Subscribe Button",
           position: "left",
         },
