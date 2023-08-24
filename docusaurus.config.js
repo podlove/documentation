@@ -56,8 +56,8 @@ module.exports = {
               href: "https://community.podlove.org/",
             },
             {
-              label: "Twitter",
-              href: "https://twitter.com/podlove_org",
+              label: "Mastodon",
+              href: "https://fosstodon.org/@podlove",
             },
             {
               label: "Discord",
