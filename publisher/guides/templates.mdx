@@ -133,6 +133,24 @@ To use them in another template, you need to import the macros before using them
 {% endraw %}
 ```
 
+### Filters
+
+Twig filters can be used to filter the list of episodes. For example, this filter selects only the episodes from the year 2024:
+
+```handlebars
+{% set filtered_episodes = podcast.episodes|filter(episode => episode.publicationDate.format('Y') == "2024") %}
+
+<ul>
+{% for episode in filtered_episodes %}
+  <li>
+    <a href="{{ episode.url }}">
+      {{ episode.title }}
+    </a> — {{ episode.subtitle }}
+  </li>
+{% endfor %}
+</ul>
+```
+
 ## Creating PHP Templates — For Theme Developers
 
 _Available from Podlove Publisher version 2.3_
