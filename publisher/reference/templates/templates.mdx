@@ -11,7 +11,6 @@ These templates come with the Podlove Publisher and are always available.
 ### Downloads (Select)
 
 ```handlebars
-{% raw %}
 {# @core/shortcode/downloads-select.twig #}
 
 {% spaceless %}
@@ -34,13 +33,11 @@ These templates come with the Podlove Publisher and are always available.
  </div>
 </form>
 {% endspaceless %}
-{% endraw %}
 ```
 
 ### Downloads (Buttons)
 
 ```handlebars
-{% raw %}
 {# @core/shortcode/downloads-buttons.twig #}
 
 <ul class="episode_download_list">
@@ -53,13 +50,11 @@ These templates come with the Podlove Publisher and are always available.
 	    {% endif %}
 	{% endfor %}
 </ul>
-{% endraw %}
 ```
 
 ### List of Feeds
 
 ```handlebars
-{% raw %}
 {# @core/shortcode/feed-list.twig #}
 
 <table>
@@ -86,13 +81,11 @@ These templates come with the Podlove Publisher and are always available.
 	{% endfor %}
     </tbody>
 </table>
-{% endraw %}
 ```
 
 ### List of Episodes
 
 ```handlebars
-{% raw %}
 {# @core/shortcode/episode-list.twig #}
 
 <table>
@@ -138,14 +131,11 @@ These templates come with the Podlove Publisher and are always available.
     vertical-align: top;
 }
 </style>
-
-{% endraw %}
 ```
 
 ### License
 
 ```handlebars
-{% raw %}
 {# @core/license.twig #}
 
 {#
@@ -181,7 +171,6 @@ These templates come with the Podlove Publisher and are always available.
 		</p>
     </div>
 {% endif %}
-{% endraw %}
 ```
 
 ## Contributor Templates
@@ -191,7 +180,6 @@ These templates come with the "Contributors" module.
 ### List of Podcast Contributors
 
 ```handlebars
-{% raw %}
 {# @contributors/podcast-contributor-list.twig #}
 
 <table class="podlove-global-contributors">
@@ -310,13 +298,11 @@ These templates come with the "Contributors" module.
 }
 
 </style>
-{% endraw %}
 ```
 
 ### Table of Podcast Contributors
 
 ```handlebars
-{% raw %}
 {# @contributors/podcast-contributor-table.twig #}
 
 <table class="podlove-contributors-table">
@@ -334,13 +320,11 @@ These templates come with the "Contributors" module.
 {% endif %}
 
 {% include '@contributors/_contributor-table-css.twig' %}
-{% endraw %}
 ```
 
 ### Episode Contributors (comma separated)
 
 ```handlebars
-{% raw %}
 {# @contributors/contributor-comma-separated.twig #}
 
 <span class="podlove-contributors">
@@ -354,13 +338,11 @@ These templates come with the "Contributors" module.
 		{% endif %}
 	{% endfor %}
 </span>
-{% endraw %}
 ```
 
 ### Episode Contributors (as list)
 
 ```handlebars
-{% raw %}
 {# @contributors/contributor-list.twig #}
 
 <ul class="podlove-contributors">
@@ -377,13 +359,11 @@ These templates come with the "Contributors" module.
 	{% endif %}
 {% endfor %}
 </ul>
-{% endraw %}
 ```
 
 ### Episode Contributors (as table)
 
 ```handlebars
-{% raw %}
 {# @contributors/contributor-table.twig #}
 
 {% set colspan = 2 %}
@@ -434,7 +414,6 @@ These templates come with the "Contributors" module.
 {% endif %}
 
 {% include '@contributors/_contributor-table-css.twig' %}
-{% endraw %}
 ```
 
 ## Social Templates
@@ -444,7 +423,6 @@ These templates come with the "Social &amp; Donations" module.
 ### List of Podcast Donations
 
 ```handlebars
-{% raw %}
 {# @social/podcast-donations-list.twig #}
 
 <ul class="podcast_services">
@@ -467,13 +445,11 @@ These templates come with the "Social &amp; Donations" module.
 	list-style: none;
 }
 </style>
-{% endraw %}
 ```
 
 ### List of Podcast Social Media Services
 
 ```handlebars
-{% raw %}
 {# @social/podcast-social-media-list.twig #}
 
 <ul class="podcast_services">
@@ -496,5 +472,4 @@ These templates come with the "Social &amp; Donations" module.
 	list-style: none;
 }
 </style>
-{% endraw %}
 ```
