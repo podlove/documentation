@@ -6954,7 +6954,7 @@
       "AssetId": {
         "name": "asset_id",
         "in": "path",
-        "description": "Unique identifier for the asset.",
+        "description": "Unique identifier for the asset. Each asset in an episode's set of assets has an ID starting from 1 (e.g., the first asset has asset_id=1, the second asset has asset_id=2, and so on).",
         "required": true,
         "schema": {
           "type": "string"
