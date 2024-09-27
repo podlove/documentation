@@ -151,6 +151,42 @@ Twig filters can be used to filter the list of episodes. For example, this filte
 </ul>
 ```
 
+### More Examples
+
+Additional template examples are available in the [Templates reference page][5]
+
+## Episode Page and RSS Feed: Automatic Template Insertion
+
+In Podlove Publisher, templates can be automatically inserted into episode content. This setting is managed in the WordPress admin interface under `wp-admin/admin.php?page=podlove_templates_settings_handle`. 
+Here, you can specify which templates should be automatically included in your episode pages. In the screenshot below, the template named `default` in automatically inserted.
+
+<img src="/assets/publisher/podlove-templates.png" />
+
+### Default Template Behavior
+By default, the `default` template is applied to all episodes. This template's content will be displayed on the episode's HTML page and embedded within the `<content:encoded><![CDATA[ ... ]]></content:encoded>` tag in the RSS feed. 
+
+### Web Player Insertion
+The default template includes the web player for the episode. To ensure that the web player does not appear in the RSS feed, the template uses the following Twig condition:
+```twig
+{% if not is_feed() %}
+```
+This ensures that the player is only displayed on the WordPress site and not in the feed.
+
+### Feed-Specific Content
+If you need to include content exclusively for podcast clients and not for the WordPress site, you can use `{% if is_feed() %}`. For example, to provide the episode's URL to podcast clients, you can use:
+```twig
+{% if is_feed() %}
+    {{ episode.url }}
+{% else %}
+    ...
+{% endif %}
+```
+
+These functionalities allow you to customize the presentation and behavior of your podcast content, for both website visitors and podcast listeners.
+
+Read more about episode-specific template tags in the [episode reference page][6].
+
+
 ## Creating PHP Templates — For Theme Developers
 
 _Available from Podlove Publisher version 2.3_
@@ -276,3 +312,5 @@ echo get_podcast()->title();
 [2]: https://twig.symfony.com/doc/3.x/templates.html
 [3]: /podlove-publisher/reference/templates/template-tags/podcast
 [4]: https://twig.symfony.com/doc/3.x/tags/macro.html
+[5]: /podlove-publisher/reference/templates/templates
+[6]: /podlove-publisher/reference/templates/template-tags/episode
