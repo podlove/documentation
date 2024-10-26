@@ -315,10 +315,6 @@ These templates come with the "Contributors" module.
 	</tbody>
 </table>
 
-{% if option.flattr == "yes" %}
-	{% include '@contributors/_contributor-table-flattr.twig' %}
-{% endif %}
-
 {% include '@contributors/_contributor-table-css.twig' %}
 ```
 
@@ -371,7 +367,6 @@ These templates come with the "Contributors" module.
 {% if groups == "yes"    %}{% set colspan = colspan + 1 %}{% endif %}
 {% if roles == "yes"     %}{% set colspan = colspan + 1 %}{% endif %}
 {% if donations == "yes" %}{% set colspan = colspan + 1 %}{% endif %}
-{% if flattr == "yes"    %}{% set colspan = colspan + 1 %}{% endif %}
 
 <table class="podlove-contributors-table">
 	{% if option.title %}
@@ -408,10 +403,6 @@ These templates come with the "Contributors" module.
 		{% endif %}
 	</tbody>
 </table>
-
-{% if option.flattr == "yes" %}
-	{% include '@contributors/_contributor-table-flattr.twig' %}
-{% endif %}
 
 {% include '@contributors/_contributor-table-css.twig' %}
 ```

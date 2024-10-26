@@ -157,13 +157,13 @@ Additional template examples are available in the [Templates reference page][5]
 
 ## Episode Page and RSS Feed: Automatic Template Insertion
 
-In Podlove Publisher, templates can be automatically inserted into episode content. This setting is managed in the WordPress admin interface under `wp-admin/admin.php?page=podlove_templates_settings_handle`. 
+In Podlove Publisher, templates can be automatically inserted into episode content. This setting is managed in the WordPress admin interface under `wp-admin/admin.php?page=podlove_templates_settings_handle`.
 Here, you can specify which templates should be automatically included in your episode pages. In the screenshot below, the template named `default` in automatically inserted.
 
 <img src="/assets/publisher/podlove-templates.png" />
 
 ### Default Template Behavior
-By default, the `default` template is applied to all episodes. This template's content will be displayed on the episode's HTML page and embedded within the `<content:encoded><![CDATA[ ... ]]></content:encoded>` tag in the RSS feed. 
+By default, the `default` template is applied to all episodes. This template's content will be displayed on the episode's HTML page and embedded within the `<content:encoded><![CDATA[ ... ]]></content:encoded>` tag in the RSS feed.
 
 ### Web Player Insertion
 The default template includes the web player for the episode. To ensure that the web player does not appear in the RSS feed, the template uses the following Twig condition:
@@ -217,7 +217,7 @@ is equivalent to
 
 ### API Entry Points
 
-There are currently 4 entry points to the API: through the podcast, episode, network or Flattr.
+There are currently 4 entry points to the API: through the podcast, episode or network.
 
 #### Podcast
 
@@ -270,27 +270,6 @@ function \Podlove\get_network();
 
 // example
 $network_lists = \Podlove\get_network()->lists();
-?>
-```
-
-#### Flattr
-
-```php
-<?php
-/**
- * Get Podlove Flattr template object.
- *
- * Requires "Flattr" module.
- *
- * @return \Podlove\Modules\Flattr\Template\Flattr
- */
-function \Podlove\get_flattr();
-
-// example
-echo \Podlove\get_flattr([
-	'url' => 'http://wordpress.org/extend/plugins/podlove-podcasting-plugin-for-wordpress/',
-	'user' => 'ericteubert'
-]);
 ?>
 ```
 

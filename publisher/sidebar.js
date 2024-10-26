@@ -51,7 +51,6 @@ module.exports = [
                 "reference/templates/template-tags/show",
                 "reference/templates/template-tags/shownotes",
                 "reference/templates/template-tags/license",
-                "reference/templates/template-tags/flattr",
                 "reference/templates/template-tags/date-time",
                 "reference/templates/template-tags/line",
                 "reference/templates/template-tags/group",

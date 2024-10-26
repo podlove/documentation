@@ -60,12 +60,10 @@ If you set the buttonid to "example123", your element must have the class "podlo
 - **groups:** One of "yes", "no". Display group title. Default: "no"
 - **groupby:** Set to "group" to get separated contributor groups. Each group has its name as heading. Only works with "table" preset.
 - **donations** One of "yes", "no". Display donation column. Default: "yes"
-- **flattr:** "yes" or "no". Display Flattr column. Default: "no"
 
 ##### Examples
 
 ```
-[podlove-episode-contributor-list flattr="yes"] // enables flattr column
 [podlove-episode-contributor-list avatars="no" role="guest"] // show only guests, but without avatar
 ```
 
@@ -87,14 +85,3 @@ All custom shortcode parameters will be accessible in the template. Example: `[p
 
 **title:** _(required)_ Title of template to render.
 **autop:** _(optional)_ Wraps blocks of text in p tags. 'yes' or 'no'. Default: 'yes'
-
-#### Flattr
-
-Requires "Flattr" module.
-
-- `[podlove-podcast-flattr-button]` shows Flattr button for the podcast.
-- `[podlove-episode-flattr-button]` shows Flattr button for the current episode.
-
-##### Parameters
-
-- **style:** Button style."large", "compact" or "static". Default: "compact".
