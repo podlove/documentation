@@ -9,7 +9,6 @@ module.exports = [
       label: "Guides",
       items: [
         "guides/getting-started",
-        "guides/podcast-migration",
         "guides/podcast-network",
         "guides/templates",
         "guides/api-usage"
