@@ -4360,6 +4360,19 @@
           }
         }
       }
+    },
+    "/podlove/v2/tools/clear-caches": {
+      "delete": {
+        "tags": [
+          "tools"
+        ],
+        "description": "Clear the podlove and podlove image caches",
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/OK"
+          }
+        }
+      }
     }
   },
   "components": {
