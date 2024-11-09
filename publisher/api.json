@@ -2547,7 +2547,7 @@
           }
         }
       },
-      "description": "A list of podcast shows.",
+      "description": "A list of podcast shows."
     },
     "/podlove/v2/social/services": {
       "get": {
