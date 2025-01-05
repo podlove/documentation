@@ -1,0 +1,61 @@
+---
+title: Onboarding Assistant
+---
+
+The Onboarding Assistant Module allows you to easily set up a new podcast, or
+import an existing one via the RSS feed.
+
+## Using the Assistant
+
+The Onboarding module is enabled by default for new setups. If you don't see the
+"Welcome to Podlove" banner inviting you to get started, verify in the Modules
+that Onboarding is enabled.
+
+If you plan to use the importer, it is a good idea to raise the memory limit to
+ensure smooth file uploads. See the troubleshooting section below for details.
+
+## Troubleshooting failed Imports
+
+If some episodes are not importing correctly, the best way to find out why is to look into your WordPress logs. You may need to turn it on manually, see [Debugging in WordPress](https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/#example-wp-config-php-for-debugging). You likely want this:
+
+```php
+# wp-config.php
+
+define( 'WP_DEBUG', true );
+// Enable Debug logging to the /wp-content/debug.log file
+define( 'WP_DEBUG_LOG', true );
+// Disable display of errors and warnings
+define( 'WP_DEBUG_DISPLAY', false );
+@ini_set( 'display_errors', 0 );
+```
+
+When uploading the audio file, your WordPress needs to be able to hold the whole file in RAM before saving it. Some files may be too large for default configurations. The workaround is:
+
+```php
+# wp-config.php
+
+define( 'WP_MEMORY_LIMIT', '512M' );
+```
+
+Another issue that may occur during file upload is running out of time. Usually the limit is about 30 seconds and you may need to contact your host to increase the limit. But you can try to increase it like this:
+
+```php
+# wp-config.php
+
+set_time_limit(300);
+```
+
+If despite these workarounds you still need help, feel free to open a thread in the [forums](https://community.podlove.org/c/podlove-publisher/6). Please include relevant entries from the error log in your post, otherwise we will probably not be able to help.
+
+## Publishing imported Episodes
+
+Episodes are imported as _private_ so you have a chance to verify them before they are published.
+
+To publish all at once, use the _Bulk actions_ feature on the episodes page:
+
+- In the "Screen Options", increase the "Number of items per page" to at least
+  the total number of episodes.
+- Click the top checkbox in the episodes table to select all episodes at once.
+- In the "Bulk actions", select "Edit", then click "Apply"
+- In the appearing modal, find the "Status" selector and choose "Published"
+- Click "Update"
