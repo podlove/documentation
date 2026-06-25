@@ -1,0 +1,37 @@
+---
+title: Security
+---
+
+Podlove Publisher stores generated files such as cached images below the WordPress `wp-content` directory. WordPress, plugins, themes, and upload/cache directories should be treated as writable application data and should not be allowed to execute code.
+
+## Recommended Server Configuration
+
+Block PHP execution in writable content directories. This is a general WordPress hardening measure and is especially important for cache and upload directories.
+
+For Apache or LiteSpeed, add an `.htaccess` file to the directory you want to protect. For the Podlove image cache, use:
+
+```apache
+# wp-content/cache/podlove/.htaccess
+<FilesMatch "\.(php|php[0-9]|phtml|phar)$">
+    Require all denied
+</FilesMatch>
+```
+
+For Nginx, add a rule before the generic PHP handler:
+
+```nginx
+location ~* ^/wp-content/cache/podlove/.*\.(php|php[0-9]|phtml|phar)$ {
+    return 403;
+}
+```
+
+Apply the same principle to other writable directories such as `wp-content/uploads` where possible.
+
+## Operational Recommendations
+
+- Keep WordPress, Podlove Publisher, themes, and plugins up to date.
+- Remove unused plugins and themes.
+- Use strong administrator passwords and two-factor authentication where possible.
+- Keep regular backups and test that they can be restored.
+- Monitor writable directories for unexpected executable files such as `.php`, `.phtml`, or `.phar`.
+- Make sure the web server user can write only to directories that need to be writable.

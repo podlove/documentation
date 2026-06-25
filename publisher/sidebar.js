@@ -12,7 +12,8 @@ module.exports = [
         "guides/onboarding-assistant",
         "guides/podcast-network",
         "guides/templates",
-        "guides/api-usage"
+        "guides/api-usage",
+        "guides/security"
       ],
     },
     {
