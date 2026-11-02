@@ -203,14 +203,14 @@ To enable transcripts provide a URI to the transcriptions file.
 |-------------|----------------------------------|
 | transcripts | `http://url.to/transcripts.json` |
 
-The transcriptions file contains transcripts in the following format:
+Each segment has a start time, an end time and the spoken text. If the speaker is known, set `speaker` to their contributor ID.
 
-```javascript
+```json
 [{
-  "start": "00:00:43.1", // Simple Time Format
-  "end": "00:01:17.2", // Simple Time Format
-  "speaker?": "Speaker ID",
-  "test": "Transcribed text"
+  "start": "00:00:43.100",
+  "end": "00:01:17.200",
+  "speaker": "denis-ahrens",
+  "text": "Transcribed text"
 }]
 ```
 
